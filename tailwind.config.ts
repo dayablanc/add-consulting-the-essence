@@ -13,6 +13,11 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        serif: ["Cormorant Garamond", "Garamond", "Georgia", "serif"],
+        sans: ["DM Sans", "Helvetica Neue", "Arial", "sans-serif"],
+        mono: ["Courier Prime", "Courier New", "monospace"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -57,28 +62,35 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        aesop: {
+          parchment: "hsl(var(--aesop-parchment))",
+          white: "hsl(var(--aesop-white))",
+          cream: "hsl(var(--aesop-cream))",
+          linen: "hsl(var(--aesop-linen))",
+          stone: "hsl(var(--aesop-stone))",
+          bark: "hsl(var(--aesop-bark))",
+          soil: "hsl(var(--aesop-soil))",
+          umber: "hsl(var(--aesop-umber))",
+          taupe: "hsl(var(--aesop-taupe))",
+          clay: "hsl(var(--aesop-clay))",
+          "clay-hover": "hsl(var(--aesop-clay-hover))",
+          "clay-tint": "hsl(var(--aesop-clay-tint))",
+          rule: "hsl(var(--aesop-rule))",
+        },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: "0px",
+        md: "0px",
+        sm: "0px",
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {

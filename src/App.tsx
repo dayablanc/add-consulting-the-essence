@@ -1,10 +1,19 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Index from "./pages/Index.tsx";
-import NotFound from "./pages/NotFound.tsx";
+import Index from "./pages/Index";
+import NotFound from "./pages/NotFound";
+import CotizadorPage from "./pages/CotizadorPage";
+import VacantesPage from "./pages/VacantesPage";
+import BlogPage from "./pages/BlogPage";
+import ServicePage from "./pages/ServicePage";
+import EmpresaPage from "./pages/EmpresaPage";
+import CandidatoPage from "./pages/CandidatoPage";
+import ContactoPage from "./pages/ContactoPage";
+import RecursoPage from "./pages/RecursoPage";
+import InsiderClubPage from "./pages/InsiderClubPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -12,11 +21,21 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
-      <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/empresa" element={<EmpresaPage />} />
+          <Route path="/empresa/:slug" element={<ServicePage />} />
+          <Route path="/candidato" element={<CandidatoPage />} />
+          <Route path="/candidato/:slug" element={<ServicePage />} />
+          <Route path="/cotizador" element={<CotizadorPage />} />
+          <Route path="/vacantes" element={<VacantesPage />} />
+          <Route path="/recursos/blog" element={<BlogPage />} />
+          <Route path="/recursos/hr-toolkit" element={<RecursoPage />} />
+          <Route path="/recursos/career-blueprint" element={<RecursoPage />} />
+          <Route path="/recursos/insider-club" element={<InsiderClubPage />} />
+          <Route path="/contacto" element={<ContactoPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
