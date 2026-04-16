@@ -136,6 +136,10 @@ export const vacantes = [
   { id: 4, area: 'Recursos Humanos', zona: 'Cartago', titulo: 'Generalista de RR.HH.', empresa: 'Empresa confidencial', publicado: 'Publicado hace 1 semana', salario: '₡1.000.000 – ₡1.500.000' },
   { id: 5, area: 'Legal', zona: 'San José', titulo: 'Abogado/a Laboralista Jr.', empresa: 'Empresa confidencial', publicado: 'Publicado hace 1 semana', salario: '₡850.000 – ₡1.100.000' },
   { id: 6, area: 'Administración', zona: 'Alajuela', titulo: 'Encargado/a de Capacitación', empresa: 'Empresa confidencial', publicado: 'Publicado hace 2 semanas', salario: '₡750.000 – ₡1.000.000' },
+  { id: 7, area: 'Recursos Humanos', zona: 'Heredia', titulo: 'Especialista en Compensación y Beneficios', empresa: 'Empresa confidencial', publicado: 'Publicado hace 2 semanas', salario: '₡1.200.000 – ₡1.800.000' },
+  { id: 8, area: 'Legal', zona: 'Alajuela', titulo: 'Analista de Cumplimiento Laboral', empresa: 'Empresa confidencial', publicado: 'Publicado hace 3 semanas', salario: '₡900.000 – ₡1.300.000' },
+  { id: 9, area: 'Administración', zona: 'Cartago', titulo: 'Coordinador/a de Desarrollo Organizacional', empresa: 'Empresa confidencial', publicado: 'Publicado hace 3 semanas', salario: '₡1.100.000 – ₡1.600.000' },
+  { id: 10, area: 'Recursos Humanos', zona: 'San José', titulo: 'Director/a de Talento Humano', empresa: 'Empresa confidencial', publicado: 'Publicado hace 1 mes', salario: '₡1.500.000 – ₡2.500.000' },
 ];
 
 export const blogPosts = [

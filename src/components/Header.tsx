@@ -20,8 +20,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   {
-    label: 'Soy Empresa',
-    dot: true,
+    label: 'Empresas',
     mega: {
       items: [
         { label: 'Strategic Partner', description: 'Tu departamento de RR.HH. externo', to: '/empresa/strategic-partner' },
@@ -33,8 +32,7 @@ const navItems: NavItem[] = [
     },
   },
   {
-    label: 'Soy Candidato',
-    dot: true,
+    label: 'Candidatos',
     mega: {
       items: [
         { label: 'ADD Grow', description: 'Aceleración profesional', to: '/candidato/add-grow' },
@@ -51,9 +49,12 @@ const navItems: NavItem[] = [
         { label: 'HR Toolkit', description: 'Machotes y guías para PYMES', to: '/recursos/hr-toolkit' },
         { label: 'Career Blueprint', description: 'Curso de estrategia laboral', to: '/recursos/career-blueprint' },
         { label: 'ADD Insider Club', description: 'Comunidad exclusiva', to: '/recursos/insider-club' },
-        { label: 'Blog', description: 'Artículos editoriales', to: '/recursos/blog' },
       ],
     },
+  },
+  {
+    label: 'Blog',
+    to: '/recursos/blog',
   },
 ];
 
@@ -96,17 +97,28 @@ export default function Header() {
               key={item.label}
               className="relative"
               onMouseEnter={() => item.mega && handleMouseEnter(item.label)}
-              onMouseLeave={handleMouseLeave}
+              onMouseLeave={item.mega ? handleMouseLeave : undefined}
             >
-              <button
-                className="font-sans text-[11px] font-normal uppercase tracking-[2.5px] transition-colors duration-200 cursor-pointer"
-                style={{ color: 'rgba(242,237,228,0.75)' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#F2EDE4')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(242,237,228,0.75)')}
-              >
-                {item.dot && <span className="text-aesop-clay mr-1">·</span>}
-                {item.label}
-              </button>
+              {item.to && !item.mega ? (
+                <Link
+                  to={item.to}
+                  className="font-sans text-[11px] font-normal uppercase tracking-[2.5px] transition-colors duration-200"
+                  style={{ color: 'rgba(242,237,228,0.75)' }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = '#F2EDE4')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(242,237,228,0.75)')}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <button
+                  className="font-sans text-[11px] font-normal uppercase tracking-[2.5px] transition-colors duration-200 cursor-pointer"
+                  style={{ color: 'rgba(242,237,228,0.75)' }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = '#F2EDE4')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(242,237,228,0.75)')}
+                >
+                  {item.label}
+                </button>
+              )}
 
               {/* Mega Menu */}
               {item.mega && activeMenu === item.label && (
@@ -195,28 +207,39 @@ export default function Header() {
             <div className="mt-12 space-y-0">
               {navItems.map((item) => (
                 <div key={item.label} style={{ borderBottom: '1px solid rgba(242,237,228,0.1)' }}>
-                  <button
-                    className="w-full text-left py-4 font-sans text-[13px] text-aesop-parchment uppercase tracking-[2px]"
-                    onClick={() => setMobileAccordion(mobileAccordion === item.label ? null : item.label)}
-                  >
-                    {item.dot && <span className="text-aesop-clay mr-1">·</span>}
-                    {item.label}
-                    <span className="float-right text-aesop-taupe transition-transform duration-200"
-                      style={{ transform: mobileAccordion === item.label ? 'rotate(45deg)' : 'none' }}>+</span>
-                  </button>
-                  {item.mega && mobileAccordion === item.label && (
-                    <div className="pb-4 space-y-3">
-                      {item.mega.items.map((mi) => (
-                        <Link
-                          key={mi.label}
-                          to={mi.to}
-                          className="block font-sans text-[13px] text-aesop-parchment/70 pl-4"
-                          onClick={() => setMobileOpen(false)}
-                        >
-                          {mi.label}
-                        </Link>
-                      ))}
-                    </div>
+                  {item.to && !item.mega ? (
+                    <Link
+                      to={item.to}
+                      className="block py-4 font-sans text-[13px] text-aesop-parchment uppercase tracking-[2px]"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <>
+                      <button
+                        className="w-full text-left py-4 font-sans text-[13px] text-aesop-parchment uppercase tracking-[2px]"
+                        onClick={() => setMobileAccordion(mobileAccordion === item.label ? null : item.label)}
+                      >
+                        {item.label}
+                        <span className="float-right text-aesop-taupe transition-transform duration-200"
+                          style={{ transform: mobileAccordion === item.label ? 'rotate(45deg)' : 'none' }}>+</span>
+                      </button>
+                      {item.mega && mobileAccordion === item.label && (
+                        <div className="pb-4 space-y-3">
+                          {item.mega.items.map((mi) => (
+                            <Link
+                              key={mi.label}
+                              to={mi.to}
+                              className="block font-sans text-[13px] text-aesop-parchment/70 pl-4"
+                              onClick={() => setMobileOpen(false)}
+                            >
+                              {mi.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               ))}

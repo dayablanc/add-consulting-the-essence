@@ -15,7 +15,7 @@ export default function AboutSection() {
         {/* Text */}
         <div className="lg:w-[55%]">
           <p className="eyebrow mb-6">· Sobre ADD Consulting</p>
-          <h2 className="text-aesop-soil text-[36px] lg:text-[44px]">
+          <h2 className="text-aesop-soil text-[40px] lg:text-[52px] xl:text-[56px]" style={{ letterSpacing: '-1px' }}>
             Una firma construida sobre criterio, no sobre volumen.
           </h2>
           <p className="text-body mt-6">
@@ -44,10 +44,10 @@ export default function AboutSection() {
 
           <div className="flex justify-center gap-6 mt-12">
             <Link to="/vacantes" className="btn-ghost">
-              <span className="text-aesop-clay mr-1">·</span> Ver vacantes
+              Ver vacantes
             </Link>
             <Link to="/recursos/blog" className="btn-ghost">
-              <span className="text-aesop-clay mr-1">·</span> Ir al Blog
+              Ir al Blog
             </Link>
           </div>
         </div>

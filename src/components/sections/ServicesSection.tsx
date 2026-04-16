@@ -14,7 +14,7 @@ export default function ServicesSection() {
     <section className="bg-aesop-cream py-24 lg:py-32">
       <div className="max-w-[1000px] mx-auto px-6 lg:px-12">
         <p className="eyebrow mb-6">· Servicios</p>
-        <h2 className="text-aesop-soil text-[40px] lg:text-[52px] mb-16">Lo que hacemos</h2>
+        <h2 className="text-aesop-soil text-[44px] lg:text-[56px] xl:text-[60px] mb-16" style={{ letterSpacing: '-1px' }}>Lo que hacemos</h2>
 
         <div>
           {services.map((s) => {

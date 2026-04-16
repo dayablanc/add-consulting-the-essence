@@ -17,7 +17,7 @@ export default function HeroSection() {
             · Consultoría boutique · Costa Rica
           </p>
 
-          <h1 className="text-aesop-soil mt-6 text-[48px] lg:text-[72px] xl:text-[84px] animate-fade-in-up" style={{ animationDelay: '120ms' }}>
+          <h1 className="text-aesop-soil mt-6 text-[56px] lg:text-[84px] xl:text-[96px] leading-[0.95] animate-fade-in-up" style={{ animationDelay: '120ms', letterSpacing: '-3px' }}>
             Talento y derecho laboral, en manos expertas.
           </h1>
 
@@ -29,10 +29,10 @@ export default function HeroSection() {
 
           <div className="flex flex-wrap gap-4 animate-fade-in-up" style={{ animationDelay: '480ms' }}>
             <Link to="/empresa" className="btn-ghost">
-              <span className="text-aesop-clay mr-1">·</span> Soy Empresa
+              Soy Empresa
             </Link>
             <Link to="/candidato" className="btn-ghost">
-              <span className="text-aesop-clay mr-1">·</span> Soy Candidato
+              Soy Candidato
             </Link>
           </div>
         </div>
