@@ -23,8 +23,8 @@ export default function ServicesSection() {
   };
 
   const allServices = services;
-  const b2bServices = services.filter((s) => s.category === 'empresa');
-  const b2cServices = services.filter((s) => s.category === 'candidato');
+  const b2bCards = services.filter((s) => s.category === 'empresa' && s.showInCards);
+  const b2cCards = services.filter((s) => s.category === 'candidato' && s.showInCards);
 
   const renderMainAccordion = (list: typeof services) =>
     list.map((s) => {
@@ -136,13 +136,8 @@ export default function ServicesSection() {
             Soluciones integrales para empresas costarricenses.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-            {b2bServices.slice(0, 3).map((s, i) => renderServiceCard(s, i === 0))}
+            {b2bCards.map((s, i) => renderServiceCard(s, i === 0))}
           </div>
-          {b2bServices.length > 3 && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 mt-0">
-              {b2bServices.slice(3).map((s) => renderServiceCard(s))}
-            </div>
-          )}
         </div>
 
         {/* Divider */}
@@ -158,7 +153,7 @@ export default function ServicesSection() {
             Acompañamiento para profesionales y candidatos.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-            {b2cServices.map((s, i) => renderServiceCard(s, i === 0))}
+            {b2cCards.map((s, i) => renderServiceCard(s, i === 0))}
           </div>
         </div>
       </div>
