@@ -5,7 +5,7 @@ import { useToast } from '@/hooks/use-toast';
 
 export default function FloatingCTA() {
   const [open, setOpen] = useState(false);
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const { toast } = useToast();
 
   const onSubmit = () => {
@@ -19,13 +19,13 @@ export default function FloatingCTA() {
 
   return (
     <>
-      {/* Button */}
+      {/* Floating button — always visible on mobile, bottom right */}
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-8 right-8 z-[80] btn-cta flex items-center gap-2"
+        className="fixed bottom-6 right-6 z-[80] btn-cta flex items-center gap-2 !px-4 !py-3 md:!px-8 md:!py-3"
       >
+        <MessageSquare size={16} strokeWidth={1.5} />
         <span className="hidden md:inline">Consúltanos</span>
-        <MessageSquare size={16} strokeWidth={1} className="md:hidden" />
       </button>
 
       {/* Drawer */}
@@ -40,7 +40,7 @@ export default function FloatingCTA() {
               <X size={18} strokeWidth={1} />
             </button>
 
-            <h3 className="font-serif italic text-[32px] font-light text-aesop-soil mb-2 mt-8">
+            <h3 className="font-serif text-[28px] font-light text-aesop-soil mb-2 mt-8" style={{ fontStyle: 'italic' }}>
               Consúltanos
             </h3>
             <p className="text-body mb-8">Déjanos tus datos y te contactamos en menos de 24 horas.</p>
@@ -48,23 +48,52 @@ export default function FloatingCTA() {
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
                 <label className="label-mono text-aesop-clay block mb-2">Nombre</label>
-                <input {...register('name')} className="aesop-input" placeholder="Tu nombre" required />
+                <input
+                  {...register('name', { required: 'El nombre es obligatorio', maxLength: { value: 100, message: 'Máximo 100 caracteres' } })}
+                  className="aesop-input"
+                  placeholder="Tu nombre"
+                />
+                {errors.name && <p className="text-[12px] text-red-600 mt-1">{String(errors.name.message)}</p>}
+              </div>
+              <div>
+                <label className="label-mono text-aesop-clay block mb-2">Empresa</label>
+                <input
+                  {...register('company', { maxLength: { value: 100, message: 'Máximo 100 caracteres' } })}
+                  className="aesop-input"
+                  placeholder="Nombre de tu empresa"
+                />
               </div>
               <div>
                 <label className="label-mono text-aesop-clay block mb-2">Correo electrónico</label>
-                <input {...register('email')} type="email" className="aesop-input" placeholder="correo@ejemplo.com" required />
+                <input
+                  {...register('email', { required: 'El correo es obligatorio', pattern: { value: /^\S+@\S+$/i, message: 'Correo inválido' } })}
+                  type="email"
+                  className="aesop-input"
+                  placeholder="correo@ejemplo.com"
+                />
+                {errors.email && <p className="text-[12px] text-red-600 mt-1">{String(errors.email.message)}</p>}
               </div>
               <div>
-                <label className="label-mono text-aesop-clay block mb-2">Tipo</label>
-                <select {...register('type')} className="aesop-input">
+                <label className="label-mono text-aesop-clay block mb-2">Servicio de interés</label>
+                <select {...register('service')} className="aesop-input">
                   <option value="">Seleccionar...</option>
-                  <option value="empresa">Soy Empresa</option>
-                  <option value="candidato">Soy Candidato</option>
+                  <option value="strategic-partner">Strategic Partner (HRBP)</option>
+                  <option value="essentials">Corporative Essentials</option>
+                  <option value="reclutamiento">Reclutamiento</option>
+                  <option value="auditoria">Auditoría y Cumplimiento</option>
+                  <option value="grow">ADD Grow</option>
+                  <option value="first-step">ADD First Step</option>
+                  <option value="simulaciones">Simulaciones</option>
+                  <option value="otro">Otro</option>
                 </select>
               </div>
               <div>
                 <label className="label-mono text-aesop-clay block mb-2">Mensaje</label>
-                <textarea {...register('message')} className="aesop-input min-h-[100px] resize-none" placeholder="¿Cómo podemos ayudarte?" />
+                <textarea
+                  {...register('message', { maxLength: { value: 1000, message: 'Máximo 1000 caracteres' } })}
+                  className="aesop-input min-h-[100px] resize-none"
+                  placeholder="¿Cómo podemos ayudarte?"
+                />
               </div>
               <button type="submit" className="btn-cta w-full">Enviar consulta</button>
             </form>

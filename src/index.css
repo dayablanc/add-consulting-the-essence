@@ -70,11 +70,15 @@
     border-radius: 0 !important;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: var(--font-sans);
     font-weight: 300;
-    font-size: 15px;
-    line-height: 1.75;
+    font-size: 16px;
+    line-height: 1.6;
     color: hsl(var(--aesop-soil));
     background-color: hsl(var(--aesop-parchment));
     -webkit-font-smoothing: antialiased;
@@ -88,13 +92,13 @@
   }
 
   h1 {
-    font-size: 72px;
+    font-size: 56px;
     letter-spacing: -2px;
     line-height: 1.05;
   }
 
   h2 {
-    font-size: 48px;
+    font-size: 32px;
     font-style: italic;
     line-height: 1.15;
   }
@@ -111,6 +115,17 @@
   ::selection {
     background-color: hsl(var(--aesop-clay-tint));
     color: hsl(var(--aesop-soil));
+  }
+
+  /* Responsive h1 */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 36px;
+      letter-spacing: -1px;
+    }
+    h2 {
+      font-size: 28px;
+    }
   }
 }
 
@@ -143,9 +158,9 @@
 
 .text-body {
   font-family: var(--font-sans);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 300;
-  line-height: 1.8;
+  line-height: 1.6;
   color: hsl(var(--aesop-umber));
 }
 
@@ -156,21 +171,34 @@
   letter-spacing: 0.5px;
 }
 
+/* ─── CONSISTENT SECTION PADDING ─── */
+.section-padding {
+  padding-left: 80px;
+  padding-right: 80px;
+}
+@media (max-width: 768px) {
+  .section-padding {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
 .btn-cta {
   font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 2.5px;
-  padding: 12px 32px;
+  padding: 14px 36px;
   border: none;
   background-color: hsl(var(--aesop-clay));
   color: hsl(var(--aesop-parchment));
   cursor: pointer;
-  transition: background-color 200ms ease;
+  transition: all 200ms ease;
 }
 .btn-cta:hover {
   background-color: hsl(var(--aesop-clay-hover));
+  transform: translateY(-1px);
 }
 
 .btn-ghost {
@@ -179,7 +207,7 @@
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 2.5px;
-  padding: 12px 32px;
+  padding: 14px 36px;
   background: transparent;
   border: 1px solid hsl(var(--aesop-soil));
   color: hsl(var(--aesop-soil));
@@ -198,7 +226,7 @@
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 2.5px;
-  padding: 12px 32px;
+  padding: 14px 36px;
   background: transparent;
   border: 1px solid hsla(37, 33%, 92%, 0.4);
   color: hsl(var(--aesop-parchment));
@@ -228,7 +256,7 @@
   border-bottom: 1px solid hsl(var(--aesop-rule));
   background: transparent;
   font-family: var(--font-sans);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 300;
   color: hsl(var(--aesop-soil));
   outline: none;
