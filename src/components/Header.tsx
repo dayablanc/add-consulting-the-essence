@@ -19,34 +19,34 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   {
-    label: 'Empresas',
+    label: 'SOY EMPRESA',
     mega: {
       items: [
-        { label: 'Strategic Partner', description: 'Tu departamento de RR.HH. externo', to: '/empresa/strategic-partner' },
+        { label: 'Strategic Partner', description: 'Tu HRBP externo', to: '/empresa/strategic-partner' },
         { label: 'Corporative Essentials', description: 'Formalización y cumplimiento básico', to: '/empresa/essentials' },
         { label: 'Reclutamiento', description: 'Encontramos al talento ideal', to: '/empresa/reclutamiento' },
-        { label: 'Risk & Compliance', description: 'Auditoría y blindaje legal', to: '/empresa/risk-compliance' },
+        { label: 'Auditoría y Cumplimiento', description: 'Auditoría y blindaje legal', to: '/empresa/risk-compliance' },
       ],
       cta: { label: 'Ir al Cotizador →', to: '/cotizador' },
     },
   },
   {
-    label: 'Candidatos',
+    label: 'SOY CANDIDATO',
     mega: {
       items: [
         { label: 'ADD Grow', description: 'Aceleración profesional', to: '/candidato/add-grow' },
-        { label: 'ADD First Step', description: 'Tu primer empleo', to: '/candidato/first-step' },
+        { label: 'ADD First Step', description: 'Todo lo que debes saber para inicial tu emprendimiento relacionado a Derecho Laboral', to: '/candidato/first-step' },
         { label: 'Simulaciones', description: 'Práctica de entrevistas', to: '/candidato/simulaciones' },
       ],
       cta: { label: 'Ver Vacantes →', to: '/vacantes' },
     },
   },
   {
-    label: 'Recursos',
+    label: 'RECURSOS DIGITALES',
     mega: {
       items: [
         { label: 'HR Toolkit', description: 'Machotes y guías para PYMES', to: '/recursos/hr-toolkit' },
-        { label: 'Career Blueprint', description: 'Curso de estrategia laboral', to: '/recursos/career-blueprint' },
+        { label: 'Learn & Save ', description: 'Curso de estrategia laboral', to: '/recursos/career-blueprint' },
         { label: 'ADD Insider Club', description: 'Comunidad exclusiva', to: '/recursos/insider-club' },
       ],
     },

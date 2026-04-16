@@ -18,7 +18,7 @@ export default function HeroSection() {
           </p>
 
           <h1 className="text-aesop-soil mt-6 text-[56px] lg:text-[84px] xl:text-[96px] leading-[0.95] animate-fade-in-up" style={{ animationDelay: '120ms', letterSpacing: '-3px' }}>
-            Talento y derecho laboral, en manos expertas.
+            Talento y asesoría laboral, en manos expertas.
           </h1>
 
           <p className="text-body mt-6 animate-fade-in-up" style={{ animationDelay: '240ms' }}>

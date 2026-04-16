@@ -46,7 +46,7 @@ export const services: Service[] = [
   },
   {
     id: 'strategic-partner',
-    name: 'HR Business Partner (HRBP)',
+    name: 'Strategic Partner (HRBP)',
     slug: 'strategic-partner',
     category: 'empresa',
     icon: 'building',
@@ -78,7 +78,7 @@ export const services: Service[] = [
   },
   {
     id: 'risk-compliance',
-    name: 'Auditoría & Compliance',
+    name: 'Auditoría & Cumplimiento',
     slug: 'risk-compliance',
     category: 'empresa',
     icon: 'shield',
@@ -169,7 +169,7 @@ export const digitalProducts = [
   },
   {
     id: 'career-blueprint',
-    name: 'Career Blueprint',
+    name: 'Learn & Save ',
     audience: 'Para Profesionales',
     description: 'Curso grabado de estrategia laboral. Avanza a tu ritmo.',
     price: '$65',
