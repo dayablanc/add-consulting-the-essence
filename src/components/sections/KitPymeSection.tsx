@@ -5,7 +5,7 @@ export default function KitPymeSection() {
     <section className="bg-aesop-bark py-24 lg:py-32">
       <div className="max-w-[1000px] mx-auto px-6 lg:px-12">
         <p className="eyebrow-mono text-aesop-clay mb-6">· Productos Digitales</p>
-        <h2 className="text-aesop-parchment text-[36px] lg:text-[48px] mb-16">
+        <h2 className="text-aesop-parchment text-[40px] lg:text-[52px] xl:text-[56px] mb-16" style={{ letterSpacing: '-1px' }}>
           Herramientas que trabajan cuando tú no puedes.
         </h2>
 

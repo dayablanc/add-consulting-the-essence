@@ -15,8 +15,9 @@ export default function AboutSection() {
         {/* Text */}
         <div className="lg:w-[55%]">
           <p className="eyebrow mb-6">· Sobre ADD Consulting</p>
-          <h2 className="text-aesop-soil text-[36px] lg:text-[44px]">
+          <h2 className="text-aesop-soil text-[40px] lg:text-[52px] xl:text-[56px]" style={{ letterSpacing: '-1px' }}>
             Una firma construida sobre criterio, no sobre volumen.
+          </h2>
           </h2>
           <p className="text-body mt-6">
             Somos una consultoría boutique especializada en Recursos Humanos y Derecho Laboral en Costa Rica. 

@@ -207,28 +207,39 @@ export default function Header() {
             <div className="mt-12 space-y-0">
               {navItems.map((item) => (
                 <div key={item.label} style={{ borderBottom: '1px solid rgba(242,237,228,0.1)' }}>
-                  <button
-                    className="w-full text-left py-4 font-sans text-[13px] text-aesop-parchment uppercase tracking-[2px]"
-                    onClick={() => setMobileAccordion(mobileAccordion === item.label ? null : item.label)}
-                  >
-                    {item.dot && <span className="text-aesop-clay mr-1">·</span>}
-                    {item.label}
-                    <span className="float-right text-aesop-taupe transition-transform duration-200"
-                      style={{ transform: mobileAccordion === item.label ? 'rotate(45deg)' : 'none' }}>+</span>
-                  </button>
-                  {item.mega && mobileAccordion === item.label && (
-                    <div className="pb-4 space-y-3">
-                      {item.mega.items.map((mi) => (
-                        <Link
-                          key={mi.label}
-                          to={mi.to}
-                          className="block font-sans text-[13px] text-aesop-parchment/70 pl-4"
-                          onClick={() => setMobileOpen(false)}
-                        >
-                          {mi.label}
-                        </Link>
-                      ))}
-                    </div>
+                  {item.to && !item.mega ? (
+                    <Link
+                      to={item.to}
+                      className="block py-4 font-sans text-[13px] text-aesop-parchment uppercase tracking-[2px]"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <>
+                      <button
+                        className="w-full text-left py-4 font-sans text-[13px] text-aesop-parchment uppercase tracking-[2px]"
+                        onClick={() => setMobileAccordion(mobileAccordion === item.label ? null : item.label)}
+                      >
+                        {item.label}
+                        <span className="float-right text-aesop-taupe transition-transform duration-200"
+                          style={{ transform: mobileAccordion === item.label ? 'rotate(45deg)' : 'none' }}>+</span>
+                      </button>
+                      {item.mega && mobileAccordion === item.label && (
+                        <div className="pb-4 space-y-3">
+                          {item.mega.items.map((mi) => (
+                            <Link
+                              key={mi.label}
+                              to={mi.to}
+                              className="block font-sans text-[13px] text-aesop-parchment/70 pl-4"
+                              onClick={() => setMobileOpen(false)}
+                            >
+                              {mi.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               ))}
