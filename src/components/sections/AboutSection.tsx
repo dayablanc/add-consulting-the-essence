@@ -20,8 +20,8 @@ export default function AboutSection() {
             <Link to="/vacantes" className="btn-ghost">
               Ver vacantes
             </Link>
-            <Link to="/recursos/blog" className="btn-ghost">
-              Ir al Blog
+            <Link to="/empresa/reclutamiento" className="btn-cta">
+              Quiero reclutar
             </Link>
           </div>
         </div>
