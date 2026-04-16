@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { I18nProvider } from "@/i18n/context";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CotizadorPage from "./pages/CotizadorPage";
@@ -20,25 +21,27 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/empresa" element={<EmpresaPage />} />
-          <Route path="/empresa/:slug" element={<ServicePage />} />
-          <Route path="/candidato" element={<CandidatoPage />} />
-          <Route path="/candidato/:slug" element={<ServicePage />} />
-          <Route path="/cotizador" element={<CotizadorPage />} />
-          <Route path="/vacantes" element={<VacantesPage />} />
-          <Route path="/recursos/blog" element={<BlogPage />} />
-          <Route path="/recursos/hr-toolkit" element={<RecursoPage />} />
-          <Route path="/recursos/career-blueprint" element={<RecursoPage />} />
-          <Route path="/recursos/insider-club" element={<InsiderClubPage />} />
-          <Route path="/contacto" element={<ContactoPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <I18nProvider>
+        <Toaster />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/empresa" element={<EmpresaPage />} />
+            <Route path="/empresa/:slug" element={<ServicePage />} />
+            <Route path="/candidato" element={<CandidatoPage />} />
+            <Route path="/candidato/:slug" element={<ServicePage />} />
+            <Route path="/cotizador" element={<CotizadorPage />} />
+            <Route path="/vacantes" element={<VacantesPage />} />
+            <Route path="/recursos/blog" element={<BlogPage />} />
+            <Route path="/recursos/hr-toolkit" element={<RecursoPage />} />
+            <Route path="/recursos/career-blueprint" element={<RecursoPage />} />
+            <Route path="/recursos/insider-club" element={<InsiderClubPage />} />
+            <Route path="/contacto" element={<ContactoPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </I18nProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

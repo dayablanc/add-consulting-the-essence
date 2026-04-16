@@ -2,16 +2,18 @@ import { useState } from 'react';
 import { MessageSquare, X } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { useToast } from '@/hooks/use-toast';
+import { useI18n } from '@/i18n/context';
 
 export default function FloatingCTA() {
+  const { t } = useI18n();
   const [open, setOpen] = useState(false);
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const { toast } = useToast();
 
   const onSubmit = () => {
     toast({
-      title: '¡Listo!',
-      description: 'Te contactaremos en menos de 24 horas.',
+      title: t.floatingCta.successTitle,
+      description: t.floatingCta.successMessage,
     });
     reset();
     setOpen(false);
@@ -19,16 +21,14 @@ export default function FloatingCTA() {
 
   return (
     <>
-      {/* Floating button — always visible on mobile, bottom right */}
       <button
         onClick={() => setOpen(true)}
         className="fixed bottom-6 right-6 z-[80] btn-cta flex items-center gap-2 !px-4 !py-3 md:!px-8 md:!py-3"
       >
         <MessageSquare size={16} strokeWidth={1.5} />
-        <span className="hidden md:inline">Consúltanos</span>
+        <span className="hidden md:inline">{t.floatingCta.buttonLabel}</span>
       </button>
 
-      {/* Drawer */}
       {open && (
         <div className="fixed inset-0 z-[90]">
           <div className="absolute inset-0 bg-aesop-soil/50" onClick={() => setOpen(false)} />
@@ -41,61 +41,63 @@ export default function FloatingCTA() {
             </button>
 
             <h3 className="font-serif text-[28px] font-light text-aesop-soil mb-2 mt-8" style={{ fontStyle: 'italic' }}>
-              Consúltanos
+              {t.floatingCta.title}
             </h3>
-            <p className="text-body mb-8">Déjanos tus datos y te contactamos en menos de 24 horas.</p>
+            <p className="text-body mb-8">{t.floatingCta.subtitle}</p>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
-                <label className="label-mono text-aesop-clay block mb-2">Nombre</label>
+                <label className="label-mono text-aesop-clay block mb-2">{t.floatingCta.labels.name}</label>
                 <input
-                  {...register('name', { required: 'El nombre es obligatorio', maxLength: { value: 100, message: 'Máximo 100 caracteres' } })}
+                  {...register('name', { required: t.floatingCta.errors.nameRequired, maxLength: { value: 100, message: t.floatingCta.errors.nameMax } })}
                   className="aesop-input"
-                  placeholder="Tu nombre"
+                  placeholder={t.floatingCta.placeholders.name}
                 />
-                {errors.name && <p className="text-[12px] text-red-600 mt-1">{String(errors.name.message)}</p>}
+                {errors.name && <p className="text-[12px] mt-1" style={{ color: 'hsl(0, 62%, 50%)' }}>{String(errors.name.message)}</p>}
               </div>
               <div>
-                <label className="label-mono text-aesop-clay block mb-2">Empresa</label>
+                <label className="label-mono text-aesop-clay block mb-2">{t.floatingCta.labels.company}</label>
                 <input
-                  {...register('company', { maxLength: { value: 100, message: 'Máximo 100 caracteres' } })}
+                  {...register('company', { maxLength: { value: 100, message: t.floatingCta.errors.nameMax } })}
                   className="aesop-input"
-                  placeholder="Nombre de tu empresa"
+                  placeholder={t.floatingCta.placeholders.company}
                 />
               </div>
               <div>
-                <label className="label-mono text-aesop-clay block mb-2">Correo electrónico</label>
+                <label className="label-mono text-aesop-clay block mb-2">{t.floatingCta.labels.email}</label>
                 <input
-                  {...register('email', { required: 'El correo es obligatorio', pattern: { value: /^\S+@\S+$/i, message: 'Correo inválido' } })}
+                  {...register('email', { required: t.floatingCta.errors.emailRequired, pattern: { value: /^\S+@\S+$/i, message: t.floatingCta.errors.emailInvalid } })}
                   type="email"
                   className="aesop-input"
-                  placeholder="correo@ejemplo.com"
+                  placeholder={t.floatingCta.placeholders.email}
                 />
-                {errors.email && <p className="text-[12px] text-red-600 mt-1">{String(errors.email.message)}</p>}
+                {errors.email && <p className="text-[12px] mt-1" style={{ color: 'hsl(0, 62%, 50%)' }}>{String(errors.email.message)}</p>}
               </div>
               <div>
-                <label className="label-mono text-aesop-clay block mb-2">Servicio de interés</label>
+                <label className="label-mono text-aesop-clay block mb-2">{t.floatingCta.labels.serviceOfInterest}</label>
                 <select {...register('service')} className="aesop-input">
-                  <option value="">Seleccionar...</option>
-                  <option value="strategic-partner">Strategic Partner (HRBP)</option>
-                  <option value="essentials">Corporative Essentials</option>
-                  <option value="reclutamiento">Reclutamiento</option>
-                  <option value="auditoria">Auditoría y Cumplimiento</option>
-                  <option value="grow">ADD Grow</option>
-                  <option value="first-step">ADD First Step</option>
-                  <option value="simulaciones">Simulaciones</option>
-                  <option value="otro">Otro</option>
+                  <option value="">{t.floatingCta.selectPlaceholder}</option>
+                  {t.floatingCta.serviceOptions.map(opt => (
+                    <option key={opt.value} value={opt.value}>{opt.label}</option>
+                  ))}
                 </select>
               </div>
               <div>
-                <label className="label-mono text-aesop-clay block mb-2">Mensaje</label>
+                <label className="label-mono text-aesop-clay block mb-2">{t.floatingCta.labels.preferredCurrency}</label>
+                <select {...register('preferredCurrency')} className="aesop-input">
+                  <option value="CRC">₡ CRC — Colones</option>
+                  <option value="USD">$ USD — Dólares</option>
+                </select>
+              </div>
+              <div>
+                <label className="label-mono text-aesop-clay block mb-2">{t.floatingCta.labels.message}</label>
                 <textarea
-                  {...register('message', { maxLength: { value: 1000, message: 'Máximo 1000 caracteres' } })}
+                  {...register('message', { maxLength: { value: 1000, message: t.floatingCta.errors.messageMax } })}
                   className="aesop-input min-h-[100px] resize-none"
-                  placeholder="¿Cómo podemos ayudarte?"
+                  placeholder={t.floatingCta.placeholders.message}
                 />
               </div>
-              <button type="submit" className="btn-cta w-full">Enviar consulta</button>
+              <button type="submit" className="btn-cta w-full">{t.floatingCta.submit}</button>
             </form>
           </div>
         </div>

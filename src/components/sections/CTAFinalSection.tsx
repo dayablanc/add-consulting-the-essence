@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useI18n } from '@/i18n/context';
 import QuoteModal from '@/components/QuoteModal';
 
 export default function CTAFinalSection() {
+  const { t } = useI18n();
   const [open, setOpen] = useState(false);
 
   return (
@@ -12,16 +14,16 @@ export default function CTAFinalSection() {
             className="font-serif text-[28px] md:text-[32px] font-light text-aesop-parchment mb-6"
             style={{ letterSpacing: '-0.5px', fontStyle: 'normal' }}
           >
-            ¿Listo para encontrar el talento correcto?
+            {t.ctaFinal.heading}
           </h2>
           <p className="font-sans text-[16px] font-light mb-10 max-w-[480px] mx-auto" style={{ color: 'hsla(37, 33%, 92%, 0.8)' }}>
-            Agenda una consulta gratuita y descubre cómo ADD puede transformar tu gestión de talento.
+            {t.ctaFinal.body}
           </p>
           <button
             onClick={() => setOpen(true)}
             className="font-sans text-[12px] font-normal uppercase tracking-[2.5px] px-10 py-4 bg-aesop-parchment text-aesop-soil cursor-pointer transition-all duration-200 hover:bg-aesop-white"
           >
-            Agendar consulta gratuita
+            {t.ctaFinal.cta}
           </button>
         </div>
       </section>
@@ -29,7 +31,7 @@ export default function CTAFinalSection() {
       <QuoteModal
         open={open}
         onClose={() => setOpen(false)}
-        serviceName="Consulta gratuita"
+        serviceName={t.ctaFinal.cta}
       />
     </>
   );

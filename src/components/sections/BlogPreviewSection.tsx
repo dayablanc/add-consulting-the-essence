@@ -1,18 +1,18 @@
 import { Link } from 'react-router-dom';
 import { blogPosts } from '@/data/services';
+import { useI18n } from '@/i18n/context';
 import blogImage from '@/assets/blog-image.jpg';
 
 export default function BlogPreviewSection() {
+  const { t } = useI18n();
   const preview = blogPosts.slice(0, 3);
 
   return (
     <section className="bg-aesop-parchment py-20 lg:py-28">
       <div className="max-w-[1200px] mx-auto section-padding">
-        <p className="eyebrow mb-4">· Recursos Editoriales</p>
-        <h2 className="text-aesop-soil text-[28px] md:text-[32px] mb-3" style={{ letterSpacing: '-0.5px' }}>Blog</h2>
-        <p className="text-body mb-12">
-          Artículos sobre el mercado laboral y derecho laboral costarricense.
-        </p>
+        <p className="eyebrow mb-4">{t.blogPreview.eyebrow}</p>
+        <h2 className="text-aesop-soil text-[28px] md:text-[32px] mb-3" style={{ letterSpacing: '-0.5px' }}>{t.blogPreview.heading}</h2>
+        <p className="text-body mb-12">{t.blogPreview.subtitle}</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {preview.map((post) => (
@@ -36,7 +36,7 @@ export default function BlogPreviewSection() {
                 to="/recursos/blog"
                 className="inline-block mt-4 font-sans text-[11px] uppercase tracking-[2px] text-aesop-clay hover:text-aesop-soil transition-all duration-200"
               >
-                Leer →
+                {t.blogPreview.readMore}
               </Link>
             </article>
           ))}
