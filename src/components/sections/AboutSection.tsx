@@ -44,10 +44,10 @@ export default function AboutSection() {
 
           <div className="flex justify-center gap-6 mt-12">
             <Link to="/vacantes" className="btn-ghost">
-              <span className="text-aesop-clay mr-1">·</span> Ver vacantes
+              Ver vacantes
             </Link>
             <Link to="/recursos/blog" className="btn-ghost">
-              <span className="text-aesop-clay mr-1">·</span> Ir al Blog
+              Ir al Blog
             </Link>
           </div>
         </div>
