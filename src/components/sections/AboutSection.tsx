@@ -18,7 +18,6 @@ export default function AboutSection() {
           <h2 className="text-aesop-soil text-[40px] lg:text-[52px] xl:text-[56px]" style={{ letterSpacing: '-1px' }}>
             Una firma construida sobre criterio, no sobre volumen.
           </h2>
-          </h2>
           <p className="text-body mt-6">
             Somos una consultoría boutique especializada en Recursos Humanos y Derecho Laboral en Costa Rica. 
             No ofrecemos soluciones genéricas: cada empresa y cada profesional recibe un acompañamiento diseñado 
