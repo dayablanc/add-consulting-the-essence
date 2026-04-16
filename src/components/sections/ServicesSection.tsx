@@ -1,6 +1,6 @@
 import { useState } from 'react';
-
 import { services } from '@/data/services';
+import { useI18n } from '@/i18n/context';
 import QuoteModal from '@/components/QuoteModal';
 import { Users, Scale, Building2, BookOpen, TrendingUp, Shield, Rocket, Mic, ArrowRight } from 'lucide-react';
 
@@ -16,84 +16,77 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 export default function ServicesSection() {
+  const { t } = useI18n();
   const [quoteService, setQuoteService] = useState<string | null>(null);
 
-  
   const b2bCards = services.filter(s => s.category === 'empresa' && s.showInCards);
   const b2cCards = services.filter(s => s.category === 'candidato' && s.showInCards);
 
-  const renderServiceCard = (s: typeof services[0]) => (
-    <div
-      key={s.id}
-      className="group flex flex-col justify-between p-8 bg-aesop-white transition-all duration-200 hover:border-aesop-clay"
-      style={{
-        border: '1px solid hsl(var(--aesop-rule))',
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = 'hsl(var(--aesop-clay))';
-        e.currentTarget.style.boxShadow = '0 4px 20px -4px hsla(24, 33%, 46%, 0.15) !important';
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = 'hsl(var(--aesop-rule))';
-        e.currentTarget.style.boxShadow = 'none !important';
-      }}
-    >
-      <div>
-        <div className="mb-5">{iconMap[s.icon]}</div>
-        <h3 className="font-serif text-[22px] lg:text-[24px] text-aesop-soil mb-3" style={{ letterSpacing: '-0.3px', fontStyle: 'normal' }}>
-          {s.name}
-        </h3>
-        <p className="font-sans text-[15px] text-aesop-umber font-light leading-relaxed line-clamp-2">
-          {s.description}
-        </p>
-      </div>
-      <button
-        onClick={() => setQuoteService(s.name)}
-        className="mt-6 inline-flex items-center gap-2 font-sans text-[12px] uppercase tracking-[2px] text-aesop-clay cursor-pointer transition-all duration-200 group-hover:gap-3"
+  const getServiceText = (s: typeof services[0]) => {
+    const translated = t.serviceItems[s.id];
+    return translated || { name: s.name, description: s.description };
+  };
+
+  const renderServiceCard = (s: typeof services[0]) => {
+    const text = getServiceText(s);
+    return (
+      <div
+        key={s.id}
+        className="group flex flex-col justify-between p-8 bg-aesop-white transition-all duration-200"
+        style={{ border: '1px solid hsl(var(--aesop-rule))' }}
+        onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'hsl(var(--aesop-clay))'; }}
+        onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'hsl(var(--aesop-rule))'; }}
       >
-        Solicitar información
-        <ArrowRight size={14} strokeWidth={1.5} />
-      </button>
-    </div>
-  );
+        <div>
+          <div className="mb-5">{iconMap[s.icon]}</div>
+          <h3 className="font-serif text-[22px] lg:text-[24px] text-aesop-soil mb-3" style={{ letterSpacing: '-0.3px', fontStyle: 'normal' }}>
+            {text.name}
+          </h3>
+          <p className="font-sans text-[15px] text-aesop-umber font-light leading-relaxed line-clamp-2">
+            {text.description}
+          </p>
+        </div>
+        <button
+          onClick={() => setQuoteService(text.name)}
+          className="mt-6 inline-flex items-center gap-2 font-sans text-[12px] uppercase tracking-[2px] text-aesop-clay cursor-pointer transition-all duration-200 group-hover:gap-3"
+        >
+          {t.services.requestInfo}
+          <ArrowRight size={14} strokeWidth={1.5} />
+        </button>
+      </div>
+    );
+  };
 
   return (
     <section className="bg-aesop-cream py-20 lg:py-28">
       <div className="max-w-[1200px] mx-auto section-padding">
-        <p className="eyebrow mb-4">· SERVICIOS ADD</p>
+        <p className="eyebrow mb-4">{t.services.eyebrow}</p>
         <h2 className="text-aesop-soil text-[28px] md:text-[32px] mb-4" style={{ letterSpacing: '-0.5px' }}>
-          Lo que hacemos
+          {t.services.heading}
         </h2>
-        <p className="text-body max-w-[600px] mb-16">
-          Soluciones integrales de RR.HH. y derecho laboral para empresas y profesionales en Costa Rica.
-        </p>
+        <p className="text-body max-w-[600px] mb-16">{t.services.subtitle}</p>
 
-        {/* B2B Division */}
+        {/* B2B */}
         <div className="mb-20">
-          <p className="eyebrow mb-3">· DIVISIÓN CORPORATIVA</p>
+          <p className="eyebrow mb-3">{t.services.b2bEyebrow}</p>
           <p className="font-serif text-[24px] lg:text-[28px] text-aesop-soil mb-2" style={{ letterSpacing: '-0.5px', fontStyle: 'normal' }}>
-            B2B — Soy Empresa
+            {t.services.b2bTitle}
           </p>
-          <p className="text-body mb-10 max-w-[500px]">
-            Soluciones integrales para empresas costarricenses.
-          </p>
+          <p className="text-body mb-10 max-w-[500px]">{t.services.b2bSubtitle}</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {b2bCards.map(s => renderServiceCard(s))}
           </div>
         </div>
 
-        {/* Divider */}
         <div style={{ borderBottom: '1px solid hsl(var(--aesop-rule))' }} className="mb-20" />
 
-        {/* B2C Division */}
+        {/* B2C */}
         <div>
-          <p className="eyebrow mb-3">· DIVISIÓN DE CARRERA</p>
+          <p className="eyebrow mb-3">{t.services.b2cEyebrow}</p>
           <p className="font-serif text-[24px] lg:text-[28px] text-aesop-soil mb-2" style={{ letterSpacing: '-0.5px', fontStyle: 'normal' }}>
-            B2C — Soy Candidato
+            {t.services.b2cTitle}
           </p>
-          <p className="text-body mb-10 max-w-[500px]">
-            Acompañamiento para profesionales y candidatos.
-          </p>
+          <p className="text-body mb-10 max-w-[500px]">{t.services.b2cSubtitle}</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {b2cCards.map(s => renderServiceCard(s))}
           </div>

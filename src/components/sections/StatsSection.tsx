@@ -1,29 +1,17 @@
-const stats = [
-  { number: '50+', label: 'Empresas' },
-  { number: '200+', label: 'Colocaciones' },
-  { number: '8', label: 'Años de experiencia' },
-];
-
-const testimonials = [
-  {
-    quote: 'ADD transformó nuestra gestión de talento. Pasamos de improvisar a tener procesos claros y legales.',
-    name: 'María Fernández',
-    title: 'Gerente de Operaciones',
-    company: 'TechCR Solutions',
-  },
-  {
-    quote: 'Gracias al programa ADD Grow, conseguí una posición que realmente se alinea con mi perfil profesional.',
-    name: 'Carlos Rojas',
-    title: 'Analista Senior',
-    company: 'Grupo Financiero Nacional',
-  },
-];
+import { useI18n } from '@/i18n/context';
 
 export default function StatsSection() {
+  const { t } = useI18n();
+
+  const stats = [
+    { number: '50+', label: t.stats.companies },
+    { number: '200+', label: t.stats.placements },
+    { number: '8', label: t.stats.experience },
+  ];
+
   return (
     <section className="bg-aesop-bark py-20 lg:py-28">
       <div className="max-w-[1200px] mx-auto section-padding">
-        {/* Stats */}
         <div className="grid grid-cols-3 gap-8 text-center mb-20">
           {stats.map((s) => (
             <div key={s.label}>
@@ -37,21 +25,16 @@ export default function StatsSection() {
           ))}
         </div>
 
-        {/* Testimonials */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {testimonials.map((t) => (
-            <div
-              key={t.name}
-              className="p-8"
-              style={{ border: '1px solid rgba(242,237,228,0.12)' }}
-            >
+          {t.stats.testimonials.map((tm) => (
+            <div key={tm.name} className="p-8" style={{ border: '1px solid rgba(242,237,228,0.12)' }}>
               <p className="font-serif text-[18px] font-light text-aesop-parchment leading-relaxed mb-6" style={{ fontStyle: 'italic' }}>
-                "{t.quote}"
+                "{tm.quote}"
               </p>
               <div>
-                <p className="font-sans text-[14px] text-aesop-parchment font-normal">{t.name}</p>
+                <p className="font-sans text-[14px] text-aesop-parchment font-normal">{tm.name}</p>
                 <p className="font-mono text-[11px] mt-1" style={{ color: 'hsla(37, 33%, 92%, 0.5)' }}>
-                  {t.title} · {t.company}
+                  {tm.title} · {tm.company}
                 </p>
               </div>
             </div>

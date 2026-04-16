@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { X } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { useToast } from '@/hooks/use-toast';
+import { useI18n } from '@/i18n/context';
 
 interface QuoteModalProps {
   open: boolean;
@@ -9,11 +10,8 @@ interface QuoteModalProps {
   serviceName?: string;
 }
 
-const sizes = ['1–5', '6–20', '21–80', '+80', 'Soy candidato'];
-const needs = ['RR.HH.', 'Legal', 'Reclutamiento', 'Carrera', 'Otro'];
-const urgencies = ['Esta semana', 'Este mes', '1–3 meses', 'Solo explorando'];
-
 export default function QuoteModal({ open, onClose, serviceName }: QuoteModalProps) {
+  const { t } = useI18n();
   const { register, handleSubmit, reset } = useForm();
   const { toast } = useToast();
   const [selectedSize, setSelectedSize] = useState('');
@@ -24,8 +22,8 @@ export default function QuoteModal({ open, onClose, serviceName }: QuoteModalPro
 
   const onSubmit = () => {
     toast({
-      title: '¡Listo!',
-      description: 'Te contactaremos en menos de 24 horas con una propuesta personalizada.',
+      title: t.quoteModal.successTitle,
+      description: t.quoteModal.successMessage,
     });
     reset();
     setSelectedSize('');
@@ -50,30 +48,30 @@ export default function QuoteModal({ open, onClose, serviceName }: QuoteModalPro
         </button>
 
         <h3 className="font-serif italic text-[32px] font-light text-aesop-soil mb-2">
-          Cuéntanos sobre tu situación
+          {t.quoteModal.title}
         </h3>
         {serviceName && (
-          <p className="eyebrow-mono mb-8">Servicio: {serviceName}</p>
+          <p className="eyebrow-mono mb-8">{t.quoteModal.serviceLabel}: {serviceName}</p>
         )}
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div>
-            <label className="label-mono text-aesop-clay block mb-2">Nombre completo</label>
-            <input {...register('name')} className="aesop-input" placeholder="Tu nombre" required />
+            <label className="label-mono text-aesop-clay block mb-2">{t.quoteModal.labels.fullName}</label>
+            <input {...register('name')} className="aesop-input" placeholder={t.quoteModal.placeholders.name} required />
           </div>
           <div>
-            <label className="label-mono text-aesop-clay block mb-2">Correo electrónico</label>
-            <input {...register('email')} type="email" className="aesop-input" placeholder="correo@ejemplo.com" required />
+            <label className="label-mono text-aesop-clay block mb-2">{t.quoteModal.labels.email}</label>
+            <input {...register('email')} type="email" className="aesop-input" placeholder={t.quoteModal.placeholders.email} required />
           </div>
           <div>
-            <label className="label-mono text-aesop-clay block mb-2">Empresa (opcional)</label>
-            <input {...register('company')} className="aesop-input" placeholder="Nombre de tu empresa" />
+            <label className="label-mono text-aesop-clay block mb-2">{t.quoteModal.labels.company}</label>
+            <input {...register('company')} className="aesop-input" placeholder={t.quoteModal.placeholders.company} />
           </div>
 
           <div>
-            <label className="label-mono text-aesop-clay block mb-3">Tamaño / Situación</label>
+            <label className="label-mono text-aesop-clay block mb-3">{t.quoteModal.labels.size}</label>
             <div className="flex flex-wrap gap-2">
-              {sizes.map(s => (
+              {t.quoteModal.sizes.map(s => (
                 <button
                   key={s}
                   type="button"
@@ -92,9 +90,9 @@ export default function QuoteModal({ open, onClose, serviceName }: QuoteModalPro
           </div>
 
           <div>
-            <label className="label-mono text-aesop-clay block mb-3">Necesidad principal</label>
+            <label className="label-mono text-aesop-clay block mb-3">{t.quoteModal.labels.need}</label>
             <div className="flex flex-wrap gap-2">
-              {needs.map(n => (
+              {t.quoteModal.needs.map(n => (
                 <button
                   key={n}
                   type="button"
@@ -113,9 +111,9 @@ export default function QuoteModal({ open, onClose, serviceName }: QuoteModalPro
           </div>
 
           <div>
-            <label className="label-mono text-aesop-clay block mb-3">Urgencia</label>
+            <label className="label-mono text-aesop-clay block mb-3">{t.quoteModal.labels.urgency}</label>
             <div className="flex flex-wrap gap-2">
-              {urgencies.map(u => (
+              {t.quoteModal.urgencies.map(u => (
                 <button
                   key={u}
                   type="button"
@@ -134,7 +132,7 @@ export default function QuoteModal({ open, onClose, serviceName }: QuoteModalPro
           </div>
 
           <button type="submit" className="btn-cta w-full mt-4">
-            Enviar consulta
+            {t.quoteModal.submit}
           </button>
         </form>
       </div>
