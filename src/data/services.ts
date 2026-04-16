@@ -26,7 +26,7 @@ export const services: Service[] = [
   },
   {
     id: 'essentials',
-    name: 'Corporative Essentials',
+    name: 'Corporative Essencials',
     slug: 'essentials',
     category: 'empresa',
     idealFor: 'PYMES iniciando su formalización',
