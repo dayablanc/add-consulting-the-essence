@@ -51,8 +51,8 @@ export const services: Service[] = [
     category: 'empresa',
     icon: 'building',
     idealFor: 'Empresas de 10–80 colaboradores',
-    description: 'Nos convertimos en tu departamento de RR.HH. externo. Gestionamos todo: desde contratos y planillas hasta cultura organizacional y cumplimiento legal.',
-    includes: ['HR Business Partner', 'Cultura organizacional', 'Prevención legal', 'Gestión de talento'],
+    description: 'Nos convertimos en tu departamento de RR.HH. externo. Gestionamos todo: desde contratos hasta cultura organizacional y cumplimiento legal.',
+    includes: ['HR Business Partner', 'Cultura y clima organizacional', 'Prevención legal', 'Gestión de talento'],
     showInCards: true,
     faq: [
       { q: '¿Con qué frecuencia nos reunimos?', a: 'Reuniones semanales o quincenales según el plan elegido, más disponibilidad continua para consultas urgentes.' },
