@@ -71,9 +71,9 @@ export default function ServicesSection() {
   return (
     <section className="bg-aesop-cream py-24 lg:py-32">
       <div className="max-w-[1000px] mx-auto px-6 lg:px-12">
-        <p className="eyebrow mb-6">· Servicios</p>
+        <p className="eyebrow mb-6">· SERVICIOS ADD</p>
         <h2 className="text-aesop-soil text-[44px] lg:text-[56px] xl:text-[60px] mb-8" style={{ letterSpacing: '-1px' }}>
-          Lo que hacemos
+          LO QUE HACEMOS...&nbsp;
         </h2>
 
         {/* B2B Block */}
