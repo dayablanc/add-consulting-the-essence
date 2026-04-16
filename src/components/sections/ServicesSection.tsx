@@ -75,25 +75,43 @@ export default function ServicesSection() {
       );
     });
 
-  const renderCompactList = (list: typeof services) =>
-    list.map((s) => (
-      <div key={s.id} style={{ borderBottom: '1px solid hsl(var(--aesop-rule))' }}>
-        <button
-          onClick={() => setQuoteService(s.name)}
-          className="w-full flex items-center justify-between py-5 text-left cursor-pointer group"
-        >
-          <div className="flex items-center gap-4">
-            <span className="flex-shrink-0">{iconMap[s.icon]}</span>
-            <span className="font-serif text-[18px] lg:text-[22px] font-light text-aesop-soil">
-              {s.name}
-            </span>
-          </div>
-          <span className="font-sans text-[13px] text-aesop-taupe ml-4 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
-            Cotizar →
-          </span>
-        </button>
+  const renderServiceCard = (s: typeof services[0], featured?: boolean) => (
+    <div
+      key={s.id}
+      className="flex flex-col justify-between p-8 h-full"
+      style={{
+        border: featured ? '2px solid hsl(var(--aesop-clay))' : '1px solid hsl(var(--aesop-rule))',
+        background: featured ? 'hsl(var(--aesop-cream))' : 'transparent',
+      }}
+    >
+      <div>
+        {featured && (
+          <p className="label-mono text-aesop-clay text-[11px] mb-4 tracking-widest">RECOMENDADO</p>
+        )}
+        <h3 className="font-serif text-[22px] lg:text-[26px] text-aesop-soil mb-4" style={{ letterSpacing: '-0.3px' }}>
+          {s.name}
+        </h3>
+        <p className="font-sans text-[14px] lg:text-[15px] text-aesop-umber font-light leading-relaxed mb-6">
+          {s.description}
+        </p>
+        <ul className="space-y-2 mb-8">
+          {s.includes.slice(0, 4).map((item, i) => (
+            <li key={i} className="flex items-start gap-2">
+              <span className="text-aesop-clay mt-1 text-[8px]">●</span>
+              <span className="font-sans text-[14px] text-aesop-soil">{item}</span>
+            </li>
+          ))}
+        </ul>
       </div>
-    ));
+      <button
+        onClick={() => setQuoteService(s.name)}
+        className={featured ? 'btn-cta w-full text-center' : 'w-full py-3 font-sans text-[14px] text-aesop-soil tracking-wide cursor-pointer transition-colors hover:bg-aesop-linen'}
+        style={!featured ? { border: '1px solid hsl(var(--aesop-rule))' } : undefined}
+      >
+        Solicitar información
+      </button>
+    </div>
+  );
 
   return (
     <section className="bg-aesop-cream py-24 lg:py-32">
@@ -108,31 +126,40 @@ export default function ServicesSection() {
           {renderMainAccordion(allServices)}
         </div>
 
-        {/* B2B Division */}
-        <div className="mb-20">
+        {/* B2B Division – Cards */}
+        <div className="mb-24">
           <p className="eyebrow mb-3">· DIVISIÓN CORPORATIVA</p>
           <p className="font-serif text-[28px] lg:text-[36px] text-aesop-soil mb-2" style={{ letterSpacing: '-0.5px' }}>
             B2B — Empresas
           </p>
-          <p className="font-sans text-[16px] lg:text-[18px] text-aesop-umber font-light mb-8">
+          <p className="font-sans text-[16px] lg:text-[18px] text-aesop-umber font-light mb-10">
             Soluciones integrales para empresas costarricenses.
           </p>
-          <div>{renderCompactList(b2bServices)}</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+            {b2bServices.slice(0, 3).map((s, i) => renderServiceCard(s, i === 0))}
+          </div>
+          {b2bServices.length > 3 && (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 mt-0">
+              {b2bServices.slice(3).map((s) => renderServiceCard(s))}
+            </div>
+          )}
         </div>
 
         {/* Divider */}
         <div style={{ borderBottom: '1px solid hsl(var(--aesop-rule))' }} className="mb-20" />
 
-        {/* B2C Division */}
+        {/* B2C Division – Cards */}
         <div>
           <p className="eyebrow mb-3">· DIVISIÓN DE CARRERA</p>
           <p className="font-serif text-[28px] lg:text-[36px] text-aesop-soil mb-2" style={{ letterSpacing: '-0.5px' }}>
             B2C — Profesionales
           </p>
-          <p className="font-sans text-[16px] lg:text-[18px] text-aesop-umber font-light mb-8">
+          <p className="font-sans text-[16px] lg:text-[18px] text-aesop-umber font-light mb-10">
             Acompañamiento para profesionales y candidatos.
           </p>
-          <div>{renderCompactList(b2cServices)}</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+            {b2cServices.map((s, i) => renderServiceCard(s, i === 0))}
+          </div>
         </div>
       </div>
 
