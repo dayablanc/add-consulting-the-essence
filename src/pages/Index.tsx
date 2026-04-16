@@ -7,6 +7,7 @@ import ServicesSection from '@/components/sections/ServicesSection';
 import CotizadorCTASection from '@/components/sections/CotizadorCTASection';
 import KitPymeSection from '@/components/sections/KitPymeSection';
 import StatsSection from '@/components/sections/StatsSection';
+import CTAFinalSection from '@/components/sections/CTAFinalSection';
 import BlogPreviewSection from '@/components/sections/BlogPreviewSection';
 
 export default function Index() {
@@ -17,10 +18,11 @@ export default function Index() {
         <HeroSection />
         <AboutSection />
         <ServicesSection />
+        <StatsSection />
         <CotizadorCTASection />
         <KitPymeSection />
-        <StatsSection />
         <BlogPreviewSection />
+        <CTAFinalSection />
       </main>
       <Footer />
       <FloatingCTA />
