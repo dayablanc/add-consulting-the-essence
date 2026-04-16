@@ -117,6 +117,7 @@ export const services: Service[] = [
     idealFor: 'Estudiantes y recién graduados',
     description: 'Tu primer paso al mundo laboral. Te ayudamos a construir tu perfil profesional desde cero y a conseguir tu primera oportunidad.',
     includes: ['Creación de CV profesional', 'Perfil de LinkedIn desde cero', 'Taller de entrevistas', 'Orientación vocacional', 'Acceso a vacantes junior'],
+    showInCards: true,
     faq: [
       { q: '¿Necesito experiencia previa?', a: 'No. Este programa está diseñado específicamente para quienes inician.' },
       { q: '¿Incluye prácticas profesionales?', a: 'No directamente, pero te conectamos con empresas que buscan practicantes.' },
@@ -132,6 +133,7 @@ export const services: Service[] = [
     idealFor: 'Candidatos en proceso activo',
     description: 'Sesiones individuales de práctica con feedback profesional. Simulamos entrevistas reales del mercado costarricense para que llegues preparado.',
     includes: ['Simulación de entrevista (45 min)', 'Feedback escrito detallado', 'Tips personalizados', 'Grabación de la sesión'],
+    showInCards: true,
     faq: [
       { q: '¿Cuántas sesiones necesito?', a: 'Recomendamos al menos 2, pero una sola sesión ya marca diferencia.' },
       { q: '¿Las hacen para puestos específicos?', a: 'Sí, adaptamos la simulación al tipo de puesto al que estás aplicando.' },
