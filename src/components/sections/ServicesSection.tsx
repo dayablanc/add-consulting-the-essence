@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+
 import { services } from '@/data/services';
 import QuoteModal from '@/components/QuoteModal';
 import { Users, Scale, Building2, BookOpen, TrendingUp, Shield, Rocket, Mic, ArrowRight } from 'lucide-react';
@@ -18,7 +18,7 @@ const iconMap: Record<string, React.ReactNode> = {
 export default function ServicesSection() {
   const [quoteService, setQuoteService] = useState<string | null>(null);
 
-  const allVisible = services.filter(s => s.showInCards);
+  
   const b2bCards = services.filter(s => s.category === 'empresa' && s.showInCards);
   const b2cCards = services.filter(s => s.category === 'candidato' && s.showInCards);
 
