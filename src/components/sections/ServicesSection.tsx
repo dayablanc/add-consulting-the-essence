@@ -78,8 +78,8 @@ export default function ServicesSection() {
 
         {/* B2B Block */}
         <div className="mb-20">
-          <p className="label-mono text-aesop-clay mb-2">División Corporativa</p>
-          <p className="font-sans text-[15px] text-aesop-umber font-light mb-8">
+          <p className="font-serif text-[24px] lg:text-[28px] text-aesop-soil mb-2">División Corporativa</p>
+          <p className="font-sans text-[16px] lg:text-[18px] text-aesop-umber font-light mb-8">
             Soluciones integrales para empresas costarricenses.
           </p>
           <div>{renderAccordion(b2bServices)}</div>
@@ -90,8 +90,8 @@ export default function ServicesSection() {
 
         {/* B2C Block */}
         <div>
-          <p className="label-mono text-aesop-clay mb-2">División de Carrera</p>
-          <p className="font-sans text-[15px] text-aesop-umber font-light mb-8">
+          <p className="font-serif text-[24px] lg:text-[28px] text-aesop-soil mb-2">División de Carrera</p>
+          <p className="font-sans text-[16px] lg:text-[18px] text-aesop-umber font-light mb-8">
             Acompañamiento para profesionales y candidatos.
           </p>
           <div>{renderAccordion(b2cServices)}</div>
