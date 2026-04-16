@@ -125,6 +125,7 @@ export const services: Service[] = [
     ],
   },
   {
+    id: 'first-step',
     name: 'ADD First Step',
     slug: 'first-step',
     category: 'candidato',
