@@ -100,7 +100,7 @@ export const services: Service[] = [
     icon: 'book-open',
     idealFor: 'PYMES iniciando su formalización',
     description: 'Gestión operativa básica de recursos humanos para empresas en crecimiento.',
-    includes: ['Nómina básica', 'Contratos laborales', 'Consultas legales', 'Soporte continuo'],
+    includes: ['Creación de políticas', 'Asesoría laboral', 'Creación de documento', 'Soporte continuo'],
     showInCards: true,
     faq: [
       { q: '¿Cuánto tarda la implementación?', a: 'Entre 2 y 4 semanas según la complejidad de tu operación.' },
