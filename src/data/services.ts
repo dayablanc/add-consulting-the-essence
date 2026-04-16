@@ -109,7 +109,22 @@ export const services: Service[] = [
     ],
   },
   {
-    id: 'first-step',
+    id: 'outplacement',
+    name: 'Outplacement & Carrera',
+    slug: 'outplacement',
+    category: 'candidato',
+    icon: 'trending-up',
+    idealFor: 'Profesionales con 2+ años de experiencia',
+    description: 'Programa de aceleración profesional. Optimizamos tu perfil, preparamos tu estrategia de búsqueda y te conectamos con oportunidades reales.',
+    includes: ['Optimización de CV y LinkedIn', 'Estrategia de búsqueda personalizada', 'Preparación para entrevistas', 'Negociación salarial'],
+    showInCards: true,
+    faq: [
+      { q: '¿Cuánto dura el programa?', a: '4 semanas de acompañamiento activo, más 8 semanas de seguimiento.' },
+      { q: '¿Garantizan colocación?', a: 'No garantizamos colocación, pero sí que estarás significativamente mejor preparado.' },
+      { q: '¿Es presencial o virtual?', a: '100% virtual, con sesiones en vivo y materiales grabados.' },
+    ],
+  },
+  {
     name: 'ADD First Step',
     slug: 'first-step',
     category: 'candidato',
