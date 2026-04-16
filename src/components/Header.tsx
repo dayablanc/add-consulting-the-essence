@@ -1,68 +1,55 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-
-interface MegaMenuItem {
-  label: string;
-  description: string;
-  to: string;
-}
-
-interface NavItem {
-  label: string;
-  to?: string;
-  mega?: {
-    items: MegaMenuItem[];
-    cta?: { label: string; to: string };
-  };
-}
-
-const navItems: NavItem[] = [
-  {
-    label: 'SOY EMPRESA',
-    mega: {
-      items: [
-        { label: 'Strategic Partner', description: 'Tu HRBP externo', to: '/empresa/strategic-partner' },
-        { label: 'Corporative Essentials', description: 'Formalización y cumplimiento básico', to: '/empresa/essentials' },
-        { label: 'Reclutamiento', description: 'Encontramos al talento ideal', to: '/empresa/reclutamiento' },
-        { label: 'Auditoría y Cumplimiento', description: 'Auditoría y blindaje legal', to: '/empresa/risk-compliance' },
-      ],
-      cta: { label: 'Ir al Cotizador →', to: '/cotizador' },
-    },
-  },
-  {
-    label: 'SOY CANDIDATO',
-    mega: {
-      items: [
-        { label: 'ADD Grow', description: 'Aceleración profesional', to: '/candidato/add-grow' },
-        { label: 'ADD First Step', description: 'Todo lo que debes saber para inicial tu emprendimiento relacionado a Derecho Laboral', to: '/candidato/first-step' },
-        { label: 'Simulaciones', description: 'Práctica de entrevistas', to: '/candidato/simulaciones' },
-      ],
-      cta: { label: 'Ver Vacantes →', to: '/vacantes' },
-    },
-  },
-  {
-    label: 'RECURSOS DIGITALES',
-    mega: {
-      items: [
-        { label: 'HR Toolkit', description: 'Machotes y guías para PYMES', to: '/recursos/hr-toolkit' },
-        { label: 'Learn & Save ', description: 'Curso de estrategia laboral', to: '/recursos/career-blueprint' },
-        { label: 'ADD Insider Club', description: 'Comunidad exclusiva', to: '/recursos/insider-club' },
-      ],
-    },
-  },
-  {
-    label: 'Blog',
-    to: '/recursos/blog',
-  },
-];
+import { useI18n } from '@/i18n/context';
 
 export default function Header() {
+  const { lang, setLang, currency, setCurrency, t } = useI18n();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
   const [aboutOpen, setAboutOpen] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const navItems = [
+    {
+      label: t.nav.forCompanies,
+      mega: {
+        items: [
+          { label: 'Strategic Partner', description: t.megaDescriptions['strategic-partner'], to: '/empresa/strategic-partner' },
+          { label: 'Corporative Essentials', description: t.megaDescriptions['essentials'], to: '/empresa/essentials' },
+          { label: lang === 'es' ? 'Reclutamiento' : 'Recruitment', description: t.megaDescriptions['reclutamiento'], to: '/empresa/reclutamiento' },
+          { label: lang === 'es' ? 'Auditoría y Cumplimiento' : 'Audit & Compliance', description: t.megaDescriptions['risk-compliance'], to: '/empresa/risk-compliance' },
+        ],
+        cta: { label: t.megaCta.cotizador, to: '/cotizador' },
+      },
+    },
+    {
+      label: t.nav.forCandidates,
+      mega: {
+        items: [
+          { label: 'ADD Grow', description: t.megaDescriptions['add-grow'], to: '/candidato/add-grow' },
+          { label: 'ADD First Step', description: t.megaDescriptions['first-step'], to: '/candidato/first-step' },
+          { label: lang === 'es' ? 'Simulaciones' : 'Simulations', description: t.megaDescriptions['simulaciones'], to: '/candidato/simulaciones' },
+        ],
+        cta: { label: t.megaCta.vacantes, to: '/vacantes' },
+      },
+    },
+    {
+      label: t.nav.digitalResources,
+      mega: {
+        items: [
+          { label: 'HR Toolkit', description: t.megaDescriptions['hr-toolkit'], to: '/recursos/hr-toolkit' },
+          { label: 'Learn & Save', description: t.megaDescriptions['career-blueprint'], to: '/recursos/career-blueprint' },
+          { label: 'ADD Insider Club', description: t.megaDescriptions['insider-club'], to: '/recursos/insider-club' },
+        ],
+      },
+    },
+    {
+      label: t.nav.blog,
+      to: '/recursos/blog',
+    },
+  ];
 
   const handleMouseEnter = (label: string) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -90,7 +77,7 @@ export default function Header() {
             ADD Consulting
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6">
             {navItems.map((item) => (
               <div
                 key={item.label}
@@ -171,7 +158,7 @@ export default function Header() {
 
             <div style={{ width: '1px', height: '16px', background: 'rgba(242,237,228,0.2)' }} />
 
-            {/* Sobre ADD button */}
+            {/* About ADD button */}
             <button
               onClick={() => setAboutOpen(true)}
               className="font-sans text-[11px] font-normal uppercase tracking-[2.5px] transition-colors duration-200 cursor-pointer"
@@ -179,14 +166,66 @@ export default function Header() {
               onMouseEnter={(e) => (e.currentTarget.style.color = '#F2EDE4')}
               onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(242,237,228,0.75)')}
             >
-              Sobre ADD
+              {t.nav.aboutAdd}
             </button>
+
+            <div style={{ width: '1px', height: '16px', background: 'rgba(242,237,228,0.2)' }} />
+
+            {/* Language toggle */}
+            <div className="flex items-center gap-0 font-sans text-[11px] tracking-[1px]">
+              <button
+                onClick={() => setLang('es')}
+                className="cursor-pointer transition-colors duration-200 px-1"
+                style={{
+                  color: lang === 'es' ? 'hsl(var(--aesop-clay))' : 'rgba(242,237,228,0.45)',
+                  fontWeight: lang === 'es' ? 700 : 400,
+                }}
+              >
+                ES
+              </button>
+              <span style={{ color: 'rgba(242,237,228,0.25)' }}>|</span>
+              <button
+                onClick={() => setLang('en')}
+                className="cursor-pointer transition-colors duration-200 px-1"
+                style={{
+                  color: lang === 'en' ? 'hsl(var(--aesop-clay))' : 'rgba(242,237,228,0.45)',
+                  fontWeight: lang === 'en' ? 700 : 400,
+                }}
+              >
+                EN
+              </button>
+            </div>
+
+            {/* Currency toggle */}
+            <div className="flex items-center gap-0 font-sans text-[11px] tracking-[1px]">
+              <button
+                onClick={() => setCurrency('CRC')}
+                className="cursor-pointer transition-colors duration-200 px-1"
+                style={{
+                  color: currency === 'CRC' ? 'hsl(var(--aesop-clay))' : 'rgba(242,237,228,0.45)',
+                  fontWeight: currency === 'CRC' ? 700 : 400,
+                }}
+              >
+                ₡ CRC
+              </button>
+              <span style={{ color: 'rgba(242,237,228,0.25)' }}>|</span>
+              <button
+                onClick={() => setCurrency('USD')}
+                className="cursor-pointer transition-colors duration-200 px-1"
+                style={{
+                  color: currency === 'USD' ? 'hsl(var(--aesop-clay))' : 'rgba(242,237,228,0.45)',
+                  fontWeight: currency === 'USD' ? 700 : 400,
+                }}
+              >
+                $ USD
+              </button>
+            </div>
 
             <Link
               to="/contacto"
               className="btn-ghost-light !py-2 !px-5 !text-[11px]"
             >
-              Consúltanos
+              {t.nav.contactUs}
             </Link>
           </nav>
 
@@ -219,28 +258,16 @@ export default function Header() {
             </button>
 
             <div className="px-12 py-20 lg:py-24">
-              <p className="eyebrow-mono mb-6">· Sobre ADD Consulting</p>
-              <h2 className="font-serif text-[36px] lg:text-[44px] font-light text-aesop-soil leading-[1.1]" style={{ letterSpacing: '-1px' }}>
-                Una firma construida sobre criterio, no sobre volumen.
+              <p className="eyebrow-mono mb-6">{t.aboutDrawer.eyebrow}</p>
+              <h2 className="font-serif text-[28px] lg:text-[32px] font-light text-aesop-soil leading-[1.1]" style={{ letterSpacing: '-1px' }}>
+                {t.aboutDrawer.heading}
               </h2>
               <div style={{ borderBottom: '1px solid hsl(var(--aesop-rule))' }} className="my-8 w-14" />
-              <p className="text-body">
-                Somos una consultoría boutique especializada en Recursos Humanos y Derecho Laboral en Costa Rica.
-                No ofrecemos soluciones genéricas: cada empresa y cada profesional recibe un acompañamiento diseñado
-                para su realidad específica.
-              </p>
-              <p className="text-body mt-4">
-                Nuestro equipo combina experiencia legal con visión estratégica de negocio, siempre con un enfoque
-                humano y confidencial.
-              </p>
+              <p className="text-body">{t.aboutDrawer.body1}</p>
+              <p className="text-body mt-4">{t.aboutDrawer.body2}</p>
 
               <div className="grid grid-cols-2 gap-0 mt-12">
-                {[
-                  { label: 'Confidencialidad', desc: 'Protección total de información sensible' },
-                  { label: 'Experticia local', desc: 'Conocimiento profundo del mercado tico' },
-                  { label: 'Enfoque humano', desc: 'Las personas primero, siempre' },
-                  { label: 'Legislación CR', desc: 'Dominio del marco legal vigente' },
-                ].map((v, i) => (
+                {t.aboutDrawer.values.map((v, i) => (
                   <div
                     key={v.label}
                     className="py-6 pr-6"
@@ -262,7 +289,7 @@ export default function Header() {
                   className="btn-cta inline-block"
                   onClick={() => setAboutOpen(false)}
                 >
-                  Agenda una conversación →
+                  {t.aboutDrawer.cta}
                 </Link>
               </div>
             </div>
@@ -322,23 +349,58 @@ export default function Header() {
                 </div>
               ))}
 
-              {/* Sobre ADD in mobile */}
+              {/* About ADD in mobile */}
               <div style={{ borderBottom: '1px solid rgba(242,237,228,0.1)' }}>
                 <button
                   className="block w-full text-left py-4 font-sans text-[13px] text-aesop-parchment uppercase tracking-[2px]"
                   onClick={() => { setMobileOpen(false); setAboutOpen(true); }}
                 >
-                  Sobre ADD
+                  {t.nav.aboutAdd}
                 </button>
+              </div>
+            </div>
+
+            {/* Mobile toggles */}
+            <div className="flex items-center gap-4 mt-8">
+              {/* Language */}
+              <div className="flex items-center gap-0 font-sans text-[12px] tracking-[1px]">
+                <button
+                  onClick={() => setLang('es')}
+                  className="cursor-pointer px-1"
+                  style={{ color: lang === 'es' ? 'hsl(var(--aesop-clay))' : 'rgba(242,237,228,0.45)', fontWeight: lang === 'es' ? 700 : 400 }}
+                >ES</button>
+                <span style={{ color: 'rgba(242,237,228,0.25)' }}>|</span>
+                <button
+                  onClick={() => setLang('en')}
+                  className="cursor-pointer px-1"
+                  style={{ color: lang === 'en' ? 'hsl(var(--aesop-clay))' : 'rgba(242,237,228,0.45)', fontWeight: lang === 'en' ? 700 : 400 }}
+                >EN</button>
+              </div>
+
+              <div style={{ width: '1px', height: '14px', background: 'rgba(242,237,228,0.2)' }} />
+
+              {/* Currency */}
+              <div className="flex items-center gap-0 font-sans text-[12px] tracking-[1px]">
+                <button
+                  onClick={() => setCurrency('CRC')}
+                  className="cursor-pointer px-1"
+                  style={{ color: currency === 'CRC' ? 'hsl(var(--aesop-clay))' : 'rgba(242,237,228,0.45)', fontWeight: currency === 'CRC' ? 700 : 400 }}
+                >₡ CRC</button>
+                <span style={{ color: 'rgba(242,237,228,0.25)' }}>|</span>
+                <button
+                  onClick={() => setCurrency('USD')}
+                  className="cursor-pointer px-1"
+                  style={{ color: currency === 'USD' ? 'hsl(var(--aesop-clay))' : 'rgba(242,237,228,0.45)', fontWeight: currency === 'USD' ? 700 : 400 }}
+                >$ USD</button>
               </div>
             </div>
 
             <Link
               to="/contacto"
-              className="btn-ghost-light block text-center mt-8"
+              className="btn-ghost-light block text-center mt-6"
               onClick={() => setMobileOpen(false)}
             >
-              Consúltanos
+              {t.nav.contactUs}
             </Link>
           </div>
         </div>
