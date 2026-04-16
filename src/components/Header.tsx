@@ -20,8 +20,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   {
-    label: 'Soy Empresa',
-    dot: true,
+    label: 'Empresas',
     mega: {
       items: [
         { label: 'Strategic Partner', description: 'Tu departamento de RR.HH. externo', to: '/empresa/strategic-partner' },
@@ -33,8 +32,7 @@ const navItems: NavItem[] = [
     },
   },
   {
-    label: 'Soy Candidato',
-    dot: true,
+    label: 'Candidatos',
     mega: {
       items: [
         { label: 'ADD Grow', description: 'Aceleración profesional', to: '/candidato/add-grow' },
@@ -51,9 +49,12 @@ const navItems: NavItem[] = [
         { label: 'HR Toolkit', description: 'Machotes y guías para PYMES', to: '/recursos/hr-toolkit' },
         { label: 'Career Blueprint', description: 'Curso de estrategia laboral', to: '/recursos/career-blueprint' },
         { label: 'ADD Insider Club', description: 'Comunidad exclusiva', to: '/recursos/insider-club' },
-        { label: 'Blog', description: 'Artículos editoriales', to: '/recursos/blog' },
       ],
     },
+  },
+  {
+    label: 'Blog',
+    to: '/recursos/blog',
   },
 ];
 
@@ -96,17 +97,28 @@ export default function Header() {
               key={item.label}
               className="relative"
               onMouseEnter={() => item.mega && handleMouseEnter(item.label)}
-              onMouseLeave={handleMouseLeave}
+              onMouseLeave={item.mega ? handleMouseLeave : undefined}
             >
-              <button
-                className="font-sans text-[11px] font-normal uppercase tracking-[2.5px] transition-colors duration-200 cursor-pointer"
-                style={{ color: 'rgba(242,237,228,0.75)' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#F2EDE4')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(242,237,228,0.75)')}
-              >
-                {item.dot && <span className="text-aesop-clay mr-1">·</span>}
-                {item.label}
-              </button>
+              {item.to && !item.mega ? (
+                <Link
+                  to={item.to}
+                  className="font-sans text-[11px] font-normal uppercase tracking-[2.5px] transition-colors duration-200"
+                  style={{ color: 'rgba(242,237,228,0.75)' }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = '#F2EDE4')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(242,237,228,0.75)')}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <button
+                  className="font-sans text-[11px] font-normal uppercase tracking-[2.5px] transition-colors duration-200 cursor-pointer"
+                  style={{ color: 'rgba(242,237,228,0.75)' }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = '#F2EDE4')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(242,237,228,0.75)')}
+                >
+                  {item.label}
+                </button>
+              )}
 
               {/* Mega Menu */}
               {item.mega && activeMenu === item.label && (
