@@ -7,6 +7,7 @@ export interface Service {
   idealFor: string;
   description: string;
   includes: string[];
+  showInCards?: boolean;
   faq: { q: string; a: string }[];
 }
 
