@@ -169,15 +169,6 @@ export default function Header() {
               {t.nav.aboutAdd}
             </button>
 
-            <a
-              href="https://calendly.com/add-consulting/cita-virtual"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost-light !py-2 !px-5 !text-[11px]"
-            >
-              {lang === 'es' ? 'Agendar cita' : 'Book a meeting'}
-            </a>
-
             <Link
               to="/contacto"
               className="btn-ghost-light !py-2 !px-5 !text-[11px]"
