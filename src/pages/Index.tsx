@@ -18,9 +18,9 @@ export default function Index() {
         <HeroSection />
         <AboutSection />
         <ServicesSection />
-        <StatsSection />
-        <CotizadorCTASection />
         <KitPymeSection />
+        <CotizadorCTASection />
+        <StatsSection />
         <BlogPreviewSection />
         <CTAFinalSection />
       </main>
