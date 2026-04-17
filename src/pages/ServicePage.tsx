@@ -62,7 +62,7 @@ export default function ServicePage() {
           </div>
         </section>
 
-        {/* FAQ */}
+        {/* FAQ + CTA */}
         <section className="bg-aesop-white py-20 lg:py-28">
           <div className="max-w-[700px] mx-auto px-6 lg:px-12">
             <p className="eyebrow mb-6">· Preguntas frecuentes</p>
@@ -88,19 +88,16 @@ export default function ServicePage() {
                 </div>
               </div>
             ))}
-          </div>
-        </section>
 
-        {/* CTA */}
-        <section className="bg-aesop-parchment py-20 lg:py-28">
-          <div className="max-w-[700px] mx-auto px-6 lg:px-12 text-center">
-            <div className="flex flex-wrap justify-center gap-4">
-              <button onClick={() => setQuoteOpen(true)} className="btn-ghost">
-                Cotizar este servicio →
-              </button>
-              <Link to="/contacto" className="btn-cta">
-                Solicitar servicio →
-              </Link>
+            <div className="mt-16 text-center">
+              <div className="flex flex-wrap justify-center gap-4">
+                <button onClick={() => setQuoteOpen(true)} className="btn-ghost">
+                  Cotizar este servicio →
+                </button>
+                <Link to="/contacto" className="btn-cta">
+                  Solicitar servicio →
+                </Link>
+              </div>
             </div>
           </div>
         </section>
