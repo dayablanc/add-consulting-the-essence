@@ -83,13 +83,6 @@ export default function FloatingCTA() {
                 </select>
               </div>
               <div>
-                <label className="label-mono text-aesop-clay block mb-2">{t.floatingCta.labels.preferredCurrency}</label>
-                <select {...register('preferredCurrency')} className="aesop-input">
-                  <option value="CRC">₡ CRC — Colones</option>
-                  <option value="USD">$ USD — Dólares</option>
-                </select>
-              </div>
-              <div>
                 <label className="label-mono text-aesop-clay block mb-2">{t.floatingCta.labels.message}</label>
                 <textarea
                   {...register('message', { maxLength: { value: 1000, message: t.floatingCta.errors.messageMax } })}
