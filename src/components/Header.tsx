@@ -410,9 +410,20 @@ export default function Header() {
               </div>
             </div>
 
+            <a
+              href="https://calendly.com/add-consulting/cita-virtual"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-center mt-6 font-sans text-[12px] uppercase tracking-[2px] py-3 px-5 transition-colors duration-200"
+              style={{ backgroundColor: 'hsl(var(--aesop-clay))', color: 'hsl(var(--aesop-parchment))' }}
+              onClick={() => setMobileOpen(false)}
+            >
+              {lang === 'es' ? 'Agendar cita' : 'Book a meeting'}
+            </a>
+
             <Link
               to="/contacto"
-              className="btn-ghost-light block text-center mt-6"
+              className="btn-ghost-light block text-center mt-3"
               onClick={() => setMobileOpen(false)}
             >
               {t.nav.contactUs}
