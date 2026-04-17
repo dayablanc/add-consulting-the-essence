@@ -185,7 +185,7 @@ export default function Header() {
                   onClick={() => setLang('es')}
                   className="cursor-pointer transition-colors duration-200 text-center"
                   style={{
-                    color: lang === 'es' ? 'hsl(var(--aesop-clay))' : 'rgba(242,237,228,0.45)',
+                    color: lang === 'es' ? 'hsl(var(--aesop-parchment))' : 'rgba(242,237,228,0.45)',
                     fontWeight: lang === 'es' ? 700 : 400,
                   }}
                 >
@@ -196,7 +196,7 @@ export default function Header() {
                   onClick={() => setLang('en')}
                   className="cursor-pointer transition-colors duration-200 text-center"
                   style={{
-                    color: lang === 'en' ? 'hsl(var(--aesop-clay))' : 'rgba(242,237,228,0.45)',
+                    color: lang === 'en' ? 'hsl(var(--aesop-parchment))' : 'rgba(242,237,228,0.45)',
                     fontWeight: lang === 'en' ? 700 : 400,
                   }}
                 >
@@ -208,8 +208,9 @@ export default function Header() {
                   onClick={() => setCurrency('CRC')}
                   className="cursor-pointer transition-colors duration-200 text-center"
                   style={{
-                    color: currency === 'CRC' ? 'hsl(var(--aesop-clay))' : 'rgba(242,237,228,0.45)',
+                    color: 'hsl(var(--aesop-clay))',
                     fontWeight: currency === 'CRC' ? 700 : 400,
+                    opacity: currency === 'CRC' ? 1 : 0.6,
                   }}
                 >
                   ₡ CRC
@@ -219,8 +220,9 @@ export default function Header() {
                   onClick={() => setCurrency('USD')}
                   className="cursor-pointer transition-colors duration-200 text-center"
                   style={{
-                    color: currency === 'USD' ? 'hsl(var(--aesop-clay))' : 'rgba(242,237,228,0.45)',
+                    color: 'hsl(var(--aesop-clay))',
                     fontWeight: currency === 'USD' ? 700 : 400,
+                    opacity: currency === 'USD' ? 1 : 0.6,
                   }}
                 >
                   $ USD
