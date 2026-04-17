@@ -34,9 +34,8 @@ const App = () => (
             <Route path="/cotizador" element={<CotizadorPage />} />
             <Route path="/vacantes" element={<VacantesPage />} />
             <Route path="/recursos/blog" element={<BlogPage />} />
-            <Route path="/recursos/hr-toolkit" element={<RecursoPage />} />
-            <Route path="/recursos/career-blueprint" element={<RecursoPage />} />
             <Route path="/recursos/insider-club" element={<InsiderClubPage />} />
+            <Route path="/recursos/:slug" element={<RecursoPage />} />
             <Route path="/contacto" element={<ContactoPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
