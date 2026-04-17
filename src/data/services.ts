@@ -156,6 +156,22 @@ export const services: Service[] = [
       { q: '¿Es individual o grupal?', a: '100% individual para máximo aprovechamiento.' },
     ],
   },
+  {
+    id: 'add-grow',
+    name: 'ADD Grow',
+    slug: 'add-grow',
+    category: 'candidato',
+    icon: 'trending-up',
+    idealFor: 'Profesionales en transición o crecimiento',
+    description: 'Programa integral de aceleración profesional. Te acompañamos en cada etapa de tu desarrollo: desde diagnóstico hasta colocación en una nueva oportunidad.',
+    includes: ['Diagnóstico profesional 360°', 'Plan de carrera personalizado', 'Mentoría 1:1', 'Networking estratégico', 'Acceso a vacantes exclusivas'],
+    showInCards: true,
+    faq: [
+      { q: '¿Cuánto dura el programa?', a: '3 meses de acompañamiento intensivo con seguimiento posterior.' },
+      { q: '¿Es solo para ejecutivos?', a: 'No, está diseñado para profesionales en cualquier etapa que busquen crecer.' },
+      { q: '¿Incluye evaluaciones?', a: 'Sí, incluye assessment de competencias y plan de desarrollo.' },
+    ],
+  },
 ];
 
 export const digitalProducts = [

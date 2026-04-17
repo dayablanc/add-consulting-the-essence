@@ -265,6 +265,11 @@ const es: Translations = {
       description: 'Sesiones individuales de práctica con feedback profesional. Simulamos entrevistas reales del mercado costarricense.',
       includes: ['Simulación de entrevista (45 min)', 'Feedback escrito detallado', 'Tips personalizados', 'Grabación de la sesión'],
     },
+    'add-grow': {
+      name: 'ADD Grow',
+      description: 'Programa integral de aceleración profesional. Te acompañamos en cada etapa: desde diagnóstico hasta colocación en una nueva oportunidad.',
+      includes: ['Diagnóstico profesional 360°', 'Plan de carrera personalizado', 'Mentoría 1:1', 'Networking estratégico', 'Acceso a vacantes exclusivas'],
+    },
     reclutamiento: {
       name: 'Reclutamiento & Selección',
       description: 'Encontramos al candidato correcto para tu cultura, no solo para el puesto. Proceso completo: desde el perfil ideal hasta la contratación.',
@@ -530,6 +535,11 @@ const en: Translations = {
       name: 'Interview Simulations',
       description: 'Individual practice sessions with professional feedback. We simulate real interviews from the Costa Rican market.',
       includes: ['Interview simulation (45 min)', 'Detailed written feedback', 'Personalized tips', 'Session recording'],
+    },
+    'add-grow': {
+      name: 'ADD Grow',
+      description: 'Comprehensive professional acceleration program. We support you at every stage: from diagnosis to placement in a new opportunity.',
+      includes: ['360° professional diagnosis', 'Personalized career plan', '1:1 mentorship', 'Strategic networking', 'Access to exclusive openings'],
     },
     reclutamiento: {
       name: 'Recruitment & Selection',
