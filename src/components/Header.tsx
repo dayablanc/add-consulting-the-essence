@@ -171,54 +171,54 @@ export default function Header() {
 
             <div style={{ width: '1px', height: '16px', background: 'rgba(242,237,228,0.2)' }} />
 
-            {/* Language toggle */}
-            <div className="flex items-center gap-0 font-sans text-[11px] tracking-[1px]">
-              <button
-                onClick={() => setLang('es')}
-                className="cursor-pointer transition-colors duration-200 px-1"
-                style={{
-                  color: lang === 'es' ? 'hsl(var(--aesop-clay))' : 'rgba(242,237,228,0.45)',
-                  fontWeight: lang === 'es' ? 700 : 400,
-                }}
-              >
-                ES
-              </button>
-              <span style={{ color: 'rgba(242,237,228,0.25)' }}>|</span>
-              <button
-                onClick={() => setLang('en')}
-                className="cursor-pointer transition-colors duration-200 px-1"
-                style={{
-                  color: lang === 'en' ? 'hsl(var(--aesop-clay))' : 'rgba(242,237,228,0.45)',
-                  fontWeight: lang === 'en' ? 700 : 400,
-                }}
-              >
-                EN
-              </button>
-            </div>
-
-            {/* Currency toggle */}
-            <div className="flex items-center gap-0 font-sans text-[11px] tracking-[1px]">
-              <button
-                onClick={() => setCurrency('CRC')}
-                className="cursor-pointer transition-colors duration-200 px-1"
-                style={{
-                  color: currency === 'CRC' ? 'hsl(var(--aesop-clay))' : 'rgba(242,237,228,0.45)',
-                  fontWeight: currency === 'CRC' ? 700 : 400,
-                }}
-              >
-                ₡ CRC
-              </button>
-              <span style={{ color: 'rgba(242,237,228,0.25)' }}>|</span>
-              <button
-                onClick={() => setCurrency('USD')}
-                className="cursor-pointer transition-colors duration-200 px-1"
-                style={{
-                  color: currency === 'USD' ? 'hsl(var(--aesop-clay))' : 'rgba(242,237,228,0.45)',
-                  fontWeight: currency === 'USD' ? 700 : 400,
-                }}
-              >
-                $ USD
-              </button>
+            {/* Stacked Language + Currency toggles */}
+            <div className="flex flex-col items-start gap-0.5 font-sans text-[9px] tracking-[0.5px] leading-none">
+              <div className="flex items-center gap-0">
+                <button
+                  onClick={() => setLang('es')}
+                  className="cursor-pointer transition-colors duration-200 px-1"
+                  style={{
+                    color: lang === 'es' ? 'hsl(var(--aesop-clay))' : 'rgba(242,237,228,0.45)',
+                    fontWeight: lang === 'es' ? 700 : 400,
+                  }}
+                >
+                  ES
+                </button>
+                <span style={{ color: 'rgba(242,237,228,0.25)' }}>|</span>
+                <button
+                  onClick={() => setLang('en')}
+                  className="cursor-pointer transition-colors duration-200 px-1"
+                  style={{
+                    color: lang === 'en' ? 'hsl(var(--aesop-clay))' : 'rgba(242,237,228,0.45)',
+                    fontWeight: lang === 'en' ? 700 : 400,
+                  }}
+                >
+                  EN
+                </button>
+              </div>
+              <div className="flex items-center gap-0">
+                <button
+                  onClick={() => setCurrency('CRC')}
+                  className="cursor-pointer transition-colors duration-200 px-1"
+                  style={{
+                    color: currency === 'CRC' ? 'hsl(var(--aesop-clay))' : 'rgba(242,237,228,0.45)',
+                    fontWeight: currency === 'CRC' ? 700 : 400,
+                  }}
+                >
+                  ₡ CRC
+                </button>
+                <span style={{ color: 'rgba(242,237,228,0.25)' }}>|</span>
+                <button
+                  onClick={() => setCurrency('USD')}
+                  className="cursor-pointer transition-colors duration-200 px-1"
+                  style={{
+                    color: currency === 'USD' ? 'hsl(var(--aesop-clay))' : 'rgba(242,237,228,0.45)',
+                    fontWeight: currency === 'USD' ? 700 : 400,
+                  }}
+                >
+                  $ USD
+                </button>
+              </div>
             </div>
 
             <a
