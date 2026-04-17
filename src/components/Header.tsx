@@ -169,6 +169,28 @@ export default function Header() {
               {t.nav.aboutAdd}
             </button>
 
+            <a
+              href="https://calendly.com/add-consulting/cita-virtual"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-sans text-[11px] font-normal uppercase tracking-[2.5px] py-2 px-5 transition-all duration-200 cursor-pointer"
+              style={{
+                backgroundColor: 'hsl(var(--aesop-clay))',
+                color: 'hsl(var(--aesop-parchment))',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'hsl(var(--aesop-clay-hover))')}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'hsl(var(--aesop-clay))')}
+            >
+              {lang === 'es' ? 'Agendar cita' : 'Book a meeting'}
+            </a>
+
+            <Link
+              to="/contacto"
+              className="btn-ghost-light !py-2 !px-5 !text-[11px]"
+            >
+              {t.nav.contactUs}
+            </Link>
+
             <div style={{ width: '1px', height: '16px', background: 'rgba(242,237,228,0.2)' }} />
 
             {/* Stacked Language + Currency toggles — aligned columns */}
@@ -220,28 +242,6 @@ export default function Header() {
                 </button>
               </div>
             </div>
-
-            <a
-              href="https://calendly.com/add-consulting/cita-virtual"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-sans text-[11px] font-normal uppercase tracking-[2.5px] py-2 px-5 transition-all duration-200 cursor-pointer"
-              style={{
-                backgroundColor: 'hsl(var(--aesop-clay))',
-                color: 'hsl(var(--aesop-parchment))',
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'hsl(var(--aesop-clay-hover))')}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'hsl(var(--aesop-clay))')}
-            >
-              {lang === 'es' ? 'Agendar cita' : 'Book a meeting'}
-            </a>
-
-            <Link
-              to="/contacto"
-              className="btn-ghost-light !py-2 !px-5 !text-[11px]"
-            >
-              {t.nav.contactUs}
-            </Link>
           </nav>
 
           <button
