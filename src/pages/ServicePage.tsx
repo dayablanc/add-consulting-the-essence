@@ -95,12 +95,12 @@ export default function ServicePage() {
         <section className="bg-aesop-parchment py-20 lg:py-28">
           <div className="max-w-[700px] mx-auto px-6 lg:px-12 text-center">
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/contacto" className="btn-cta">
-                Solicitar servicio →
-              </Link>
               <button onClick={() => setQuoteOpen(true)} className="btn-ghost">
                 Cotizar este servicio →
               </button>
+              <Link to="/contacto" className="btn-cta">
+                Solicitar servicio →
+              </Link>
             </div>
           </div>
         </section>
