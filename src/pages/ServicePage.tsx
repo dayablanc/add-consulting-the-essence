@@ -98,9 +98,9 @@ export default function ServicePage() {
               <button onClick={() => setQuoteOpen(true)} className="btn-cta">
                 Cotizar este servicio →
               </button>
-              <button onClick={() => setQuoteOpen(true)} className="btn-ghost">
-                Tengo una pregunta →
-              </button>
+              <Link to="/contacto" className="btn-ghost">
+                Solicitar servicio →
+              </Link>
             </div>
           </div>
         </section>
