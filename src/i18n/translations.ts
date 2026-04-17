@@ -536,6 +536,11 @@ const en: Translations = {
       description: 'Individual practice sessions with professional feedback. We simulate real interviews from the Costa Rican market.',
       includes: ['Interview simulation (45 min)', 'Detailed written feedback', 'Personalized tips', 'Session recording'],
     },
+    'add-grow': {
+      name: 'ADD Grow',
+      description: 'Comprehensive professional acceleration program. We support you at every stage: from diagnosis to placement in a new opportunity.',
+      includes: ['360° professional diagnosis', 'Personalized career plan', '1:1 mentorship', 'Strategic networking', 'Access to exclusive openings'],
+    },
     reclutamiento: {
       name: 'Recruitment & Selection',
       description: 'We find the right candidate for your culture, not just for the position. Complete process: from the ideal profile to hiring.',
