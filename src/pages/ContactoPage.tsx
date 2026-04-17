@@ -18,7 +18,7 @@ export default function ContactoPage() {
     <>
       <Header />
       <main className="min-h-screen pt-[64px]">
-        <section className="bg-aesop-bark py-12 lg:py-16">
+        <section className="bg-aesop-bark py-6 lg:py-8">
           <div className="max-w-[700px] mx-auto px-6 lg:px-12">
             <p className="eyebrow-mono text-aesop-clay mb-4">· Contacto</p>
             <h1 className="text-aesop-parchment text-[40px] lg:text-[56px] font-serif font-light">Hablemos</h1>

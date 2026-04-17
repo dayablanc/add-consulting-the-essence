@@ -30,7 +30,7 @@ export default function ServicePage() {
       <Header />
       <main className="min-h-screen pt-[64px]">
         {/* Hero */}
-        <section className="bg-aesop-bark py-12 lg:py-16">
+        <section className="bg-aesop-bark py-6 lg:py-8">
           <div className="max-w-[900px] mx-auto px-6 lg:px-12">
             <p className="eyebrow-mono text-aesop-clay mb-4">
               · {service.category === 'empresa' ? 'Para empresas' : 'Para candidatos'}
