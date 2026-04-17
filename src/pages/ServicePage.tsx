@@ -41,7 +41,7 @@ export default function ServicePage() {
         </section>
 
         {/* Description */}
-        <section className="bg-aesop-white py-8 lg:py-10">
+        <section className="bg-aesop-white py-6 lg:py-8">
           <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
             <p className="text-body text-[16px] leading-[1.9]">{service.description}</p>
           </div>
