@@ -8,20 +8,20 @@ export default function CTAFinalSection() {
 
   return (
     <>
-      <section className="py-20 lg:py-28" style={{ backgroundColor: 'hsl(var(--aesop-bark))' }}>
+      <section className="py-20 lg:py-28" style={{ backgroundColor: 'hsl(var(--aesop-cream))' }}>
         <div className="max-w-[800px] mx-auto section-padding text-center">
           <h2
-            className="font-serif text-[28px] md:text-[32px] font-light text-aesop-parchment mb-6"
+            className="font-serif text-[28px] md:text-[32px] font-light text-aesop-soil mb-6"
             style={{ letterSpacing: '-0.5px', fontStyle: 'normal' }}
           >
             {t.ctaFinal.heading}
           </h2>
-          <p className="font-sans text-[16px] font-light mb-10 max-w-[480px] mx-auto" style={{ color: 'hsla(37, 33%, 92%, 0.8)' }}>
+          <p className="font-sans text-[16px] font-light mb-10 max-w-[480px] mx-auto text-aesop-umber">
             {t.ctaFinal.body}
           </p>
           <button
             onClick={() => setOpen(true)}
-            className="font-sans text-[12px] font-normal uppercase tracking-[2.5px] px-10 py-4 bg-aesop-parchment text-aesop-soil cursor-pointer transition-all duration-200 hover:bg-aesop-white"
+            className="font-sans text-[12px] font-normal uppercase tracking-[2.5px] px-10 py-4 bg-aesop-clay text-aesop-parchment cursor-pointer transition-all duration-200 hover:bg-aesop-soil"
           >
             {t.ctaFinal.cta}
           </button>
