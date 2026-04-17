@@ -8,14 +8,8 @@ import { useToast } from '@/hooks/use-toast';
 export default function ContactoPage() {
   const { register, handleSubmit, reset } = useForm();
   const { toast } = useToast();
-  const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDay, setSelectedDay] = useState<number | null>(null);
   const [selectedSlot, setSelectedSlot] = useState('');
-
-  const onSubmit = () => {
-    toast({ title: '¡Listo!', description: 'Te contactaremos en menos de 24 horas.' });
-    reset();
-  };
 
   const days = Array.from({ length: 21 }, (_, i) => i + 1);
   const slots = ['9:00', '10:00', '11:00', '14:00', '15:00', '16:00'];
