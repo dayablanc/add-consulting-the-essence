@@ -33,8 +33,21 @@ export default function ContactoPage() {
 
         <section className="bg-aesop-white py-20 lg:py-28">
           <div className="max-w-[560px] mx-auto px-6 lg:px-12">
-            <h2 className="font-serif italic text-[32px] text-aesop-soil mb-8">Envíanos un mensaje</h2>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            <h2 className="font-serif italic text-[32px] text-aesop-soil mb-3">Envíanos un mensaje y agenda tu cita</h2>
+            <p className="text-body mb-8">Completa tus datos y reserva un espacio de 30 minutos sin compromiso.</p>
+            <form
+              onSubmit={handleSubmit(() => {
+                if (!selectedDay || !selectedSlot) {
+                  toast({ title: 'Selecciona fecha y horario', description: 'Por favor elige un día y una hora para tu cita.' });
+                  return;
+                }
+                toast({ title: '¡Listo!', description: `Tu cita queda para el ${selectedDay} de abril a las ${selectedSlot}. Te confirmaremos por correo.` });
+                reset();
+                setSelectedDay(null);
+                setSelectedSlot('');
+              })}
+              className="space-y-6"
+            >
               <div>
                 <label className="label-mono text-aesop-clay block mb-2">Nombre</label>
                 <input {...register('name')} className="aesop-input" placeholder="Tu nombre" required />
@@ -55,31 +68,21 @@ export default function ContactoPage() {
                 <label className="label-mono text-aesop-clay block mb-2">Mensaje</label>
                 <textarea {...register('message')} className="aesop-input min-h-[120px] resize-none" placeholder="¿Cómo podemos ayudarte?" />
               </div>
-              <button type="submit" className="btn-cta w-full">Enviar consulta</button>
-            </form>
-          </div>
-        </section>
 
-        {/* Calendar section */}
-        <section className="bg-aesop-parchment py-20 lg:py-28">
-          <div className="max-w-[560px] mx-auto px-6 lg:px-12 text-center">
-            <p className="eyebrow mb-4">· Agenda directamente</p>
-            <h2 className="font-serif italic text-[32px] text-aesop-soil mb-6">Agenda una llamada exploratoria</h2>
-            <p className="text-body mb-8">30 minutos sin compromiso para entender tu situación.</p>
+              {/* Calendar embedded */}
+              <div className="pt-4" style={{ borderTop: '1px solid hsl(var(--aesop-rule))' }}>
+                <p className="eyebrow-mono text-aesop-clay mb-2 mt-6">· Agenda tu cita</p>
+                <h3 className="font-serif italic text-[22px] text-aesop-soil mb-2">Selecciona fecha y horario</h3>
+                <p className="text-body text-[14px] mb-6">Llamada exploratoria de 30 minutos.</p>
 
-            {!showCalendar ? (
-              <button onClick={() => setShowCalendar(true)} className="btn-cta">
-                Seleccionar horario
-              </button>
-            ) : (
-              <div className="text-left" style={{ border: '1px solid hsl(var(--aesop-rule))', padding: '32px' }}>
-                <p className="label-mono text-aesop-clay mb-4">Selecciona un día (Abril 2025)</p>
+                <p className="label-mono text-aesop-clay mb-3">Día (Abril 2025)</p>
                 <div className="grid grid-cols-7 gap-2 mb-6">
                   {days.map(d => (
                     <button
+                      type="button"
                       key={d}
                       onClick={() => setSelectedDay(d)}
-                      className="w-10 h-10 flex items-center justify-center font-mono text-[13px] transition-colors duration-200 cursor-pointer"
+                      className="aspect-square flex items-center justify-center font-mono text-[13px] transition-colors duration-200 cursor-pointer"
                       style={{
                         background: selectedDay === d ? 'hsl(var(--aesop-clay))' : 'transparent',
                         color: selectedDay === d ? 'hsl(var(--aesop-parchment))' : 'hsl(var(--aesop-soil))',
@@ -93,10 +96,11 @@ export default function ContactoPage() {
 
                 {selectedDay && (
                   <>
-                    <p className="label-mono text-aesop-clay mb-4">Selecciona un horario</p>
-                    <div className="grid grid-cols-3 gap-2 mb-6">
+                    <p className="label-mono text-aesop-clay mb-3">Horario</p>
+                    <div className="grid grid-cols-3 gap-2">
                       {slots.map(s => (
                         <button
+                          type="button"
                           key={s}
                           onClick={() => setSelectedSlot(s)}
                           className="py-3 font-mono text-[13px] transition-colors duration-200 cursor-pointer"
@@ -110,21 +114,18 @@ export default function ContactoPage() {
                         </button>
                       ))}
                     </div>
-                    {selectedSlot && (
-                      <button
-                        className="btn-cta w-full"
-                        onClick={() => {
-                          toast({ title: '¡Agendado!', description: `Tu llamada queda para el ${selectedDay} de abril a las ${selectedSlot}.` });
-                          setShowCalendar(false);
-                        }}
-                      >
-                        Confirmar — {selectedDay} abril, {selectedSlot}
-                      </button>
-                    )}
                   </>
                 )}
+
+                {selectedDay && selectedSlot && (
+                  <p className="label-mono text-aesop-soil mt-6 text-center">
+                    Cita seleccionada: {selectedDay} abril · {selectedSlot}
+                  </p>
+                )}
               </div>
-            )}
+
+              <button type="submit" className="btn-cta w-full">Enviar y agendar cita</button>
+            </form>
           </div>
         </section>
       </main>
