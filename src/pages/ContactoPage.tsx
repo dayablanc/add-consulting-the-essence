@@ -59,8 +59,13 @@ export default function ContactoPage() {
                 </select>
               </div>
               <div>
-                <label className="label-mono text-aesop-clay block mb-2">Mensaje</label>
-                <textarea {...register('message')} className="aesop-input min-h-[120px] resize-none" placeholder="¿Cómo podemos ayudarte?" />
+                <label className="label-mono text-aesop-clay block mb-2">Tema de la reunión</label>
+                <input
+                  {...register('message')}
+                  className="aesop-input"
+                  placeholder="Ej: Consulta sobre contratación de personal"
+                  maxLength={80}
+                />
               </div>
 
               {/* Calendar embedded */}
