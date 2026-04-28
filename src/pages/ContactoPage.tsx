@@ -293,7 +293,7 @@ export default function ContactoPage() {
                 </button>
 
                 {/* Botón 2: agendar en Google — siempre visible */}
-                
+                <a
                   href={GOOGLE_CALENDAR_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
