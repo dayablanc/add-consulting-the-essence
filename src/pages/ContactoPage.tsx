@@ -9,7 +9,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 // ─── CONFIGURACIÓN ───────────────────────────────────────────────
 // Pegá aquí tu link de Google Calendar Appointment Scheduling
 // Instrucciones abajo para obtenerlo
-const GOOGLE_CALENDAR_LINK = "https://calendar.app.google/TU_LINK_AQUI";
+const GOOGLE_CALENDAR_LINK = "https://calendar.app.google/bxDbFuCjsLbgD7qZ9";
 
 // ─── HELPERS ─────────────────────────────────────────────────────
 const MONTH_NAMES = [
