@@ -108,11 +108,14 @@ export default function ContactoPage() {
   const days = Array.from({ length: totalDays }, (_, i) => i + 1);
 
   // ── Abrir Google Calendar al confirmar ─────────────────────────
-  function openGoogleCalendar(day: number, slot: string) {
-    // Si tenés un link de Google Calendar Appointment, abrilo
-    // Podés también pre-rellenar la fecha con parámetros si usás Calendly
-    if (GOOGLE_CALENDAR_LINK.includes("TU_LINK_AQUI")) return;
-    window.open(GOOGLE_CALENDAR_LINK, "_blank");
+ function openGoogleCalendar(day: number, slot: string) {
+  if (GOOGLE_CALENDAR_LINK.includes('TU_LINK_AQUI')) return;
+  const a = document.createElement('a');
+  a.href = GOOGLE_CALENDAR_LINK;
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
+  a.click();
+}
   }
 
   // ── Submit ─────────────────────────────────────────────────────
