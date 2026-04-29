@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { services } from '@/data/services';
 import { useI18n } from '@/i18n/context';
 import QuoteModal from '@/components/QuoteModal';
-import { Users, Scale, Building2, BookOpen, TrendingUp, Shield, Rocket, Mic, ArrowRight, ChevronDown } from 'lucide-react';
+import { Users, Scale, Building2, BookOpen, TrendingUp, Shield, Rocket, Mic, FileText, ArrowRight, ChevronDown } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -16,6 +16,7 @@ const iconMap: Record<string, React.ReactNode> = {
   building: <Building2 className="w-6 h-6 text-aesop-clay" strokeWidth={1.5} />,
   'book-open': <BookOpen className="w-6 h-6 text-aesop-clay" strokeWidth={1.5} />,
   'trending-up': <TrendingUp className="w-6 h-6 text-aesop-clay" strokeWidth={1.5} />,
+  'file-text': <FileText className="w-6 h-6 text-aesop-clay" strokeWidth={1.5} />,
   shield: <Shield className="w-6 h-6 text-aesop-clay" strokeWidth={1.5} />,
   rocket: <Rocket className="w-6 h-6 text-aesop-clay" strokeWidth={1.5} />,
   mic: <Mic className="w-6 h-6 text-aesop-clay" strokeWidth={1.5} />,
@@ -27,6 +28,7 @@ const iconMapSmall: Record<string, React.ReactNode> = {
   building: <Building2 className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
   'book-open': <BookOpen className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
   'trending-up': <TrendingUp className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
+  'file-text': <FileText className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
   shield: <Shield className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
   rocket: <Rocket className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
   mic: <Mic className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
