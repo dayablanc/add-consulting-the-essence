@@ -160,7 +160,9 @@ export default function ServicePage() {
                   </div>
 
                   <p className="font-sans text-[11px] text-aesop-taupe text-center mt-4 leading-relaxed">
-                    Tras la compra agendarás tu cita según disponibilidad.
+                    {service.postPurchaseFormUrl
+                      ? 'Tras la compra completarás un breve formulario con tu información.'
+                      : 'Tras la compra agendarás tu cita según disponibilidad.'}
                   </p>
                 </div>
               </aside>
