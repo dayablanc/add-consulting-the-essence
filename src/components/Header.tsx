@@ -73,8 +73,9 @@ export default function Header() {
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-aesop-bark" style={{ borderBottom: '1px solid rgba(242,237,228,0.1)' }}>
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 flex items-center justify-between h-[64px]">
-          <Link to="/" className="font-serif text-[20px] font-light text-aesop-parchment tracking-tight">
-            ADD Consulting
+          <Link to="/" className="font-serif text-[18px] lg:text-[20px] font-light text-aesop-parchment tracking-tight leading-[1.1] block">
+            ADD<br />
+            <span className="text-[10px] lg:text-[11px] font-sans tracking-[2px] opacity-70">PEOPLE ADVISORY</span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6">
