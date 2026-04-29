@@ -128,6 +128,7 @@ export const services: Service[] = [
     description: 'Damos a tu CV el formato válido para sistemas ATS, asegurando que tu perfil sea legible por los filtros automáticos de las empresas.',
     includes: ['Reestructuración de CV en formato ATS', 'Optimización de palabras clave', 'Limpieza de formato y diseño', 'Entrega en formato editable'],
     showInCards: true,
+    priceCRC: 6000,
     faq: [
       { q: '¿Qué es un formato ATS?', a: 'Es la estructura que utilizan los sistemas automatizados de reclutamiento para leer y filtrar CVs antes de que un humano los revise.' },
       { q: '¿En cuánto tiempo recibo mi CV?', a: 'Entre 3 y 5 días hábiles después de recibir tu información actual.' },
@@ -144,6 +145,7 @@ export const services: Service[] = [
     description: 'Tu primer paso al mundo laboral. Te ayudamos a construir tu perfil profesional desde cero y a conseguir tu primera oportunidad.',
     includes: ['Creación de CV profesional', 'Perfil de LinkedIn desde cero', 'Taller de entrevistas', 'Orientación vocacional', 'Acceso a vacantes junior'],
     showInCards: true,
+    priceCRC: 16000,
     faq: [
       { q: '¿Necesito experiencia previa?', a: 'No. Este programa está diseñado específicamente para quienes inician.' },
       { q: '¿Incluye prácticas profesionales?', a: 'No directamente, pero te conectamos con empresas que buscan practicantes.' },
@@ -160,6 +162,11 @@ export const services: Service[] = [
     description: 'Sesiones individuales de práctica con feedback profesional. Simulamos entrevistas reales del mercado costarricense para que llegues preparado.',
     includes: ['Simulación de entrevista (45 min)', 'Feedback escrito detallado', 'Tips personalizados', 'Grabación de la sesión'],
     showInCards: true,
+    priceVariants: [
+      { id: 'sim-1', label: '1 sesión', priceCRC: 10000 },
+      { id: 'sim-2', label: '2 sesiones', priceCRC: 15000 },
+      { id: 'sim-3', label: '3 sesiones', priceCRC: 20000 },
+    ],
     faq: [
       { q: '¿Cuántas sesiones necesito?', a: 'Recomendamos al menos 2, pero una sola sesión ya marca diferencia.' },
       { q: '¿Las hacen para puestos específicos?', a: 'Sí, adaptamos la simulación al tipo de puesto al que estás aplicando.' },
@@ -176,6 +183,7 @@ export const services: Service[] = [
     description: 'Programa integral de aceleración profesional. Te acompañamos en cada etapa de tu desarrollo: desde diagnóstico hasta colocación en una nueva oportunidad.',
     includes: ['Diagnóstico profesional 360°', 'Plan de carrera personalizado', 'Mentoría 1:1', 'Networking estratégico', 'Acceso a vacantes exclusivas'],
     showInCards: true,
+    priceCRC: 23000,
     faq: [
       { q: '¿Cuánto dura el programa?', a: '3 meses de acompañamiento intensivo con seguimiento posterior.' },
       { q: '¿Es solo para ejecutivos?', a: 'No, está diseñado para profesionales en cualquier etapa que busquen crecer.' },
