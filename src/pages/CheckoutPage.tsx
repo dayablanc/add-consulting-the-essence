@@ -97,8 +97,10 @@ export default function CheckoutPage() {
                     <p className="label-mono text-aesop-clay mb-2">· Importante</p>
                     <p className="text-body text-[14px]">
                       El pago en línea aún no está habilitado. Al confirmar, te llevaremos
-                      al formulario de agendamiento para coordinar tu sesión y enviarte
-                      las instrucciones de pago.
+                      a los siguientes pasos: para servicios con cita, al formulario de
+                      agendamiento; para Modificación de CV, al formulario donde nos
+                      compartirás tu información. Te enviaremos las instrucciones de pago
+                      por correo.
                     </p>
                   </div>
                 </div>
