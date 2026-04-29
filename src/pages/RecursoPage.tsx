@@ -1,7 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingCTA from '@/components/FloatingCTA';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { digitalProducts } from '@/data/services';
 
 export default function RecursoPage() {
@@ -36,7 +36,7 @@ export default function RecursoPage() {
           <div className="max-w-[560px] mx-auto px-6 lg:px-12 text-center">
             <p className="text-body text-[16px]">{product.description}</p>
             <p className="font-mono text-[28px] text-aesop-soil mt-8">{product.price}</p>
-            <button className="btn-cta mt-8">Obtener →</button>
+            <Link to={`/contacto?service=${encodeURIComponent(product.slug)}`} className="btn-cta mt-8 inline-block">Obtener · Agendar cita →</Link>
           </div>
         </section>
       </main>
