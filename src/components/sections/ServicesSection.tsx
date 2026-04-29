@@ -49,6 +49,8 @@ export default function ServicesSection() {
 
   const renderServiceCard = (s: typeof services[0]) => {
     const text = getServiceText(s);
+    const isB2C = s.category === 'candidato';
+    const servicePath = `/${s.category}/${s.slug}`;
     return (
       <div
         key={s.id}
@@ -66,13 +68,23 @@ export default function ServicesSection() {
             {text.description}
           </p>
         </div>
-        <button
-          onClick={() => setQuoteService(text.name)}
-          className="mt-6 inline-flex items-center gap-2 font-sans text-[12px] uppercase tracking-[2px] text-aesop-clay cursor-pointer transition-all duration-200 group-hover:gap-3"
-        >
-          {t.services.requestInfo}
-          <ArrowRight size={14} strokeWidth={1.5} />
-        </button>
+        {isB2C ? (
+          <Link
+            to={servicePath}
+            className="mt-6 inline-flex items-center gap-2 font-sans text-[12px] uppercase tracking-[2px] text-aesop-clay cursor-pointer transition-all duration-200 group-hover:gap-3"
+          >
+            Obtener servicio
+            <ArrowRight size={14} strokeWidth={1.5} />
+          </Link>
+        ) : (
+          <button
+            onClick={() => setQuoteService(text.name)}
+            className="mt-6 inline-flex items-center gap-2 font-sans text-[12px] uppercase tracking-[2px] text-aesop-clay cursor-pointer transition-all duration-200 group-hover:gap-3"
+          >
+            {t.services.requestInfo}
+            <ArrowRight size={14} strokeWidth={1.5} />
+          </button>
+        )}
       </div>
     );
   };
