@@ -11,8 +11,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {/* Col 1 */}
           <div>
-            <Link to="/" className="font-serif text-[18px] font-light text-aesop-parchment tracking-tight">
-              ADD Consulting
+            <Link to="/" className="font-serif text-[18px] font-light text-aesop-parchment tracking-tight leading-[1.1] block">
+              ADD<br />
+              <span className="text-[10px] font-sans tracking-[2px] opacity-70">PEOPLE ADVISORY</span>
             </Link>
             <p className="font-sans text-[13px] mt-2" style={{ color: 'rgba(242,237,228,0.5)' }}>
               {t.footer.tagline}
