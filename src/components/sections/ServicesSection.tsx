@@ -162,13 +162,23 @@ export default function ServicesSection() {
                         ))}
                       </ul>
                     )}
-                    <button
-                      onClick={() => setQuoteService(text.name)}
-                      className="inline-flex items-center gap-2 font-sans text-[12px] uppercase tracking-[2px] text-aesop-clay cursor-pointer transition-all duration-200 hover:gap-3"
-                    >
-                      {t.services.requestInfo}
-                      <ArrowRight size={14} strokeWidth={1.5} />
-                    </button>
+                    {s.category === 'candidato' ? (
+                      <Link
+                        to={`/${s.category}/${s.slug}`}
+                        className="inline-flex items-center gap-2 font-sans text-[12px] uppercase tracking-[2px] text-aesop-clay cursor-pointer transition-all duration-200 hover:gap-3"
+                      >
+                        Obtener servicio
+                        <ArrowRight size={14} strokeWidth={1.5} />
+                      </Link>
+                    ) : (
+                      <button
+                        onClick={() => setQuoteService(text.name)}
+                        className="inline-flex items-center gap-2 font-sans text-[12px] uppercase tracking-[2px] text-aesop-clay cursor-pointer transition-all duration-200 hover:gap-3"
+                      >
+                        {t.services.requestInfo}
+                        <ArrowRight size={14} strokeWidth={1.5} />
+                      </button>
+                    )}
                   </AccordionContent>
                 </AccordionItem>
               );
