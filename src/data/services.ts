@@ -131,6 +131,7 @@ export const services: Service[] = [
     includes: ['Reestructuración de CV en formato ATS', 'Optimización de palabras clave', 'Limpieza de formato y diseño', 'Entrega en formato editable'],
     showInCards: true,
     priceCRC: 6000,
+    postPurchaseFormUrl: 'https://forms.gle/Vo6VDxgqk2q5BFyj7',
     faq: [
       { q: '¿Qué es un formato ATS?', a: 'Es la estructura que utilizan los sistemas automatizados de reclutamiento para leer y filtrar CVs antes de que un humano los revise.' },
       { q: '¿En cuánto tiempo recibo mi CV?', a: 'Entre 3 y 5 días hábiles después de recibir tu información actual.' },
