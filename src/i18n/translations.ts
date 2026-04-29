@@ -350,7 +350,7 @@ const es: Translations = {
     tagline: 'Consultoría boutique de RR.HH. y Derecho Laboral',
     navTitle: 'Navegación',
     contactTitle: 'Contacto',
-    copyright: '© 2025 ADD Consulting · Costa Rica · Política de privacidad',
+    copyright: '© 2025 ADD · Costa Rica · Política de privacidad',
     currencyNote: 'Precios en CRC son referenciales según tipo de cambio del día',
     links: [
       { label: 'Soy Empresa', to: '/empresa' },
