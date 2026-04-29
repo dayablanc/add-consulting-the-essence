@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import { useCart } from '@/cart/CartContext';
 import { useI18n } from '@/i18n/context';
 import { formatPriceCRC } from '@/i18n/constants';
+import { services } from '@/data/services';
 
 export default function CheckoutPage() {
   const { items, totalCRC, clear } = useCart();
@@ -17,12 +18,34 @@ export default function CheckoutPage() {
     if (items.length === 0) return;
     setSubmitting(true);
     // Simulación de pago — en el futuro integrar Stripe.
-    const slugs = items.map(i => i.slug).join(',');
     setTimeout(() => {
+      // Separar items que requieren un formulario externo (ej. Modificación de CV)
+      // de los que requieren agendar una cita.
+      const formUrls: string[] = [];
+      const bookingSlugs: string[] = [];
+      for (const item of items) {
+        const svc = services.find((s) => s.id === item.serviceId);
+        if (svc?.postPurchaseFormUrl) {
+          formUrls.push(svc.postPurchaseFormUrl);
+        } else {
+          bookingSlugs.push(item.slug);
+        }
+      }
       clear();
-      navigate(`/contacto?service=${encodeURIComponent(slugs)}&purchased=1`);
+      // Abrir formularios externos en nuevas pestañas.
+      formUrls.forEach((url) => window.open(url, '_blank', 'noopener,noreferrer'));
+
+      if (bookingSlugs.length > 0) {
+        navigate(`/contacto?service=${encodeURIComponent(bookingSlugs.join(','))}&purchased=1`);
+      } else if (formUrls.length > 0) {
+        // Solo formularios: redirigir al primero también en la pestaña actual como fallback.
+        window.location.href = formUrls[0];
+      } else {
+        navigate('/');
+      }
     }, 600);
   };
+
 
   return (
     <>
@@ -74,8 +97,10 @@ export default function CheckoutPage() {
                     <p className="label-mono text-aesop-clay mb-2">· Importante</p>
                     <p className="text-body text-[14px]">
                       El pago en línea aún no está habilitado. Al confirmar, te llevaremos
-                      al formulario de agendamiento para coordinar tu sesión y enviarte
-                      las instrucciones de pago.
+                      a los siguientes pasos: para servicios con cita, al formulario de
+                      agendamiento; para Modificación de CV, al formulario donde nos
+                      compartirás tu información. Te enviaremos las instrucciones de pago
+                      por correo.
                     </p>
                   </div>
                 </div>
