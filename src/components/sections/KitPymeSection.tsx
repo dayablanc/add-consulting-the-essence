@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { digitalProducts } from '@/data/services';
 import { useI18n } from '@/i18n/context';
 import { formatPrice } from '@/i18n/constants';
@@ -44,7 +45,7 @@ export default function KitPymeSection() {
                   {formatPrice(priceUSD, currency)}
                 </p>
 
-                <button className="btn-ghost-light">{t.kitPyme.obtain}</button>
+                <Link to={`/contacto?service=${encodeURIComponent(p.slug)}`} className="btn-ghost-light inline-block">{t.kitPyme.obtain}</Link>
               </div>
             );
           })}

@@ -4,16 +4,31 @@ import { useForm } from 'react-hook-form';
 import { useToast } from '@/hooks/use-toast';
 import { useI18n } from '@/i18n/context';
 
+const TARGET_EMAIL = 'addconsultingcr@gmail.com';
+
 export default function FloatingCTA() {
   const { t } = useI18n();
   const [open, setOpen] = useState(false);
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const { toast } = useToast();
 
-  const onSubmit = () => {
+  const onSubmit = (data: any) => {
+    const subject = `Consulta desde la web — ${data.name}`;
+    const bodyLines = [
+      `Nombre: ${data.name}`,
+      `Empresa: ${data.company || '-'}`,
+      `Correo: ${data.email}`,
+      `Servicio de interés: ${data.service || '-'}`,
+      '',
+      'Mensaje:',
+      data.message || '-',
+    ];
+    const mailto = `mailto:${TARGET_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+    window.location.href = mailto;
+
     toast({
-      title: t.floatingCta.successTitle,
-      description: t.floatingCta.successMessage,
+      title: 'Abriendo tu cliente de correo',
+      description: `Tu consulta se enviará a ${TARGET_EMAIL}.`,
     });
     reset();
     setOpen(false);
@@ -40,10 +55,13 @@ export default function FloatingCTA() {
               <X size={18} strokeWidth={1} />
             </button>
 
-            <h3 className="font-serif text-[28px] font-light text-aesop-soil mb-2 mt-8" style={{ fontStyle: 'italic' }}>
+            <p className="eyebrow-mono mb-3 mt-8">· Escríbenos por correo</p>
+            <h3 className="font-serif text-[28px] font-light text-aesop-soil mb-2" style={{ fontStyle: 'italic' }}>
               {t.floatingCta.title}
             </h3>
-            <p className="text-body mb-8">{t.floatingCta.subtitle}</p>
+            <p className="text-body mb-8">
+              Completa el formulario y se enviará a <span className="font-mono text-[12px] text-aesop-clay">{TARGET_EMAIL}</span>. Te responderemos en menos de 24 horas.
+            </p>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
