@@ -195,7 +195,7 @@ const es: Translations = {
     digitalResources: 'RECURSOS DIGITALES',
     blog: 'Blog',
     aboutAdd: 'Sobre ADD',
-    contactUs: 'ENVÍA TU CONSULTA',
+    contactUs: 'AGENDA UNA CITA',
   },
 
   langBanner: {
@@ -364,7 +364,7 @@ const es: Translations = {
   floatingCta: {
     buttonLabel: 'ENVÍA TU CONSULTA',
     title: 'ENVÍA TU CONSULTA',
-    subtitle: 'Déjanos tus datos y te contactamos en menos de 24 horas.',
+    subtitle: 'Déjanos tus datos y se enviarán a nuestro correo. Te contactamos en menos de 24 horas.',
     labels: {
       name: 'Nombre',
       company: 'Empresa',
