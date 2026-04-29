@@ -1,3 +1,9 @@
+export interface PriceVariant {
+  id: string;
+  label: string;
+  priceCRC: number;
+}
+
 export interface Service {
   id: string;
   name: string;
@@ -8,6 +14,10 @@ export interface Service {
   description: string;
   includes: string[];
   showInCards?: boolean;
+  /** Fixed price in CRC for B2C services. B2B services remain quote-based. */
+  priceCRC?: number;
+  /** Optional pricing variants (e.g. "1 sesión / 2 sesiones / 3 sesiones"). */
+  priceVariants?: PriceVariant[];
   faq: { q: string; a: string }[];
 }
 
