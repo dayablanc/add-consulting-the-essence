@@ -18,6 +18,8 @@ export interface Service {
   priceCRC?: number;
   /** Optional pricing variants (e.g. "1 sesión / 2 sesiones / 3 sesiones"). */
   priceVariants?: PriceVariant[];
+  /** If set, after purchase the user is sent to this form URL instead of the booking flow. */
+  postPurchaseFormUrl?: string;
   faq: { q: string; a: string }[];
 }
 
