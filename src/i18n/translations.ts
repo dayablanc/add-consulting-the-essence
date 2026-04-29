@@ -522,9 +522,9 @@ const en: Translations = {
       includes: ['Policy creation', 'Labor advisory', 'Document creation', 'Ongoing support'],
     },
     outplacement: {
-      name: 'Outplacement & Career',
-      description: 'Professional acceleration program. We optimize your profile, prepare your job search strategy, and connect you with real opportunities.',
-      includes: ['CV & LinkedIn optimization', 'Personalized search strategy', 'Interview preparation', 'Salary negotiation'],
+      name: 'CV Formatting',
+      description: 'We format your CV to be valid for ATS systems, ensuring your profile is readable by companies\' automated filters.',
+      includes: ['ATS-format CV restructuring', 'Keyword optimization', 'Format and design cleanup', 'Editable file delivery'],
     },
     'first-step': {
       name: 'ADD First Step',
