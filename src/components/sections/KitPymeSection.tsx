@@ -1,10 +1,13 @@
-import { Link } from 'react-router-dom';
 import { digitalProducts } from '@/data/services';
 import { useI18n } from '@/i18n/context';
-import { formatPrice } from '@/i18n/constants';
+import { formatPrice, EXCHANGE_RATE } from '@/i18n/constants';
+import { useCart } from '@/cart/CartContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function KitPymeSection() {
   const { t, currency } = useI18n();
+  const { addItem, setOpen: setCartOpen } = useCart();
+  const navigate = useNavigate();
 
   return (
     <section className="bg-aesop-bark py-20 lg:py-28">
@@ -18,6 +21,27 @@ export default function KitPymeSection() {
           {digitalProducts.map((p) => {
             const translated = t.digitalProducts[p.slug] || { name: p.name, audience: p.audience, description: p.description };
             const priceUSD = parseFloat(p.price.replace('$', ''));
+            const priceCRC = Math.round(priceUSD * EXCHANGE_RATE);
+
+            const handleBuy = () => {
+              addItem({
+                serviceId: p.id,
+                slug: p.slug,
+                name: translated.name,
+                priceCRC,
+              });
+              setCartOpen(false);
+              navigate('/checkout');
+            };
+
+            const handleAdd = () => {
+              addItem({
+                serviceId: p.id,
+                slug: p.slug,
+                name: translated.name,
+                priceCRC,
+              });
+            };
 
             return (
               <div
@@ -45,7 +69,17 @@ export default function KitPymeSection() {
                   {formatPrice(priceUSD, currency)}
                 </p>
 
-                <Link to={`/contacto?service=${encodeURIComponent(p.slug)}`} className="btn-ghost-light inline-block">{t.kitPyme.obtain}</Link>
+                <div className="flex flex-wrap gap-3">
+                  <button onClick={handleBuy} className="btn-ghost-light">
+                    {t.kitPyme.obtain}
+                  </button>
+                  <button
+                    onClick={handleAdd}
+                    className="font-sans text-[11px] uppercase tracking-[2.5px] text-aesop-parchment/70 hover:text-aesop-parchment transition-colors py-2"
+                  >
+                    + Agregar al carrito
+                  </button>
+                </div>
               </div>
             );
           })}
