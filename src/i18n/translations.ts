@@ -251,9 +251,9 @@ const es: Translations = {
       includes: ['Creación de políticas', 'Asesoría laboral', 'Creación de documento', 'Soporte continuo'],
     },
     outplacement: {
-      name: 'Outplacement & Carrera',
-      description: 'Programa de aceleración profesional. Optimizamos tu perfil, preparamos tu estrategia de búsqueda y te conectamos con oportunidades reales.',
-      includes: ['Optimización de CV y LinkedIn', 'Estrategia de búsqueda personalizada', 'Preparación para entrevistas', 'Negociación salarial'],
+      name: 'Modificación de CV',
+      description: 'Damos a tu CV el formato válido para sistemas ATS, asegurando que tu perfil sea legible por los filtros automáticos de las empresas.',
+      includes: ['Reestructuración de CV en formato ATS', 'Optimización de palabras clave', 'Limpieza de formato y diseño', 'Entrega en formato editable'],
     },
     'first-step': {
       name: 'ADD First Step',
@@ -522,9 +522,9 @@ const en: Translations = {
       includes: ['Policy creation', 'Labor advisory', 'Document creation', 'Ongoing support'],
     },
     outplacement: {
-      name: 'Outplacement & Career',
-      description: 'Professional acceleration program. We optimize your profile, prepare your job search strategy, and connect you with real opportunities.',
-      includes: ['CV & LinkedIn optimization', 'Personalized search strategy', 'Interview preparation', 'Salary negotiation'],
+      name: 'CV Formatting',
+      description: 'We format your CV to be valid for ATS systems, ensuring your profile is readable by companies\' automated filters.',
+      includes: ['ATS-format CV restructuring', 'Keyword optimization', 'Format and design cleanup', 'Editable file delivery'],
     },
     'first-step': {
       name: 'ADD First Step',
