@@ -205,12 +205,12 @@ const es: Translations = {
   },
 
   hero: {
-    eyebrow: '· Consultoría boutique · Costa Rica',
-    headline: 'Talento y asesoría laboral, en manos expertas.',
-    subtitle: 'Acompañamos a empresas y profesionales costarricenses con soluciones a la medida en RR.HH. y derecho laboral.',
+    eyebrow: '· TALENTO · ESTRATEGIA · PROPÓSITO ·',
+    headline: 'Impulsamos carreras. Transformamos organizaciones. ',
+    subtitle: 'Detrás de cada gran equipo hay una estrategia de personas. Detrás de cada gran carrera, alguien que supo cómo presentarse. En ADD, somos ese respaldo para ambos.',
     ctaPrimary: 'Soy Empresa',
     ctaSecondary: 'Soy Candidato',
-    socialProof: '+50 empresas confían en ADD · Costa Rica',
+    socialProof: '+50 clientes confían en ADD ',
   },
 
   about: {
@@ -350,7 +350,7 @@ const es: Translations = {
     tagline: 'Consultoría boutique de RR.HH. y Derecho Laboral',
     navTitle: 'Navegación',
     contactTitle: 'Contacto',
-    copyright: '© 2025 ADD Consulting · Costa Rica · Política de privacidad',
+    copyright: '© 2025 ADD · Costa Rica · Política de privacidad',
     currencyNote: 'Precios en CRC son referenciales según tipo de cambio del día',
     links: [
       { label: 'Soy Empresa', to: '/empresa' },
@@ -427,7 +427,7 @@ const es: Translations = {
   },
 
   aboutDrawer: {
-    eyebrow: '· Sobre ADD Consulting',
+    eyebrow: '· Sobre ADD',
     heading: 'Una firma construida sobre criterio, no sobre volumen.',
     body1: 'Somos una consultoría boutique especializada en Recursos Humanos y Derecho Laboral en Costa Rica. No ofrecemos soluciones genéricas: cada empresa y cada profesional recibe un acompañamiento diseñado para su realidad específica.',
     body2: 'Nuestro equipo combina experiencia legal con visión estratégica de negocio, siempre con un enfoque humano y confidencial.',
