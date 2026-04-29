@@ -4,9 +4,9 @@ export default function StatsSection() {
   const { t } = useI18n();
 
   const stats = [
-    { number: '50+', label: t.stats.companies },
-    { number: '200+', label: t.stats.placements },
-    { number: '8', label: t.stats.experience },
+    { number: '6+', label: t.stats.companies },
+    { number: '50+', label: t.stats.placements },
+    { number: '1', label: t.stats.experience },
   ];
 
   return (

@@ -115,7 +115,7 @@ export default function ServicesSection() {
         <div>
           <p className="eyebrow mb-3">· Catálogo completo</p>
           <p className="font-serif text-[24px] lg:text-[28px] text-aesop-soil mb-10" style={{ letterSpacing: '-0.5px', fontStyle: 'normal' }}>
-            Todos nuestros servicios
+            Explora todos nuestros servicios y obtén una cotización en tiempo real
           </p>
           <Accordion type="single" collapsible className="w-full">
             {services.map((s) => {

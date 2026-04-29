@@ -195,7 +195,7 @@ const es: Translations = {
     digitalResources: 'RECURSOS DIGITALES',
     blog: 'Blog',
     aboutAdd: 'Sobre ADD',
-    contactUs: 'Consúltanos',
+    contactUs: 'AGENDA UNA CITA',
   },
 
   langBanner: {
@@ -222,15 +222,15 @@ const es: Translations = {
   },
 
   services: {
-    eyebrow: '· SERVICIOS ADD',
-    heading: 'Lo que hacemos',
-    subtitle: 'Soluciones integrales de RR.HH. y derecho laboral para empresas y profesionales en Costa Rica.',
+    eyebrow: '· NUESTROS SERVICIOS ',
+    heading: 'Acompañamiento experto en cada etapa',
+    subtitle: 'Brindamos soluciones reales a profesionales que quieren avanzar y a empresas que quieren crecer. Siempre boutique, siempre a la medida.',
     b2bEyebrow: '· DIVISIÓN CORPORATIVA',
     b2bTitle: 'B2B — Soy Empresa',
-    b2bSubtitle: 'Soluciones integrales para empresas costarricenses.',
+    b2bSubtitle: 'Desde la documentación legal hasta la cultura organizacional — te acompañamos en construir un área de RR.HH. sólida y humana.',
     b2cEyebrow: '· DIVISIÓN DE CARRERA',
     b2cTitle: 'B2C — Soy Candidato',
-    b2cSubtitle: 'Acompañamiento para profesionales y candidatos.',
+    b2cSubtitle: 'Herramientas, estrategia y práctica real. Te preparamos para destacar en cada etapa del proceso.',
     requestInfo: 'Solicitar información',
   },
 
@@ -288,9 +288,9 @@ const es: Translations = {
   },
 
   stats: {
-    companies: 'Empresas',
-    placements: 'Colocaciones',
-    experience: 'Años de experiencia',
+    companies: 'AÑOS DE EXPERIENCIA',
+    placements: 'CLIENTES',
+    experience: 'PROPÓSITO CLARO',
     testimonials: [
       {
         quote: 'ADD transformó nuestra gestión de talento. Pasamos de improvisar a tener procesos claros y legales.',
@@ -309,14 +309,14 @@ const es: Translations = {
 
   cotizadorCta: {
     eyebrow: '· ¿No sabes por dónde empezar?',
-    heading: 'Te ayudamos a encontrar el servicio ideal.',
-    body: 'Responde 4 preguntas rápidas y recibe una recomendación personalizada basada en tu situación.',
-    cta: 'Ir al cotizador →',
+    heading: 'Cada situación es diferente. Tu solución también.',
+    body: 'Responde unas preguntas rápidas y te orientamos hacia el servicio que mejor se adapta a lo que necesitas',
+    cta: 'ENCONTRAR MI SERVICIO→',
   },
 
   kitPyme: {
-    eyebrow: '· Productos Digitales',
-    heading: 'Herramientas que trabajan cuando tú no puedes.',
+    eyebrow: '· RECURSOS DIGITALES',
+    heading: 'Todo lo que necesitas, listo para usar.',
     obtain: 'Obtener →',
   },
 
@@ -324,12 +324,12 @@ const es: Translations = {
     'hr-toolkit': {
       name: 'HR Toolkit',
       audience: 'Para PYMES',
-      description: 'Machotes legales, contratos, guías de amonestación y cumplimiento costarricense.',
+      description: 'Documentación laboral lista para implementar. Diseñada para PYMEs que quieren hacer las cosas bien desde el inicio.',
     },
     'career-blueprint': {
       name: 'Learn & Save',
-      audience: 'Para Profesionales',
-      description: 'Curso grabado de estrategia laboral. Avanza a tu ritmo.',
+      audience: 'PARA EMPRENDEDORES O PARTICULARES',
+      description: 'De los fundamentos al criterio experto. Formación en liderazgo y RR.HH. para quienes quieren entender y aplicar.',
     },
   },
 
@@ -341,8 +341,8 @@ const es: Translations = {
   },
 
   ctaFinal: {
-    heading: '¿Listo para encontrar el talento correcto?',
-    body: 'Agenda una consulta gratuita y descubre cómo ADD puede transformar tu gestión de talento.',
+    heading: '¿Listo para transformar talento en tu empresa?',
+    body: 'Agenda una consulta gratuita y descubre cómo ADD puede ayudarte con tu gestión de talento.',
     cta: 'Agendar consulta gratuita',
   },
 
@@ -362,8 +362,8 @@ const es: Translations = {
   },
 
   floatingCta: {
-    buttonLabel: 'Consúltanos',
-    title: 'Consúltanos',
+    buttonLabel: 'AGENDA UNA CITA',
+    title: 'AGENDA UNA CITA',
     subtitle: 'Déjanos tus datos y te contactamos en menos de 24 horas.',
     labels: {
       name: 'Nombre',
