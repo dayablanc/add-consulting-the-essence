@@ -427,7 +427,7 @@ const es: Translations = {
   },
 
   aboutDrawer: {
-    eyebrow: '· Sobre ADD Consulting',
+    eyebrow: '· Sobre ADD',
     heading: 'Una firma construida sobre criterio, no sobre volumen.',
     body1: 'Somos una consultoría boutique especializada en Recursos Humanos y Derecho Laboral en Costa Rica. No ofrecemos soluciones genéricas: cada empresa y cada profesional recibe un acompañamiento diseñado para su realidad específica.',
     body2: 'Nuestro equipo combina experiencia legal con visión estratégica de negocio, siempre con un enfoque humano y confidencial.',
