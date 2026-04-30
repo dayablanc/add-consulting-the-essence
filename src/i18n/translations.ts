@@ -256,9 +256,9 @@ const es: Translations = {
       includes: ['Reestructuración de CV en formato ATS', 'Optimización de palabras clave', 'Limpieza de formato y diseño', 'Entrega en formato editable'],
     },
     'first-step': {
-      name: 'ADD First Step',
-      description: 'Tu primer paso al mundo laboral. Te ayudamos a construir tu perfil profesional desde cero y a conseguir tu primera oportunidad.',
-      includes: ['Creación de CV profesional', 'Perfil de LinkedIn desde cero', 'Taller de entrevistas', 'Orientación vocacional', 'Acceso a vacantes junior'],
+      name: 'ADD Step Up',
+      description: 'Ya sea que estés buscando tu primer empleo o quieras mejorar cómo te presentas al mercado laboral, este paquete te da las herramientas y la estrategia para destacar desde tu CV hasta tu presencia en LinkedIn. En una sola sesión aprenderás todo esto. ',
+      includes: ['Diseño y optimización de CV con formato ATS', 'Perfil de LinkedIn desde cero', 'Guía para poder pasar la primer entrevista con éxito ', 'Orientación vocacional', 'Acceso a vacantes junior'],
     },
     simulaciones: {
       name: 'Simulaciones de Entrevista',
@@ -451,7 +451,7 @@ const es: Translations = {
     reclutamiento: 'Encontramos al talento ideal',
     'risk-compliance': 'Auditoría y blindaje legal',
     'add-grow': 'Aceleración profesional',
-    'first-step': 'Todo lo que debes saber para iniciar tu emprendimiento relacionado a Derecho Laboral',
+    'first-step': 'Herramientas y estrategia para tu primer empleo o transición laboral',
     simulaciones: 'Práctica de entrevistas',
     'hr-toolkit': 'Machotes y guías para PYMES',
     'career-blueprint': 'Curso de estrategia laboral',
