@@ -33,7 +33,7 @@ export const services: Service[] = [
     idealFor: 'Empresas en etapa de crecimiento',
     description: 'Encontramos al candidato correcto para tu cultura, no solo para el puesto. Proceso completo: desde el perfil ideal hasta la contratación.',
     includes: ['Levantamiento de perfil', 'Publicación y búsqueda activa', 'Filtrado y entrevistas', 'Evaluación de competencias', 'Acompañamiento en onboarding'],
-    showInCards: false,
+    showInCards: true,
     faq: [
       { q: '¿Cuánto tarda el proceso?', a: 'Entre 3 y 6 semanas dependiendo del nivel del puesto.' },
       { q: '¿Qué pasa si el candidato no funciona?', a: 'Ofrecemos garantía de reposición dentro de los primeros 90 días.' },
@@ -49,7 +49,7 @@ export const services: Service[] = [
     idealFor: 'Empresas con exposición legal',
     description: 'Asesoría legal laboral preventiva y correctiva. Blindamos tu empresa ante riesgos laborales y te mantenemos en cumplimiento con la legislación costarricense.',
     includes: ['Asesoría legal laboral continua', 'Corrección de contratos', 'Protocolo de amonestaciones', 'Preparación para inspecciones', 'Representación ante el Ministerio de Trabajo'],
-    showInCards: false,
+    showInCards: true,
     faq: [
       { q: '¿Incluye representación legal?', a: 'Incluye asesoría preventiva. La representación en procesos judiciales se cotiza por separado.' },
       { q: '¿Cada cuánto se recomienda una auditoría?', a: 'Al menos una vez al año, o cuando haya cambios significativos en la operación.' },
@@ -81,7 +81,7 @@ export const services: Service[] = [
     idealFor: 'PYMES iniciando su formalización',
     description: 'Programas de formación y desarrollo organizacional. Desde inducción de nuevos colaboradores hasta talleres de liderazgo y cultura empresarial.',
     includes: ['Contratos de trabajo ajustados a ley', 'Reglamento interno de trabajo', 'Política de vacaciones y permisos', 'Checklist de cumplimiento legal', 'Sesiones de capacitación'],
-    showInCards: false,
+    showInCards: true,
     faq: [
       { q: '¿Cuánto tarda la implementación?', a: 'Entre 2 y 4 semanas según la complejidad de tu operación.' },
       { q: '¿Es un pago único?', a: 'Sí, es un proyecto con entregables definidos. Sin mensualidades.' },
