@@ -81,7 +81,7 @@ export const services: Service[] = [
     idealFor: 'PYMES iniciando su formalización',
     description: 'Programas de formación y desarrollo organizacional. Desde inducción de nuevos colaboradores hasta talleres de liderazgo y cultura empresarial.',
     includes: ['Contratos de trabajo ajustados a ley', 'Reglamento interno de trabajo', 'Política de vacaciones y permisos', 'Checklist de cumplimiento legal', 'Sesiones de capacitación'],
-    showInCards: false,
+    showInCards: true,
     faq: [
       { q: '¿Cuánto tarda la implementación?', a: 'Entre 2 y 4 semanas según la complejidad de tu operación.' },
       { q: '¿Es un pago único?', a: 'Sí, es un proyecto con entregables definidos. Sin mensualidades.' },
