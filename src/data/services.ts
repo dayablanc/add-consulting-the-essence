@@ -49,7 +49,7 @@ export const services: Service[] = [
     idealFor: 'Empresas con exposición legal',
     description: 'Asesoría legal laboral preventiva y correctiva. Blindamos tu empresa ante riesgos laborales y te mantenemos en cumplimiento con la legislación costarricense.',
     includes: ['Asesoría legal laboral continua', 'Corrección de contratos', 'Protocolo de amonestaciones', 'Preparación para inspecciones', 'Representación ante el Ministerio de Trabajo'],
-    showInCards: false,
+    showInCards: true,
     faq: [
       { q: '¿Incluye representación legal?', a: 'Incluye asesoría preventiva. La representación en procesos judiciales se cotiza por separado.' },
       { q: '¿Cada cuánto se recomienda una auditoría?', a: 'Al menos una vez al año, o cuando haya cambios significativos en la operación.' },
