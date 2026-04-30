@@ -98,20 +98,6 @@ export default function ServicesSection() {
         </h2>
         <p className="text-body max-w-[600px] mb-16">{t.services.subtitle}</p>
 
-        {/* B2B */}
-        <div className="mb-20">
-          <p className="eyebrow mb-3">{t.services.b2bEyebrow}</p>
-          <p className="font-serif text-[24px] lg:text-[28px] text-aesop-soil mb-2" style={{ letterSpacing: '-0.5px', fontStyle: 'normal' }}>
-            {t.services.b2bTitle}
-          </p>
-          <p className="text-body mb-10 max-w-[500px]">{t.services.b2bSubtitle}</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {b2bCards.map(s => renderServiceCard(s))}
-          </div>
-        </div>
-
-        <div style={{ borderBottom: '1px solid hsl(var(--aesop-rule))' }} className="mb-20" />
-
         {/* B2C */}
         <div className="mb-20">
           <p className="eyebrow mb-3">{t.services.b2cEyebrow}</p>
@@ -121,6 +107,20 @@ export default function ServicesSection() {
           <p className="text-body mb-10 max-w-[500px]">{t.services.b2cSubtitle}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {b2cCards.map(s => renderServiceCard(s))}
+          </div>
+        </div>
+
+        <div style={{ borderBottom: '1px solid hsl(var(--aesop-rule))' }} className="mb-20" />
+
+        {/* B2B */}
+        <div className="mb-20">
+          <p className="eyebrow mb-3">{t.services.b2bEyebrow}</p>
+          <p className="font-serif text-[24px] lg:text-[28px] text-aesop-soil mb-2" style={{ letterSpacing: '-0.5px', fontStyle: 'normal' }}>
+            {t.services.b2bTitle}
+          </p>
+          <p className="text-body mb-10 max-w-[500px]">{t.services.b2bSubtitle}</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {b2bCards.map(s => renderServiceCard(s))}
           </div>
         </div>
 
