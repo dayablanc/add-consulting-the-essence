@@ -527,9 +527,9 @@ const en: Translations = {
       includes: ['ATS-format CV restructuring', 'Keyword optimization', 'Format and design cleanup', 'Editable file delivery'],
     },
     'first-step': {
-      name: 'ADD First Step',
-      description: 'Your first step into the professional world. We help you build your professional profile from scratch and land your first opportunity.',
-      includes: ['Professional CV creation', 'LinkedIn profile from scratch', 'Interview workshop', 'Career guidance', 'Access to junior openings'],
+      name: 'ADD Step Up',
+      description: 'Whether you are looking for your first job or want to improve how you present yourself to the job market, this package gives you the tools and strategy to stand out from your CV to your LinkedIn presence. In just one session you will learn all this.',
+      includes: ['ATS-format CV design and optimization', 'LinkedIn profile from scratch', 'Guide to passing your first interview successfully', 'Career guidance', 'Access to junior openings'],
     },
     simulaciones: {
       name: 'Interview Simulations',
