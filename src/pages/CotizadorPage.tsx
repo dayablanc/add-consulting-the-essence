@@ -24,7 +24,7 @@ export default function CotizadorPage() {
       if (size === '+80' || size === '21–80') return { name: 'ADD Strategic Partner', slug: '/empresa/strategic-partner', desc: 'Tu departamento de RR.HH. externo. Gestión integral y acompañamiento continuo.' };
       return { name: 'Corporative Essentials', slug: '/empresa/essentials', desc: 'El punto de partida para formalizar tu gestión de personas y cumplir con la ley.' };
     }
-    if (profile === 'estudiante') return { name: 'ADD First Step', slug: '/candidato/first-step', desc: 'Tu primer paso al mundo laboral. Construye tu perfil profesional desde cero.' };
+    if (profile === 'estudiante') return { name: 'ADD Step Up', slug: '/candidato/first-step', desc: 'Ya sea que estés buscando tu primer empleo o quieras mejorar cómo te presentas al mercado laboral, este paquete te da las herramientas y la estrategia para destacar.' };
     return { name: 'ADD Grow', slug: '/candidato/add-grow', desc: 'Programa de aceleración profesional. Optimiza tu perfil y conecta con oportunidades.' };
   };
 

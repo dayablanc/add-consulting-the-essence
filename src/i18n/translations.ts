@@ -385,7 +385,7 @@ const es: Translations = {
       { value: 'reclutamiento', label: 'Reclutamiento' },
       { value: 'auditoria', label: 'Auditoría y Cumplimiento' },
       { value: 'grow', label: 'ADD Grow' },
-      { value: 'first-step', label: 'ADD First Step' },
+      { value: 'first-step', label: 'ADD Step Up' },
       { value: 'simulaciones', label: 'Simulaciones' },
       { value: 'otro', label: 'Otro' },
     ],
