@@ -119,7 +119,7 @@ export default function ServicesSection() {
             {t.services.b2bTitle}
           </p>
           <p className="text-body mb-10 max-w-[500px]">{t.services.b2bSubtitle}</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {b2bCards.map(s => renderServiceCard(s))}
           </div>
         </div>
