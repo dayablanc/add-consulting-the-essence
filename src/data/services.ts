@@ -162,7 +162,7 @@ export const services: Service[] = [
     category: 'candidato',
     icon: 'mic',
     idealFor: 'Candidatos en proceso activo',
-    description: 'Sesiones individuales de práctica con feedback profesional. Simulamos entrevistas reales del mercado costarricense para que llegues preparado.',
+    description: 'Sesiones individuales de práctica con feedback profesional. Nuestras sesiones individuales replican los estándares del mercado para que tu desempeño hable por sí solo.',
     includes: ['Simulación de entrevista (45 min)', 'Feedback escrito detallado', 'Tips personalizados', 'Grabación de la sesión'],
     showInCards: true,
     priceVariants: [
