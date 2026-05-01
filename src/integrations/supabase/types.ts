@@ -14,7 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      paid_orders: {
+        Row: {
+          created_at: string
+          currency: string | null
+          customer_name: string | null
+          email: string | null
+          has_booking_service: boolean
+          has_form_service: boolean
+          id: string
+          line_items: Json
+          order_number: string | null
+          phone: string | null
+          raw_payload: Json | null
+          service_slugs: string[]
+          shopify_order_id: string
+          total_price: number | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          currency?: string | null
+          customer_name?: string | null
+          email?: string | null
+          has_booking_service?: boolean
+          has_form_service?: boolean
+          id?: string
+          line_items?: Json
+          order_number?: string | null
+          phone?: string | null
+          raw_payload?: Json | null
+          service_slugs?: string[]
+          shopify_order_id: string
+          total_price?: number | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          currency?: string | null
+          customer_name?: string | null
+          email?: string | null
+          has_booking_service?: boolean
+          has_form_service?: boolean
+          id?: string
+          line_items?: Json
+          order_number?: string | null
+          phone?: string | null
+          raw_payload?: Json | null
+          service_slugs?: string[]
+          shopify_order_id?: string
+          total_price?: number | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
