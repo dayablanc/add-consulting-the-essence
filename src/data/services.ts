@@ -146,7 +146,7 @@ export const services: Service[] = [
     icon: 'rocket',
     idealFor: 'IDEAL PARA: ESTUDIANTES, PROFESIONALES EN TRANSICIÓN Y QUIENES QUIEREN MEJORAR SU EMPLEABILIDAD',
     description: 'Ya sea que estés buscando tu primer empleo o quieras mejorar cómo te presentas al mercado laboral, este paquete te da las herramientas y la estrategia para destacar desde tu CV hasta tu presencia en LinkedIn. En una sola sesión aprenderás todo esto. ',
-    includes: ['Perfil de LinkedIn desde cero', 'Guía para poder pasar la primer entrevista con éxito ', 'Orientación vocacional', 'Acceso a vacantes junior', 'Diseño y optimización de CV con estándar ATS'],
+    includes: ['Cómo adaptar tu CV a cada puesto con estrategia', 'Guía para poder pasar la primer entrevista con éxito ', 'Orientación vocacional', 'Acceso a vacantes junior', 'Diseño y optimización de CV con estándar ATS'],
     showInCards: true,
     priceCRC: 16000,
     faq: [
