@@ -85,7 +85,7 @@ export default function Header() {
             />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-6 ml-auto pl-16">
             {navItems.map((item) => (
               <div
                 key={item.label}
