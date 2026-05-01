@@ -68,23 +68,13 @@ export default function ServicesSection() {
             {text.description}
           </p>
         </div>
-        {isB2C ? (
-          <Link
-            to={servicePath}
-            className="mt-6 inline-flex items-center gap-2 font-sans text-[12px] uppercase tracking-[2px] text-aesop-clay cursor-pointer transition-all duration-200 group-hover:gap-3"
-          >
-            Obtener servicio
-            <ArrowRight size={14} strokeWidth={1.5} />
-          </Link>
-        ) : (
-          <button
-            onClick={() => setQuoteService(text.name)}
-            className="mt-6 inline-flex items-center gap-2 font-sans text-[12px] uppercase tracking-[2px] text-aesop-clay cursor-pointer transition-all duration-200 group-hover:gap-3"
-          >
-            {t.services.requestInfo}
-            <ArrowRight size={14} strokeWidth={1.5} />
-          </button>
-        )}
+        <Link
+          to={servicePath}
+          className="mt-6 inline-flex items-center gap-2 font-sans text-[12px] uppercase tracking-[2px] text-aesop-clay cursor-pointer transition-all duration-200 group-hover:gap-3"
+        >
+          {isB2C ? 'Obtener servicio' : 'Ver detalle y cotizar'}
+          <ArrowRight size={14} strokeWidth={1.5} />
+        </Link>
       </div>
     );
   };
