@@ -551,9 +551,18 @@ const en: Translations = {
       includes: ['360° professional diagnosis', 'Personalized career plan', '1:1 mentorship', 'Strategic networking', 'Access to exclusive openings'],
     },
     reclutamiento: {
-      name: 'Recruitment & Selection',
-      description: 'We find the right candidate for your culture, not just for the position. Complete process: from the ideal profile to hiring.',
-      includes: ['Profile assessment', 'Posting & active search', 'Screening & interviews', 'Competency evaluation', 'Onboarding support'],
+      name: 'Talent Acquisition & Selection',
+      description: 'We accompany your organization in identifying and selecting the talent you truly need, with a structured, objective, and high-standard process, without overloading your internal team. 100% virtual modality.',
+      includes: [
+        'Initial session',
+        'Help with job description',
+        'Structured interview process design',
+        'Active search including headhunting',
+        'Candidate screening and evaluation',
+        'Shortlist delivery: Option 1, 2, and 3 with full profile data',
+        'Interview guide so the position leader can interview in the best way',
+        'Delivery of the database of all evaluated profiles',
+      ],
     },
     'consultoria-legal': {
       name: 'Labor Legal Advisory',
