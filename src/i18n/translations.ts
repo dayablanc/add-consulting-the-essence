@@ -271,9 +271,18 @@ const es: Translations = {
       includes: ['Diagnóstico profesional 360°', 'Plan de carrera personalizado', 'Mentoría 1:1', 'Networking estratégico', 'Acceso a vacantes exclusivas'],
     },
     reclutamiento: {
-      name: 'Reclutamiento & Selección',
-      description: 'Encontramos al candidato correcto para tu cultura, no solo para el puesto. Proceso completo: desde el perfil ideal hasta la contratación.',
-      includes: ['Levantamiento de perfil', 'Publicación y búsqueda activa', 'Filtrado y entrevistas', 'Evaluación de competencias', 'Acompañamiento en onboarding'],
+      name: 'Atracción y Selección de Talento',
+      description: 'Acompañamos a tu organización en la identificación y selección del talento que realmente necesitas, con un proceso estructurado, objetivo y de alto estándar, sin sobrecargar a tu equipo interno. Modalidad 100% virtual.',
+      includes: [
+        'Sesión inicial',
+        'Ayuda con el descriptivo de puesto',
+        'Diseño de proceso de entrevistas estructurado',
+        'Búsqueda activa incluyendo headhunting',
+        'Filtro y evaluación de candidatos',
+        'Entrega de shortlist: Opción 1, 2 y 3 con datos completos de cada perfil',
+        'Guía de entrevistas para que el líder de la posición pueda entrevistar de la mejor manera',
+        'Entrega del banco de datos de todos los perfiles evaluados',
+      ],
     },
     'consultoria-legal': {
       name: 'Consultoría Legal Laboral',
@@ -542,9 +551,18 @@ const en: Translations = {
       includes: ['360° professional diagnosis', 'Personalized career plan', '1:1 mentorship', 'Strategic networking', 'Access to exclusive openings'],
     },
     reclutamiento: {
-      name: 'Recruitment & Selection',
-      description: 'We find the right candidate for your culture, not just for the position. Complete process: from the ideal profile to hiring.',
-      includes: ['Profile assessment', 'Posting & active search', 'Screening & interviews', 'Competency evaluation', 'Onboarding support'],
+      name: 'Talent Acquisition & Selection',
+      description: 'We accompany your organization in identifying and selecting the talent you truly need, with a structured, objective, and high-standard process, without overloading your internal team. 100% virtual modality.',
+      includes: [
+        'Initial session',
+        'Help with job description',
+        'Structured interview process design',
+        'Active search including headhunting',
+        'Candidate screening and evaluation',
+        'Shortlist delivery: Option 1, 2, and 3 with full profile data',
+        'Interview guide so the position leader can interview in the best way',
+        'Delivery of the database of all evaluated profiles',
+      ],
     },
     'consultoria-legal': {
       name: 'Labor Legal Advisory',
