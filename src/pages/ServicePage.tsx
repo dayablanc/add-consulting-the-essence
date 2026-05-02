@@ -73,7 +73,7 @@ export default function ServicePage() {
               · {service.category === 'empresa' ? 'Para empresas' : 'Para candidatos'}
             </p>
             <h1 className="text-aesop-parchment text-[32px] lg:text-[44px] font-serif font-light leading-tight">{service.name}</h1>
-            <p className="eyebrow-mono text-aesop-taupe mt-3">Ideal para: {service.idealFor}</p>
+            <p className="eyebrow-mono text-aesop-taupe mt-3">{service.category === 'empresa' ? 'IDEAL PARA' : 'Ideal para'}: {service.idealFor}</p>
           </div>
         </section>
 
