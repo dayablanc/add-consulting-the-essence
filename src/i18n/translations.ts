@@ -271,9 +271,18 @@ const es: Translations = {
       includes: ['Diagnóstico profesional 360°', 'Plan de carrera personalizado', 'Mentoría 1:1', 'Networking estratégico', 'Acceso a vacantes exclusivas'],
     },
     reclutamiento: {
-      name: 'Reclutamiento & Selección',
-      description: 'Encontramos al candidato correcto para tu cultura, no solo para el puesto. Proceso completo: desde el perfil ideal hasta la contratación.',
-      includes: ['Levantamiento de perfil', 'Publicación y búsqueda activa', 'Filtrado y entrevistas', 'Evaluación de competencias', 'Acompañamiento en onboarding'],
+      name: 'Atracción y Selección de Talento',
+      description: 'Acompañamos a tu organización en la identificación y selección del talento que realmente necesitas, con un proceso estructurado, objetivo y de alto estándar, sin sobrecargar a tu equipo interno. Modalidad 100% virtual.',
+      includes: [
+        'Sesión inicial',
+        'Ayuda con el descriptivo de puesto',
+        'Diseño de proceso de entrevistas estructurado',
+        'Búsqueda activa incluyendo headhunting',
+        'Filtro y evaluación de candidatos',
+        'Entrega de shortlist: Opción 1, 2 y 3 con datos completos de cada perfil',
+        'Guía de entrevistas para que el líder de la posición pueda entrevistar de la mejor manera',
+        'Entrega del banco de datos de todos los perfiles evaluados',
+      ],
     },
     'consultoria-legal': {
       name: 'Consultoría Legal Laboral',
