@@ -33,7 +33,8 @@ export const services: Service[] = [
     idealFor: 'Empresas que necesitan encontrar al candidato correcto con un proceso estructurado, objetivo y profesional',
     description: 'Encontramos al candidato correcto con un proceso estructurado, objetivo y profesional, sin cargar a tu equipo interno con el proceso. Modalidad 100% virtual.',
     includes: [
-      'Definición y análisis del perfil requerido',
+      'Sesión inicial',
+      'Ayuda con el descriptivo de puesto',
       'Diseño de proceso de entrevistas estructurado',
       'Búsqueda activa incluyendo headhunting',
       'Filtro y evaluación de candidatos',
