@@ -4,61 +4,64 @@
 
 @layer base {
   :root {
-    /* ─── FONDOS CLAROS ─── */
-    --aesop-parchment: 37 33% 92%;
-    --aesop-white: 30 33% 97%;
-    --aesop-cream: 33 25% 89%;
-    --aesop-linen: 30 20% 86%;
-    --aesop-stone: 30 16% 78%;
+    /* ─── ADD HR BRAND — FONDOS CLAROS ─── */
+    --aesop-parchment: 34 35% 92%;      /* Ivory #F2ECE4 */
+    --aesop-white: 0 0% 100%;           /* White #FFFFFF */
+    --aesop-cream: 34 28% 89%;
+    --aesop-linen: 34 22% 86%;
+    --aesop-stone: 31 7% 77%;           /* Silver #C8C4C0 */
 
-    /* ─── OSCUROS ─── */
-    --aesop-bark: 20 10% 22%;
-    --aesop-soil: 20 10% 15%;
-    --aesop-umber: 20 10% 33%;
-    --aesop-taupe: 20 10% 50%;
+    /* ─── ADD HR BRAND — OSCUROS ─── */
+    --aesop-bark: 23 14% 22%;
+    --aesop-soil: 23 24% 8%;            /* Espresso #1A1410 */
+    --aesop-umber: 23 14% 33%;
+    --aesop-taupe: 0 4% 68%;            /* Fog #B0AAAA */
 
-    /* ─── ACENTO ─── */
-    --aesop-clay: 24 33% 46%;
-    --aesop-clay-hover: 24 33% 37%;
-    --aesop-clay-tint: 24 33% 85%;
+    /* ─── ADD HR BRAND — ACENTO PRINCIPAL ─── */
+    --aesop-clay: 351 73% 20%;          /* Dark Crimson #5A0E1A */
+    --aesop-clay-hover: 351 73% 15%;
+    --aesop-clay-tint: 351 30% 94%;
+
+    /* ─── ADD HR BRAND — GOLD (acento secundario) ─── */
+    --hr-gold: 37 49% 58%;              /* Gold #C9A060 */
 
     /* ─── BORDES ─── */
-    --aesop-rule: 30 14% 72%;
+    --aesop-rule: 31 5% 75%;
 
     /* ─── SEMANTIC TOKENS ─── */
-    --background: 37 33% 92%;
-    --foreground: 20 10% 15%;
-    --card: 30 33% 97%;
-    --card-foreground: 20 10% 15%;
-    --popover: 37 33% 92%;
-    --popover-foreground: 20 10% 15%;
-    --primary: 24 33% 46%;
-    --primary-foreground: 37 33% 92%;
-    --secondary: 33 25% 89%;
-    --secondary-foreground: 20 10% 15%;
-    --muted: 30 20% 86%;
-    --muted-foreground: 20 10% 50%;
-    --accent: 24 33% 85%;
-    --accent-foreground: 20 10% 15%;
+    --background: 34 35% 92%;
+    --foreground: 23 24% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 23 24% 8%;
+    --popover: 34 35% 92%;
+    --popover-foreground: 23 24% 8%;
+    --primary: 351 73% 20%;
+    --primary-foreground: 34 35% 92%;
+    --secondary: 34 28% 89%;
+    --secondary-foreground: 23 24% 8%;
+    --muted: 34 22% 86%;
+    --muted-foreground: 0 4% 68%;
+    --accent: 37 49% 58%;
+    --accent-foreground: 23 24% 8%;
     --destructive: 0 62% 50%;
-    --destructive-foreground: 37 33% 92%;
-    --border: 30 14% 72%;
-    --input: 30 14% 72%;
-    --ring: 24 33% 46%;
+    --destructive-foreground: 34 35% 92%;
+    --border: 31 5% 75%;
+    --input: 31 5% 75%;
+    --ring: 351 73% 20%;
     --radius: 0px;
 
-    --sidebar-background: 20 10% 22%;
-    --sidebar-foreground: 37 33% 92%;
-    --sidebar-primary: 24 33% 46%;
-    --sidebar-primary-foreground: 37 33% 92%;
-    --sidebar-accent: 20 10% 15%;
-    --sidebar-accent-foreground: 37 33% 92%;
-    --sidebar-border: 20 10% 22%;
-    --sidebar-ring: 24 33% 46%;
+    --sidebar-background: 23 14% 22%;
+    --sidebar-foreground: 34 35% 92%;
+    --sidebar-primary: 351 73% 20%;
+    --sidebar-primary-foreground: 34 35% 92%;
+    --sidebar-accent: 23 24% 8%;
+    --sidebar-accent-foreground: 34 35% 92%;
+    --sidebar-border: 23 14% 22%;
+    --sidebar-ring: 351 73% 20%;
 
-    /* ─── TIPOGRAFÍA ─── */
-    --font-serif: 'Cormorant Garamond', 'Garamond', Georgia, serif;
-    --font-sans: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+    /* ─── TIPOGRAFÍA ADD HR ─── */
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
     --font-mono: 'Courier Prime', 'Courier New', monospace;
   }
 }
@@ -87,7 +90,7 @@
 
   h1, h2 {
     font-family: var(--font-serif);
-    font-weight: 300;
+    font-weight: 700;
     letter-spacing: -1px;
   }
 
@@ -99,8 +102,12 @@
 
   h2 {
     font-size: 32px;
-    font-style: italic;
     line-height: 1.15;
+  }
+
+  h2 em, h1 em {
+    font-weight: 400;
+    font-style: italic;
   }
 
   img {
@@ -133,9 +140,9 @@
 .eyebrow {
   font-family: var(--font-sans);
   font-size: 10px;
-  font-weight: 400;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   color: hsl(var(--aesop-clay));
 }
 
@@ -144,7 +151,7 @@
   font-size: 10px;
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   color: hsl(var(--aesop-clay));
 }
 
@@ -183,12 +190,13 @@
   }
 }
 
+/* ─── BOTONES ADD HR ─── */
 .btn-cta {
   font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: 400;
+  font-size: 10px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 2.5px;
+  letter-spacing: 3px;
   padding: 14px 36px;
   border: none;
   background-color: hsl(var(--aesop-clay));
@@ -203,10 +211,10 @@
 
 .btn-ghost {
   font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: 400;
+  font-size: 10px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 2.5px;
+  letter-spacing: 3px;
   padding: 14px 36px;
   background: transparent;
   border: 1px solid hsl(var(--aesop-soil));
@@ -222,13 +230,13 @@
 
 .btn-ghost-light {
   font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: 400;
+  font-size: 10px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 2.5px;
+  letter-spacing: 3px;
   padding: 14px 36px;
   background: transparent;
-  border: 1px solid hsla(37, 33%, 92%, 0.4);
+  border: 1px solid hsla(34, 35%, 92%, 0.4);
   color: hsl(var(--aesop-parchment));
   cursor: pointer;
   transition: all 200ms ease;
@@ -238,6 +246,18 @@
   border-color: hsl(var(--aesop-clay));
 }
 
+/* ─── ACENTO GOLD (uso máx. 1 por sección) ─── */
+.text-gold {
+  color: hsl(var(--hr-gold));
+}
+.bg-gold {
+  background-color: hsl(var(--hr-gold));
+}
+.border-gold {
+  border-color: hsl(var(--hr-gold));
+}
+
+/* ─── DIVISORES ─── */
 .divider {
   border: none;
   border-top: 1px solid hsl(var(--aesop-rule));
@@ -245,10 +265,10 @@
 
 .divider-light {
   border: none;
-  border-top: 1px solid hsla(37, 33%, 92%, 0.12);
+  border-top: 1px solid hsla(34, 35%, 92%, 0.12);
 }
 
-/* Aesop-style input */
+/* ─── INPUT ADD HR ─── */
 .aesop-input {
   width: 100%;
   padding: 12px 0;
@@ -269,7 +289,7 @@
   color: hsl(var(--aesop-taupe));
 }
 
-/* Stagger animation */
+/* ─── ANIMACIONES ─── */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -285,7 +305,7 @@
   opacity: 0;
 }
 
-/* Scrollbar */
+/* ─── SCROLLBAR ─── */
 ::-webkit-scrollbar {
   width: 6px;
 }
