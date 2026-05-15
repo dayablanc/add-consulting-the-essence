@@ -128,7 +128,7 @@
   @media (max-width: 768px) {
     h1 {
       font-size: 36px;
-      letter-spacing: -1px;
+      letter-spacing: 0.015em;
     }
     h2 {
       font-size: 28px;
