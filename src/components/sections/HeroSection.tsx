@@ -17,7 +17,7 @@ export default function HeroSection() {
           <p className="eyebrow-mono animate-fade-in-up" style={{ animationDelay: '0ms' }}>
             {t.hero.eyebrow}
           </p>
-          <h1 className="text-aesop-soil mt-6 text-[36px] md:text-[48px] lg:text-[52px] xl:text-[56px] leading-[1.05] animate-fade-in-up" style={{ animationDelay: '120ms', letterSpacing: '-2px' }}>
+          <h1 className="text-aesop-soil mt-6 text-[36px] md:text-[48px] lg:text-[52px] xl:text-[56px] leading-[1.05] animate-fade-in-up" style={{ animationDelay: '120ms', letterSpacing: '0.015em' }}>
             {t.hero.headline}
           </h1>
           <p className="text-body mt-5 animate-fade-in-up max-w-[480px]" style={{ animationDelay: '240ms', fontSize: '18px', color: 'hsl(var(--aesop-taupe))' }}>
