@@ -69,7 +69,7 @@ export default function ServicePage() {
         {/* Hero compacto */}
         <section className="bg-aesop-bark py-8 lg:py-10">
           <div className="max-w-[1180px] mx-auto px-6 lg:px-12">
-            <p className="eyebrow-mono text-aesop-clay mb-3">
+            <p className="eyebrow-mono text-gold mb-3">
               · {service.category === 'empresa' ? 'Para empresas' : 'Para candidatos'}
             </p>
             <h1 className="text-aesop-parchment text-[32px] lg:text-[44px] font-serif font-light leading-tight">{service.name}</h1>

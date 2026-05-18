@@ -151,7 +151,7 @@ export default function Header() {
                           <div style={{ borderBottom: '1px solid rgba(242,237,228,0.1)' }} className="my-2" />
                           <Link
                             to={item.mega.cta.to}
-                            className="block py-2 font-sans text-[11px] uppercase tracking-[2.5px] text-aesop-clay transition-colors duration-200 hover:text-aesop-parchment"
+                            className="block py-2 font-sans text-[11px] uppercase tracking-[2.5px] text-gold transition-colors duration-200 hover:text-aesop-parchment"
                             onClick={() => setActiveMenu(null)}
                           >
                             {item.mega.cta.label}
@@ -322,7 +322,7 @@ export default function Header() {
                       paddingLeft: i % 2 === 1 ? '24px' : '0',
                     }}
                   >
-                    <span className="label-mono text-aesop-clay">{v.label}</span>
+                    <span className="label-mono text-gold">{v.label}</span>
                     <p className="font-sans text-[13px] text-aesop-umber mt-2">{v.desc}</p>
                   </div>
                 ))}
