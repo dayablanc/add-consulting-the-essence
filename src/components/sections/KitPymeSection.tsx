@@ -12,7 +12,7 @@ export default function KitPymeSection() {
   return (
     <section className="bg-aesop-bark py-20 lg:py-28">
       <div className="max-w-[1200px] mx-auto section-padding">
-        <p className="eyebrow-mono text-aesop-clay mb-4">{t.kitPyme.eyebrow}</p>
+        <p className="eyebrow-mono text-gold mb-4">{t.kitPyme.eyebrow}</p>
         <h2 className="text-aesop-parchment text-[28px] md:text-[32px] mb-12" style={{ letterSpacing: '-0.5px' }}>
           {t.kitPyme.heading}
         </h2>
