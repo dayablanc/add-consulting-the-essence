@@ -69,7 +69,7 @@ export default function ServicePage() {
         {/* Hero compacto */}
         <section className="bg-aesop-bark py-8 lg:py-10">
           <div className="max-w-[1180px] mx-auto px-6 lg:px-12">
-            <p className="eyebrow-mono text-aesop-clay mb-3">
+            <p className="eyebrow-mono text-gold mb-3">
               · {service.category === 'empresa' ? 'Para empresas' : 'Para candidatos'}
             </p>
             <h1 className="text-aesop-parchment text-[32px] lg:text-[44px] font-serif font-light leading-tight">{service.name}</h1>
@@ -106,7 +106,7 @@ export default function ServicePage() {
                   className="p-6 bg-aesop-cream"
                   style={{ border: '1px solid hsl(var(--aesop-rule))' }}
                 >
-                  <p className="eyebrow-mono text-aesop-clay mb-4">· Adquirir servicio</p>
+                  <p className="eyebrow-mono text-gold mb-4">· Adquirir servicio</p>
 
                   {hasVariants && (
                     <div className="mb-5">
@@ -169,7 +169,7 @@ export default function ServicePage() {
             ) : (
               <aside className="lg:sticky lg:top-[88px]">
                 <div className="p-6 bg-aesop-cream" style={{ border: '1px solid hsl(var(--aesop-rule))' }}>
-                  <p className="eyebrow-mono text-aesop-clay mb-3">· Servicio a medida</p>
+                  <p className="eyebrow-mono text-gold mb-3">· Servicio a medida</p>
                   <p className="font-sans text-[13px] text-aesop-umber font-light leading-relaxed mb-5">
                     Este servicio se cotiza según las necesidades específicas de tu empresa.
                   </p>
