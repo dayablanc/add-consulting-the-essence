@@ -169,7 +169,7 @@ export default function ServicePage() {
             ) : (
               <aside className="lg:sticky lg:top-[88px]">
                 <div className="p-6 bg-aesop-cream" style={{ border: '1px solid hsl(var(--aesop-rule))' }}>
-                  <p className="eyebrow-mono text-gold mb-3">· Servicio a medida</p>
+                  <p className="eyebrow-mono text-aesop-clay mb-3">· Servicio a medida</p>
                   <p className="font-sans text-[13px] text-aesop-umber font-light leading-relaxed mb-5">
                     Este servicio se cotiza según las necesidades específicas de tu empresa.
                   </p>
