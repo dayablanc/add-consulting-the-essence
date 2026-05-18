@@ -322,7 +322,7 @@ export default function Header() {
                       paddingLeft: i % 2 === 1 ? '24px' : '0',
                     }}
                   >
-                    <span className="label-mono text-aesop-clay">{v.label}</span>
+                    <span className="label-mono text-gold">{v.label}</span>
                     <p className="font-sans text-[13px] text-aesop-umber mt-2">{v.desc}</p>
                   </div>
                 ))}
