@@ -106,7 +106,7 @@ export default function ServicePage() {
                   className="p-6 bg-aesop-cream"
                   style={{ border: '1px solid hsl(var(--aesop-rule))' }}
                 >
-                  <p className="eyebrow-mono text-gold mb-4">· Adquirir servicio</p>
+                  <p className="eyebrow-mono text-aesop-clay mb-4">· Adquirir servicio</p>
 
                   {hasVariants && (
                     <div className="mb-5">
