@@ -12,7 +12,7 @@ export default function HeroSection() {
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(61,53,48,0.06) 0%, rgba(61,53,48,0.16) 100%)' }} />
       </div>
 
-      <div className="w-full lg:w-1/2 bg-aesop-parchment flex items-center">
+      <div className="w-full lg:w-1/2 bg-aesop-white flex items-center">
         <div className="section-padding py-16 lg:py-0 max-w-[600px]">
           <p className="eyebrow-mono animate-fade-in-up" style={{ animationDelay: '0ms' }}>
             {t.hero.eyebrow}

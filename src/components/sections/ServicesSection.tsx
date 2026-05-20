@@ -80,7 +80,7 @@ export default function ServicesSection() {
   };
 
   return (
-    <section className="bg-aesop-cream py-20 lg:py-28">
+    <section className="bg-aesop-white py-20 lg:py-28">
       <div className="max-w-[1200px] mx-auto section-padding">
         <p className="eyebrow mb-4">{t.services.eyebrow}</p>
         <h2 className="text-aesop-soil text-[28px] md:text-[32px] mb-4" style={{ letterSpacing: '-0.5px' }}>
