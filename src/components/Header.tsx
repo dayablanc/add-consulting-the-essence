@@ -80,7 +80,7 @@ export default function Header() {
             <img
               src={logoAdd}
               alt="ADD HR — People Advisory"
-              className="h-[140px] lg:h-[180px] w-auto block"
+              className="h-[170px] lg:h-[220px] w-auto block"
               style={{ objectFit: 'contain' }}
             />
           </Link>
