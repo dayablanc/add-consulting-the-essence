@@ -97,18 +97,18 @@ export default function Header() {
                   <Link
                     to={item.to}
                     className="font-sans text-[11px] font-normal uppercase tracking-[2.5px] transition-colors duration-200"
-                    style={{ color: 'rgba(242,237,228,0.75)' }}
+                    style={{ color: '#F2EDE4' }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = '#F2EDE4')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(242,237,228,0.75)')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = '#F2EDE4')}
                   >
                     {item.label}
                   </Link>
                 ) : (
                   <button
                     className="font-sans text-[11px] font-normal uppercase tracking-[2.5px] transition-colors duration-200 cursor-pointer"
-                    style={{ color: 'rgba(242,237,228,0.75)' }}
+                    style={{ color: '#F2EDE4' }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = '#F2EDE4')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(242,237,228,0.75)')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = '#F2EDE4')}
                   >
                     {item.label}
                   </button>
@@ -170,9 +170,9 @@ export default function Header() {
             <button
               onClick={() => setAboutOpen(true)}
               className="font-sans text-[11px] font-normal uppercase tracking-[2.5px] transition-colors duration-200 cursor-pointer"
-              style={{ color: 'rgba(242,237,228,0.75)' }}
+              style={{ color: '#F2EDE4' }}
               onMouseEnter={(e) => (e.currentTarget.style.color = '#F2EDE4')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(242,237,228,0.75)')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = '#F2EDE4')}
             >
               {t.nav.aboutAdd}
             </button>
