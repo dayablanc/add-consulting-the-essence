@@ -31,7 +31,7 @@
     --aesop-rule: 31 5% 75%;
 
     /* ─── SEMANTIC TOKENS ─── */
-    --background: 34 35% 92%;
+    --background: 0 0% 100%;
     --foreground: 23 24% 8%;
     --card: 0 0% 100%;
     --card-foreground: 23 24% 8%;
@@ -85,7 +85,7 @@
     font-size: 16px;
     line-height: 1.6;
     color: hsl(var(--aesop-soil));
-    background-color: hsl(var(--aesop-parchment));
+    background-color: hsl(var(--aesop-white));
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

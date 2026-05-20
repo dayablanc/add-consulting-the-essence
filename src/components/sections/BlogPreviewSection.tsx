@@ -8,7 +8,7 @@ export default function BlogPreviewSection() {
   const preview = blogPosts.slice(0, 3);
 
   return (
-    <section className="bg-aesop-parchment py-20 lg:py-28">
+    <section className="bg-aesop-white py-20 lg:py-28">
       <div className="max-w-[1200px] mx-auto section-padding">
         <p className="eyebrow mb-4">{t.blogPreview.eyebrow}</p>
         <h2 className="text-aesop-soil text-[28px] md:text-[32px] mb-3" style={{ letterSpacing: '-0.5px' }}>{t.blogPreview.heading}</h2>
