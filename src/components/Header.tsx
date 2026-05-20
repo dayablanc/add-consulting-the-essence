@@ -75,12 +75,12 @@ export default function Header() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-aesop-bark" style={{ borderBottom: '1px solid rgba(242,237,228,0.1)' }}>
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 flex items-center justify-between h-[68px] lg:h-[74px]">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 flex items-center justify-between h-[88px] lg:h-[104px]">
           <Link to="/" className="block flex-shrink-0" aria-label="ADD HR — People Advisory">
             <img
               src={logoAdd}
               alt="ADD HR — People Advisory"
-              className="h-[48px] lg:h-[56px] w-auto block"
+              className="h-[140px] lg:h-[180px] w-auto block"
               style={{ objectFit: 'contain' }}
             />
           </Link>
