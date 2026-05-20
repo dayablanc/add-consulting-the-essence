@@ -10,15 +10,15 @@ export default function StatsSection() {
   ];
 
   return (
-    <section className="bg-aesop-bark py-20 lg:py-28">
+    <section className="bg-aesop-white py-20 lg:py-28">
       <div className="max-w-[1200px] mx-auto section-padding">
         <div className="grid grid-cols-3 gap-8 text-center mb-20">
           {stats.map((s) => (
             <div key={s.label}>
-              <p className="font-serif text-[48px] lg:text-[64px] font-light text-aesop-parchment leading-none" style={{ fontStyle: 'normal' }}>
+              <p className="font-serif text-[48px] lg:text-[64px] font-light text-aesop-soil leading-none" style={{ fontStyle: 'normal' }}>
                 {s.number}
               </p>
-              <p className="font-sans text-[11px] uppercase tracking-[2px] mt-3" style={{ color: 'hsla(37, 33%, 92%, 0.6)' }}>
+              <p className="font-sans text-[11px] uppercase tracking-[2px] mt-3 text-aesop-umber">
                 {s.label}
               </p>
             </div>
@@ -27,13 +27,13 @@ export default function StatsSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {t.stats.testimonials.map((tm) => (
-            <div key={tm.name} className="p-8" style={{ border: '1px solid rgba(242,237,228,0.12)' }}>
-              <p className="font-serif text-[18px] font-light text-aesop-parchment leading-relaxed mb-6" style={{ fontStyle: 'italic' }}>
+            <div key={tm.name} className="p-8" style={{ border: '1px solid hsl(var(--aesop-rule))' }}>
+              <p className="font-serif text-[18px] font-light text-aesop-soil leading-relaxed mb-6" style={{ fontStyle: 'italic' }}>
                 "{tm.quote}"
               </p>
               <div>
-                <p className="font-sans text-[14px] text-aesop-parchment font-normal">{tm.name}</p>
-                <p className="font-mono text-[11px] mt-1" style={{ color: 'hsla(37, 33%, 92%, 0.5)' }}>
+                <p className="font-sans text-[14px] text-aesop-soil font-normal">{tm.name}</p>
+                <p className="font-mono text-[11px] mt-1 text-aesop-taupe">
                   {tm.title} · {tm.company}
                 </p>
               </div>
