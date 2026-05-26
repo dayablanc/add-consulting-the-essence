@@ -568,20 +568,18 @@ function LiquidacionCalc() {
 // ═════════════════════════════════════════════════════
 export default function CalculadoraLaboral() {
   const [tab, setTab] = useState<string>('salario');
+  const location = useLocation();
 
   useEffect(() => {
-    const apply = () => {
-      const h = window.location.hash.replace('#', '');
-      if (HASH_TO_TAB[h]) {
-        setTab(HASH_TO_TAB[h]);
+    const h = (location.hash || window.location.hash).replace('#', '');
+    if (HASH_TO_TAB[h]) {
+      setTab(HASH_TO_TAB[h]);
+      requestAnimationFrame(() => {
         const el = document.getElementById('calculadora-laboral');
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    };
-    apply();
-    window.addEventListener('hashchange', apply);
-    return () => window.removeEventListener('hashchange', apply);
-  }, []);
+      });
+    }
+  }, [location.key, location.hash]);
 
   return (
     <section
