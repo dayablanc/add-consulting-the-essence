@@ -181,7 +181,7 @@ export default function Header() {
 
             <Link
               to="/contacto"
-              className="btn-ghost-light !py-2 !px-5 !text-[11px]"
+              className="btn-ghost-light !py-1.5 !px-4 !text-[11px]"
             >
               {t.nav.contactUs}
             </Link>
