@@ -186,29 +186,31 @@ export default function Header() {
 
             <div style={{ width: '1px', height: '16px', background: 'rgba(242,237,228,0.2)' }} />
 
-            {/* Stacked Language + Currency toggles — aligned columns */}
+            {/* Stacked Language + Currency toggles — filled parchment frame for legibility */}
             <div
               className="flex flex-col items-stretch gap-0.5 font-sans text-[9px] tracking-[0.5px] leading-none px-2 py-1.5"
-              style={{ border: '1px solid rgba(242,237,228,0.25)' }}
+              style={{ background: 'hsl(var(--aesop-parchment))', border: '1px solid hsl(var(--aesop-parchment))' }}
             >
               <div className="grid grid-cols-[40px_6px_40px] items-center">
                 <button
                   onClick={() => setLang('es')}
                   className="cursor-pointer transition-colors duration-200 text-center"
                   style={{
-                    color: lang === 'es' ? 'hsl(var(--aesop-parchment))' : 'rgba(242,237,228,0.45)',
+                    color: 'hsl(var(--aesop-bark))',
                     fontWeight: lang === 'es' ? 700 : 400,
+                    opacity: lang === 'es' ? 1 : 0.5,
                   }}
                 >
                   ES
                 </button>
-                <span className="text-center" style={{ color: 'rgba(242,237,228,0.25)' }}>|</span>
+                <span className="text-center" style={{ color: 'hsl(var(--aesop-bark) / 0.3)' }}>|</span>
                 <button
                   onClick={() => setLang('en')}
                   className="cursor-pointer transition-colors duration-200 text-center"
                   style={{
-                    color: lang === 'en' ? 'hsl(var(--aesop-parchment))' : 'rgba(242,237,228,0.45)',
+                    color: 'hsl(var(--aesop-bark))',
                     fontWeight: lang === 'en' ? 700 : 400,
+                    opacity: lang === 'en' ? 1 : 0.5,
                   }}
                 >
                   EN
@@ -226,7 +228,7 @@ export default function Header() {
                 >
                   ₡ CRC
                 </button>
-                <span className="text-center" style={{ color: 'rgba(242,237,228,0.25)' }}>|</span>
+                <span className="text-center" style={{ color: 'hsl(var(--aesop-bark) / 0.3)' }}>|</span>
                 <button
                   onClick={() => setCurrency('USD')}
                   className="cursor-pointer transition-colors duration-200 text-center"
