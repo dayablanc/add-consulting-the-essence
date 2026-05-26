@@ -6,13 +6,13 @@ export default function HeroSection() {
   const { t } = useI18n();
 
   return (
-    <section className="min-h-screen flex flex-col lg:flex-row pt-[120px] lg:pt-[140px]">
+    <section className="min-h-screen flex flex-col lg:flex-row">
       <div className="lg:hidden w-full h-[45vh] relative overflow-hidden">
         <img src={heroImage} alt="Profesional en oficina moderna" className="w-full h-full object-cover" />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(61,53,48,0.06) 0%, rgba(61,53,48,0.16) 100%)' }} />
       </div>
 
-      <div className="w-full lg:w-1/2 bg-aesop-white flex items-center">
+      <div className="w-full lg:w-1/2 bg-aesop-white flex items-center pt-[120px] lg:pt-[140px]">
         <div className="section-padding py-16 lg:py-0 max-w-[600px]">
           <p className="eyebrow-mono animate-fade-in-up" style={{ animationDelay: '0ms' }}>
             {t.hero.eyebrow}
