@@ -130,9 +130,13 @@ export const services: Service[] = [
     icon: 'file-text',
     idealFor: 'Profesionales que buscan pasar filtros ATS',
     description: 'Damos a tu CV el formato válido para sistemas ATS, asegurando que tu perfil sea legible por los filtros automáticos de las empresas.',
-    includes: ['Reestructuración de CV en formato ATS', 'Optimización de palabras clave', 'Limpieza de formato y diseño', 'Entrega en formato editable'],
+    includes: [
+      'Optimización de tu CV en un formato compatible con filtros ATS',
+      'Corrección y mejora estratégica del contenido',
+      'Entrega en formato Word para que puedas editarlo en el futuro',
+    ],
     showInCards: true,
-    priceCRC: 6000,
+    priceCRC: 8000,
     postPurchaseFormUrl: 'https://forms.gle/Vo6VDxgqk2q5BFyj7',
     faq: [
       { q: '¿Qué es un formato ATS?', a: 'Es la estructura que utilizan los sistemas automatizados de reclutamiento para leer y filtrar CVs antes de que un humano los revise.' },
