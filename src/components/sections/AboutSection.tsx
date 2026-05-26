@@ -8,7 +8,7 @@ export default function AboutSection() {
   return (
     <section className="bg-aesop-white py-12 lg:py-16">
       <div className="max-w-[1200px] mx-auto section-padding">
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+        <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
           {/* Text content */}
           <div className="lg:w-[60%] order-2 lg:order-1">
             <p className="eyebrow mb-3">{t.about.eyebrow}</p>
