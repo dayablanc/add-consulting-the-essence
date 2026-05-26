@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingCTA from '@/components/FloatingCTA';
+import BackButton from '@/components/BackButton';
 import { vacantes } from '@/data/services';
 
 export default function VacantesPage() {
@@ -23,7 +24,8 @@ export default function VacantesPage() {
       <Header />
       <main className="bg-aesop-parchment min-h-screen pt-[64px]">
         <div className="max-w-[900px] mx-auto px-6 py-16 lg:py-24">
-          <p className="eyebrow mb-6">· Oportunidades</p>
+          <BackButton />
+          <p className="eyebrow mb-6 mt-4">· Oportunidades</p>
           <h2 className="text-aesop-soil text-[36px] lg:text-[48px] mb-12">Vacantes</h2>
 
           {/* Filters */}

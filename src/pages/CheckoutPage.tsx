@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import BackButton from '@/components/BackButton';
 import { useCart } from '@/cart/CartContext';
 import { useI18n } from '@/i18n/context';
 import { formatPriceCRC } from '@/i18n/constants';
@@ -53,7 +54,8 @@ export default function CheckoutPage() {
       <main className="min-h-screen pt-[64px]">
         <section className="bg-aesop-bark py-6 lg:py-8">
           <div className="max-w-[900px] mx-auto px-6 lg:px-12">
-            <p className="eyebrow-mono text-aesop-parchment mb-4">· Checkout</p>
+            <BackButton />
+            <p className="eyebrow-mono text-aesop-parchment mb-4 mt-4">· Checkout</p>
             <h1 className="text-aesop-parchment text-[40px] lg:text-[56px] font-serif font-light">
               Confirma tu compra
             </h1>

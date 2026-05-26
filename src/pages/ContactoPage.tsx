@@ -2,6 +2,7 @@ import { useSearchParams } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingCTA from '@/components/FloatingCTA';
+import BackButton from '@/components/BackButton';
 import BookingForm from '@/components/BookingForm';
 import { useI18n } from '@/i18n/context';
 
@@ -16,7 +17,8 @@ export default function ContactoPage() {
       <main className="min-h-screen pt-[64px]">
         <section className="bg-aesop-bark py-6 lg:py-8">
           <div className="max-w-[700px] mx-auto px-6 lg:px-12">
-            <p className="eyebrow-mono text-aesop-parchment mb-4">· Agenda una cita</p>
+            <BackButton />
+            <p className="eyebrow-mono text-aesop-parchment mb-4 mt-4">· Agenda una cita</p>
             <h1 className="text-aesop-parchment text-[40px] lg:text-[56px] font-serif font-light">
               Hablemos
             </h1>

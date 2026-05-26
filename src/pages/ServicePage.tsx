@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingCTA from '@/components/FloatingCTA';
 import QuoteModal from '@/components/QuoteModal';
+import BackButton from '@/components/BackButton';
 import { services } from '@/data/services';
 import { ChevronDown } from 'lucide-react';
 import { useCart } from '@/cart/CartContext';
@@ -69,7 +70,8 @@ export default function ServicePage() {
         {/* Hero compacto */}
         <section className="bg-aesop-bark py-8 lg:py-10">
           <div className="max-w-[1180px] mx-auto px-6 lg:px-12">
-            <p className="eyebrow-mono text-aesop-parchment mb-3">
+            <BackButton />
+            <p className="eyebrow-mono text-aesop-parchment mb-3 mt-4">
               · {service.category === 'empresa' ? 'Para empresas' : 'Para candidatos'}
             </p>
             <h1 className="text-aesop-parchment text-[32px] lg:text-[44px] font-serif font-light leading-tight">{service.name}</h1>
