@@ -485,7 +485,7 @@ const es: Translations = {
     'first-step': 'Herramientas y estrategia para tu primer empleo o transición laboral',
     'add-grow': 'Aceleración profesional',
     simulaciones: 'Práctica de entrevistas',
-    outplacement: 'Acompañamiento en transición laboral',
+    
     'hr-toolkit': 'Machotes y guías para PYMES',
     'career-blueprint': 'Curso de estrategia laboral',
     'insider-club': 'Comunidad exclusiva',
@@ -789,7 +789,7 @@ const en: Translations = {
     'first-step': 'Everything you need to know to start your venture related to Labor Law',
     'add-grow': 'Professional acceleration',
     simulaciones: 'Interview practice',
-    outplacement: 'Career transition support',
+    
     'hr-toolkit': 'Templates and guides for SMEs',
     'career-blueprint': 'Labor strategy course',
     'insider-club': 'Exclusive community',
