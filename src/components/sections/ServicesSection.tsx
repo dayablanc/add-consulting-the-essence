@@ -88,7 +88,7 @@ export default function ServicesSection() {
         <p className="font-serif text-aesop-clay text-[36px] md:text-[44px] lg:text-[52px] mb-5 leading-[1.05]" style={{ letterSpacing: '-1px', fontStyle: 'normal' }}>
           {t.services.eyebrow.replace(/^·\s*/, '')}
         </p>
-        <h2 className="text-aesop-soil text-[28px] md:text-[32px] mb-5" style={{ letterSpacing: '-0.5px' }}>
+        <h2 className="text-aesop-soil text-[16px] md:text-[18px] mb-5 max-w-[400px]" style={{ letterSpacing: '-0.3px' }}>
           {t.services.heading}
         </h2>
         <p className="text-body max-w-[600px] mb-16">{t.services.subtitle}</p>
