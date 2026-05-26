@@ -53,7 +53,7 @@ export default function CheckoutPage() {
       <main className="min-h-screen pt-[64px]">
         <section className="bg-aesop-bark py-6 lg:py-8">
           <div className="max-w-[900px] mx-auto px-6 lg:px-12">
-            <p className="eyebrow-mono text-gold mb-4">· Checkout</p>
+            <p className="eyebrow-mono text-aesop-parchment mb-4">· Checkout</p>
             <h1 className="text-aesop-parchment text-[40px] lg:text-[56px] font-serif font-light">
               Confirma tu compra
             </h1>

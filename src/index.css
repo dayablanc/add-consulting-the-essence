@@ -145,7 +145,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 4px;
-  color: hsl(var(--aesop-clay));
+  color: hsl(var(--aesop-umber));
 }
 
 .eyebrow-mono {
@@ -154,7 +154,7 @@
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: hsl(var(--aesop-clay));
+  color: hsl(var(--aesop-umber));
 }
 
 .label-mono {
