@@ -566,6 +566,22 @@ function LiquidacionCalc() {
 //  COMPONENTE PRINCIPAL
 // ═════════════════════════════════════════════════════
 export default function CalculadoraLaboral() {
+  const [tab, setTab] = useState<string>('salario');
+
+  useEffect(() => {
+    const apply = () => {
+      const h = window.location.hash.replace('#', '');
+      if (HASH_TO_TAB[h]) {
+        setTab(HASH_TO_TAB[h]);
+        const el = document.getElementById('calculadora-laboral');
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+    apply();
+    window.addEventListener('hashchange', apply);
+    return () => window.removeEventListener('hashchange', apply);
+  }, []);
+
   return (
     <section
       id="calculadora-laboral"
@@ -583,7 +599,7 @@ export default function CalculadoraLaboral() {
           </p>
         </div>
 
-        <Tabs defaultValue="salario" className="w-full">
+        <Tabs value={tab} onValueChange={setTab} className="w-full">
           <TabsList className="grid grid-cols-3 w-full max-w-3xl mx-auto mb-10 bg-white border border-aesop-rule h-auto p-1">
             <TabsTrigger
               value="salario"
