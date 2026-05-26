@@ -172,7 +172,7 @@ export default function CotizadorPage() {
               <p className="text-body mt-4">{rec.desc}</p>
               <div className="flex flex-wrap justify-center gap-4 mt-10">
                 <Link to="/contacto" className="btn-cta">Agendar llamada exploratoria</Link>
-                <Link to={rec.slug} className="btn-ghost">Ver detalles del servicio</Link>
+                <Link to={rec.slug} className="btn-cta">Ver detalles del servicio</Link>
               </div>
             </div>
           )}
