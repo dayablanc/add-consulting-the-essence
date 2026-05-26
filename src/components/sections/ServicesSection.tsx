@@ -1,9 +1,7 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { services } from '@/data/services';
 import { useI18n } from '@/i18n/context';
-import QuoteModal from '@/components/QuoteModal';
-import { Users, Scale, Building2, BookOpen, TrendingUp, Shield, Rocket, Mic, FileText, ArrowRight, ChevronDown } from 'lucide-react';
+import { Users, Scale, Building2, BookOpen, TrendingUp, Shield, Rocket, Mic, FileText, ArrowRight } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -37,7 +35,6 @@ const iconMapSmall: Record<string, React.ReactNode> = {
 
 export default function ServicesSection() {
   const { t } = useI18n();
-  const [quoteService, setQuoteService] = useState<string | null>(null);
 
   const b2bCards = services.filter(s => s.category === 'empresa' && s.showInCards);
   const b2cOrder = ['cv-rewrite', 'first-step', 'add-grow', 'simulaciones'];
@@ -75,7 +72,7 @@ export default function ServicesSection() {
           to={servicePath}
           className="btn-cta-slim mt-6 inline-flex items-center justify-center gap-2 self-start"
         >
-          {isB2C ? 'Más información' : 'Ver detalle y cotizar'}
+          {isB2C ? 'Más información' : 'Ver servicio completo'}
           <ArrowRight size={12} strokeWidth={1.5} />
         </Link>
       </div>
@@ -125,7 +122,7 @@ export default function ServicesSection() {
         <div>
           <p className="eyebrow mb-3">· Catálogo completo</p>
           <p className="font-serif text-[24px] lg:text-[28px] text-aesop-soil mb-10" style={{ letterSpacing: '-0.5px', fontStyle: 'normal' }}>
-            Explora todos nuestros servicios y obtén una cotización en tiempo real
+            Explora todos nuestros servicios
           </p>
           <Accordion type="single" collapsible className="w-full">
             {services.map((s) => {
@@ -161,7 +158,7 @@ export default function ServicesSection() {
                       to={`/${s.category}/${s.slug}`}
                       className="btn-cta-slim inline-flex items-center gap-2"
                     >
-                      {s.category === 'candidato' ? 'Más información' : 'Ver detalle y cotizar'}
+                      {s.category === 'candidato' ? 'Más información' : 'Ver servicio completo'}
                       <ArrowRight size={12} strokeWidth={1.5} />
                     </Link>
                   </AccordionContent>
@@ -171,12 +168,6 @@ export default function ServicesSection() {
           </Accordion>
         </div>
       </div>
-
-      <QuoteModal
-        open={!!quoteService}
-        onClose={() => setQuoteService(null)}
-        serviceName={quoteService || undefined}
-      />
     </section>
   );
 }
