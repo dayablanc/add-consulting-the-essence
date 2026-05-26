@@ -184,13 +184,15 @@ export default function ServicePage() {
                       <Calendar size={13} strokeWidth={1.5} />
                       Agendar llamada gratuita
                     </Link>
-                    <Link
-                      to="/contacto"
+                    <a
+                      href={`https://wa.me/50685482539?text=${encodeURIComponent(`Hola, me interesa el servicio: ${service.name}`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full text-center bg-transparent text-aesop-soil font-sans text-[11px] uppercase tracking-[2.5px] py-2.5 transition-colors duration-200 hover:text-aesop-clay"
                       style={{ border: '1px solid hsl(var(--aesop-soil))' }}
                     >
-                      Contactar
-                    </Link>
+                      Contactar por WhatsApp
+                    </a>
                   </div>
                   <p className="font-sans text-[11px] text-aesop-taupe text-center mt-4 leading-relaxed">
                     Verás disponibilidad real en mi calendario.
