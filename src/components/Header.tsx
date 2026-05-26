@@ -52,7 +52,7 @@ export default function Header() {
     },
     {
       label: lang === 'es' ? 'CALCULADORAS' : 'CALCULATORS',
-      to: '/cotizador',
+      to: '/#calculadora-laboral',
     },
   ];
 
