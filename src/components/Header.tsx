@@ -35,7 +35,7 @@ export default function Header() {
           { label: 'ADD Step Up', description: t.megaDescriptions['first-step'], to: '/candidato/first-step' },
           { label: 'ADD Grow', description: t.megaDescriptions['add-grow'], to: '/candidato/add-grow' },
           { label: lang === 'es' ? 'Simulaciones' : 'Simulations', description: t.megaDescriptions['simulaciones'], to: '/candidato/simulaciones' },
-          { label: 'Outplacement', description: t.megaDescriptions['outplacement'], to: '/candidato/outplacement' },
+          
         ],
         cta: { label: t.megaCta.vacantes, to: '/vacantes' },
       },

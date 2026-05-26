@@ -40,7 +40,7 @@ export default function ServicesSection() {
   const [quoteService, setQuoteService] = useState<string | null>(null);
 
   const b2bCards = services.filter(s => s.category === 'empresa' && s.showInCards);
-  const b2cOrder = ['cv-rewrite', 'first-step', 'add-grow', 'simulaciones', 'outplacement'];
+  const b2cOrder = ['cv-rewrite', 'first-step', 'add-grow', 'simulaciones'];
   const b2cCards = services
     .filter(s => s.category === 'candidato' && s.showInCards)
     .sort((a, b) => b2cOrder.indexOf(a.id) - b2cOrder.indexOf(b.id));

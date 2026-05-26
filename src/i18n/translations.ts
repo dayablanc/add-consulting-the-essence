@@ -259,17 +259,6 @@ const es: Translations = {
         'Entrega en formato Word para que puedas editarlo en el futuro',
       ],
     },
-    outplacement: {
-      name: 'Outplacement',
-      description: 'Acompañamiento integral para profesionales que enfrentan un despido o buscan una transición de carrera. Te ayudamos a navegar el cambio con estrategia y herramientas prácticas.',
-      includes: [
-        'Diagnóstico de situación y objetivos de transición',
-        'Estrategia de búsqueda de empleo personalizada',
-        'Revisión y optimización de CV y perfil de LinkedIn',
-        'Preparación para entrevistas y negociación salarial',
-        'Seguimiento durante el proceso de transición',
-      ],
-    },
     'first-step': {
       name: 'ADD Step Up',
       description: 'Ya sea que estés buscando tu primer empleo o quieras mejorar cómo te presentas al mercado laboral, este paquete te da las herramientas y la estrategia para destacar desde tu CV hasta tu presencia en LinkedIn. En una sola sesión aprenderás todo esto. ',
@@ -496,7 +485,7 @@ const es: Translations = {
     'first-step': 'Herramientas y estrategia para tu primer empleo o transición laboral',
     'add-grow': 'Aceleración profesional',
     simulaciones: 'Práctica de entrevistas',
-    outplacement: 'Acompañamiento en transición laboral',
+    
     'hr-toolkit': 'Machotes y guías para PYMES',
     'career-blueprint': 'Curso de estrategia laboral',
     'insider-club': 'Comunidad exclusiva',
@@ -572,17 +561,6 @@ const en: Translations = {
         'CV optimization in an ATS-compatible format',
         'Strategic content correction and improvement',
         'Delivery in Word format so you can edit it in the future',
-      ],
-    },
-    outplacement: {
-      name: 'Outplacement',
-      description: 'Comprehensive support for professionals facing termination or seeking a career transition. We help you navigate the change with strategy and practical tools.',
-      includes: [
-        'Situation and transition goals diagnosis',
-        'Personalized job search strategy',
-        'CV and LinkedIn profile review and optimization',
-        'Interview preparation and salary negotiation',
-        'Follow-up during the transition process',
       ],
     },
     'first-step': {
@@ -811,7 +789,7 @@ const en: Translations = {
     'first-step': 'Everything you need to know to start your venture related to Labor Law',
     'add-grow': 'Professional acceleration',
     simulaciones: 'Interview practice',
-    outplacement: 'Career transition support',
+    
     'hr-toolkit': 'Templates and guides for SMEs',
     'career-blueprint': 'Labor strategy course',
     'insider-club': 'Exclusive community',
