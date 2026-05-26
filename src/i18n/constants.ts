@@ -2,7 +2,7 @@ export type Lang = 'es' | 'en';
 export type Currency = 'CRC' | 'USD';
 
 // TODO: conectar a API de tipo de cambio BCCR
-export const EXCHANGE_RATE = 520; // 1 USD = 520 CRC
+export const EXCHANGE_RATE = 510; // 1 USD = 510 CRC
 
 export const formatPrice = (amountUSD: number, currency: Currency): string => {
   if (currency === 'USD') {
