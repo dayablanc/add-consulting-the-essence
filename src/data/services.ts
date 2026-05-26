@@ -152,9 +152,16 @@ export const services: Service[] = [
     icon: 'rocket',
     idealFor: 'IDEAL PARA: ESTUDIANTES, PROFESIONALES EN TRANSICIÓN Y QUIENES QUIEREN MEJORAR SU EMPLEABILIDAD',
     description: 'Ya sea que estés buscando tu primer empleo o quieras mejorar cómo te presentas al mercado laboral, este paquete te da las herramientas y la estrategia para destacar desde tu CV hasta tu presencia en LinkedIn. En una sola sesión aprenderás todo esto. ',
-    includes: ['Sesión de diagnóstico personalizado', 'Estrategia de optimización de perfil de LinkedIn', 'Guía para poder pasar la primer entrevista con éxito', 'Cómo adaptar tu CV a cada puesto con estrategia', 'Diseño y optimización de CV con estándar ATS'],
+    includes: [
+      'Diagnóstico inicial para conocer a profundidad tu experiencia, fortalezas y objetivos profesionales',
+      'Creación de CV profesional en formato Harvard, optimizado para filtros ATS',
+      'Te enseño cómo adaptar tu CV estratégicamente utilizando herramientas de AI',
+      'Recomendación de páginas y plataformas de reclutamiento según tu perfil profesional',
+      'Preparación para prescreenings: cómo responder de forma estratégica y generar una excelente primera impresión',
+      'Guía sobre cómo optimizar tu LinkedIn para atraer más oportunidades laborales',
+    ],
     showInCards: true,
-    priceCRC: 16000,
+    priceCRC: 18000,
     faq: [
       { q: '¿Necesito experiencia previa?', a: 'No. Este programa está diseñado específicamente para quienes inician.' },
       { q: '¿Incluye prácticas profesionales?', a: 'No directamente, pero te conectamos con empresas que buscan practicantes.' },
