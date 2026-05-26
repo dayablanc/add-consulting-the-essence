@@ -6,7 +6,7 @@ export default function AboutSection() {
   const { t } = useI18n();
 
   return (
-    <section className="bg-aesop-white py-12 lg:py-16">
+    <section className="bg-aesop-white pt-12 lg:pt-16 pb-6 lg:pb-8">
       <div className="max-w-[1200px] mx-auto section-padding">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           {/* Text content */}
