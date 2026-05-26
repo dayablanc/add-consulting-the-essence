@@ -33,7 +33,7 @@ export default function Header() {
           { label: lang === 'es' ? 'Reclutamiento' : 'Recruitment', description: t.megaDescriptions['reclutamiento'], to: '/empresa/reclutamiento' },
           { label: lang === 'es' ? 'Auditoría y Cumplimiento' : 'Audit & Compliance', description: t.megaDescriptions['risk-compliance'], to: '/empresa/risk-compliance' },
         ],
-        cta: { label: t.megaCta.cotizador, to: '/cotizador' },
+        cta: { label: lang === 'es' ? 'Agendar llamada gratuita' : 'Book free call', to: '/contacto' },
       },
     },
     {

@@ -4,7 +4,6 @@ import FloatingCTA from '@/components/FloatingCTA';
 import HeroSection from '@/components/sections/HeroSection';
 import AboutSection from '@/components/sections/AboutSection';
 import ServicesSection from '@/components/sections/ServicesSection';
-import CotizadorCTASection from '@/components/sections/CotizadorCTASection';
 import CalculadoraLaboral from '@/components/CalculadoraLaboral';
 import KitPymeSection from '@/components/sections/KitPymeSection';
 import StatsSection from '@/components/sections/StatsSection';
@@ -20,7 +19,6 @@ export default function Index() {
         <AboutSection />
         <ServicesSection />
         <KitPymeSection />
-        <CotizadorCTASection />
         <CalculadoraLaboral />
         <StatsSection />
         <BlogPreviewSection />

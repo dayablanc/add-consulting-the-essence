@@ -7,7 +7,7 @@ import { CartProvider } from "@/cart/CartContext";
 import CartDrawer from "@/cart/CartDrawer";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import CotizadorPage from "./pages/CotizadorPage";
+
 import VacantesPage from "./pages/VacantesPage";
 import BlogPage from "./pages/BlogPage";
 import ServicePage from "./pages/ServicePage";
@@ -35,7 +35,7 @@ const App = () => (
               <Route path="/empresa/:slug" element={<ServicePage />} />
               <Route path="/candidato" element={<CandidatoPage />} />
               <Route path="/candidato/:slug" element={<ServicePage />} />
-              <Route path="/cotizador" element={<CotizadorPage />} />
+              
               <Route path="/vacantes" element={<VacantesPage />} />
               <Route path="/recursos/blog" element={<BlogPage />} />
               <Route path="/recursos/insider-club" element={<InsiderClubPage />} />
