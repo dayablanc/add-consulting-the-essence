@@ -83,10 +83,10 @@ export default function ServicesSection() {
   };
 
   return (
-    <section className="bg-aesop-white py-20 lg:py-28">
+    <section className="bg-aesop-white pt-6 lg:pt-8 pb-20 lg:pb-28">
       <div className="max-w-[1200px] mx-auto section-padding">
         <p className="eyebrow mb-4">{t.services.eyebrow}</p>
-        <h2 className="text-aesop-soil text-[28px] md:text-[32px] mb-4" style={{ letterSpacing: '-0.5px' }}>
+        <h2 className="text-aesop-soil text-[40px] md:text-[52px] lg:text-[60px] mb-5 leading-[1.05]" style={{ letterSpacing: '-1px' }}>
           {t.services.heading}
         </h2>
         <p className="text-body max-w-[600px] mb-16">{t.services.subtitle}</p>
