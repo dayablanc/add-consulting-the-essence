@@ -145,28 +145,6 @@ export const services: Service[] = [
     ],
   },
   {
-    id: 'outplacement',
-    name: 'Outplacement',
-    slug: 'outplacement',
-    category: 'candidato',
-    icon: 'briefcase',
-    idealFor: 'Profesionales en transición laboral',
-    description: 'Acompañamiento integral para profesionales que enfrentan un despido o buscan una transición de carrera. Te ayudamos a navegar el cambio con estrategia y herramientas prácticas.',
-    includes: [
-      'Diagnóstico de situación y objetivos de transición',
-      'Estrategia de búsqueda de empleo personalizada',
-      'Revisión y optimización de CV y perfil de LinkedIn',
-      'Preparación para entrevistas y negociación salarial',
-      'Seguimiento durante el proceso de transición',
-    ],
-    showInCards: true,
-    faq: [
-      { q: '¿Para quién es este servicio?', a: 'Para profesionales que han sido despedidos, renuncian o buscan un cambio de carrera.' },
-      { q: '¿Cuánto dura el programa?', a: 'Depende de tus necesidades. Ofrecemos paquetes flexibles de 1 a 3 meses.' },
-      { q: '¿Es confidencial?', a: 'Absolutamente. Toda la información y el proceso son 100% confidenciales.' },
-    ],
-  },
-  {
     id: 'first-step',
     name: 'ADD Step Up',
     slug: 'first-step',
