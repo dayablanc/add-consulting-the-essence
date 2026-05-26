@@ -14,7 +14,16 @@ export default function Header() {
   const [aboutOpen, setAboutOpen] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const navItems = [
+  type NavItem = {
+    label: string;
+    to?: string;
+    mega?: {
+      items: { label: string; description: string; to: string }[];
+      cta?: { label: string; to: string };
+    };
+  };
+
+  const navItems: NavItem[] = [
     {
       label: t.nav.forCompanies,
       mega: {
@@ -52,6 +61,7 @@ export default function Header() {
     },
     {
       label: lang === 'es' ? 'CALCULADORAS' : 'CALCULATORS',
+      to: '/#calculadora-laboral',
       mega: {
         items: [
           { label: lang === 'es' ? 'Cálculo de salario' : 'Salary Calculator', description: lang === 'es' ? 'Salario proporcional, deducciones y neto' : 'Proportional salary, deductions and net pay', to: '/#calculadora-laboral' },
