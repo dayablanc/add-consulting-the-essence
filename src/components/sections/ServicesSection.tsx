@@ -154,7 +154,7 @@ export default function ServicesSection() {
                     )}
                     <Link
                       to={`/${s.category}/${s.slug}`}
-                      className="inline-flex items-center gap-2 font-sans text-[12px] uppercase tracking-[2px] text-aesop-clay cursor-pointer transition-all duration-200 hover:gap-3"
+                      className="btn-cta inline-flex items-center gap-2"
                     >
                       {s.category === 'candidato' ? 'Obtener servicio' : 'Ver detalle y cotizar'}
                       <ArrowRight size={14} strokeWidth={1.5} />
