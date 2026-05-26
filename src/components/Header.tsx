@@ -54,10 +54,6 @@ export default function Header() {
       label: lang === 'es' ? 'CALCULADORAS' : 'CALCULATORS',
       to: '/cotizador',
     },
-    {
-      label: t.nav.blog,
-      to: '/recursos/blog',
-    },
   ];
 
   const handleMouseEnter = (label: string) => {
