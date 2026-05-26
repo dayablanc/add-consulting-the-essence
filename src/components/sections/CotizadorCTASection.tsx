@@ -5,7 +5,7 @@ export default function CotizadorCTASection() {
   const { t } = useI18n();
 
   return (
-    <section className="bg-aesop-linen py-20 lg:py-28">
+    <section className="bg-aesop-white py-20 lg:py-28">
       <div className="max-w-[700px] mx-auto section-padding text-center">
         <p className="eyebrow mb-4">{t.cotizadorCta.eyebrow}</p>
         <h2 className="text-aesop-soil text-[28px] md:text-[32px]" style={{ letterSpacing: '-0.5px' }}>
