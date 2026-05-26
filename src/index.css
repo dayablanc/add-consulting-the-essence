@@ -205,6 +205,7 @@
   color: hsl(var(--aesop-parchment));
   cursor: pointer;
   transition: all 200ms ease;
+  border-radius: 4px !important;
 }
 .btn-cta:hover {
   background-color: hsl(var(--aesop-clay-hover));
@@ -223,6 +224,7 @@
   color: hsl(var(--aesop-soil));
   cursor: pointer;
   transition: all 200ms ease;
+  border-radius: 4px !important;
 }
 .btn-ghost:hover {
   background-color: hsl(var(--aesop-clay));
@@ -242,6 +244,7 @@
   color: hsl(var(--aesop-parchment));
   cursor: pointer;
   transition: all 200ms ease;
+  border-radius: 4px !important;
 }
 .btn-ghost-light:hover {
   background-color: hsl(var(--aesop-clay));
