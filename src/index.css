@@ -211,6 +211,24 @@
   background-color: hsl(var(--aesop-clay-hover));
   transform: translateY(-1px);
 }
+.btn-cta-slim {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  padding: 8px 20px;
+  border: none;
+  background-color: hsl(var(--aesop-clay));
+  color: hsl(var(--aesop-parchment));
+  cursor: pointer;
+  transition: all 200ms ease;
+  border-radius: 9999px !important;
+}
+.btn-cta-slim:hover {
+  background-color: hsl(var(--aesop-clay-hover));
+  transform: translateY(-1px);
+}
 
 .btn-ghost {
   font-family: var(--font-sans);

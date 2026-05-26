@@ -40,7 +40,10 @@ export default function ServicesSection() {
   const [quoteService, setQuoteService] = useState<string | null>(null);
 
   const b2bCards = services.filter(s => s.category === 'empresa' && s.showInCards);
-  const b2cCards = services.filter(s => s.category === 'candidato' && s.showInCards);
+  const b2cOrder = ['outplacement', 'first-step', 'add-grow', 'simulaciones'];
+  const b2cCards = services
+    .filter(s => s.category === 'candidato' && s.showInCards)
+    .sort((a, b) => b2cOrder.indexOf(a.id) - b2cOrder.indexOf(b.id));
 
   const getServiceText = (s: typeof services[0]) => {
     const translated = t.serviceItems[s.id];
@@ -70,10 +73,10 @@ export default function ServicesSection() {
         </div>
         <Link
           to={servicePath}
-          className="btn-cta mt-6 inline-flex items-center justify-center gap-2 self-start"
+          className="btn-cta-slim mt-6 inline-flex items-center justify-center gap-2 self-start"
         >
-          {isB2C ? 'Obtener servicio' : 'Ver detalle y cotizar'}
-          <ArrowRight size={14} strokeWidth={1.5} />
+          {isB2C ? 'Más información' : 'Ver detalle y cotizar'}
+          <ArrowRight size={12} strokeWidth={1.5} />
         </Link>
       </div>
     );
@@ -154,10 +157,10 @@ export default function ServicesSection() {
                     )}
                     <Link
                       to={`/${s.category}/${s.slug}`}
-                      className="btn-cta inline-flex items-center gap-2"
+                      className="btn-cta-slim inline-flex items-center gap-2"
                     >
-                      {s.category === 'candidato' ? 'Obtener servicio' : 'Ver detalle y cotizar'}
-                      <ArrowRight size={14} strokeWidth={1.5} />
+                      {s.category === 'candidato' ? 'Más información' : 'Ver detalle y cotizar'}
+                      <ArrowRight size={12} strokeWidth={1.5} />
                     </Link>
                   </AccordionContent>
                 </AccordionItem>
