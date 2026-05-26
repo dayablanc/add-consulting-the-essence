@@ -31,8 +31,9 @@ export default function Header() {
       label: t.nav.forCandidates,
       mega: {
         items: [
-          { label: 'ADD Grow', description: t.megaDescriptions['add-grow'], to: '/candidato/add-grow' },
+          { label: lang === 'es' ? 'Modificación de CV' : 'CV Rewrite', description: t.megaDescriptions['cv-rewrite'], to: '/candidato/cv-rewrite' },
           { label: 'ADD Step Up', description: t.megaDescriptions['first-step'], to: '/candidato/first-step' },
+          { label: 'ADD Grow', description: t.megaDescriptions['add-grow'], to: '/candidato/add-grow' },
           { label: lang === 'es' ? 'Simulaciones' : 'Simulations', description: t.megaDescriptions['simulaciones'], to: '/candidato/simulaciones' },
           { label: 'Outplacement', description: t.megaDescriptions['outplacement'], to: '/candidato/outplacement' },
         ],

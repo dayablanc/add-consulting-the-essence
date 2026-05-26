@@ -250,13 +250,24 @@ const es: Translations = {
       description: 'Gestión operativa básica de recursos humanos para empresas en crecimiento.',
       includes: ['Creación de políticas', 'Asesoría laboral', 'Creación de documento', 'Soporte continuo'],
     },
-    outplacement: {
+    'cv-rewrite': {
       name: 'Modificación de CV',
       description: 'Damos a tu CV el formato válido para sistemas ATS, asegurando que tu perfil sea legible por los filtros automáticos de las empresas.',
       includes: [
         'Optimización de tu CV en un formato compatible con filtros ATS',
         'Corrección y mejora estratégica del contenido',
         'Entrega en formato Word para que puedas editarlo en el futuro',
+      ],
+    },
+    outplacement: {
+      name: 'Outplacement',
+      description: 'Acompañamiento integral para profesionales que enfrentan un despido o buscan una transición de carrera. Te ayudamos a navegar el cambio con estrategia y herramientas prácticas.',
+      includes: [
+        'Diagnóstico de situación y objetivos de transición',
+        'Estrategia de búsqueda de empleo personalizada',
+        'Revisión y optimización de CV y perfil de LinkedIn',
+        'Preparación para entrevistas y negociación salarial',
+        'Seguimiento durante el proceso de transición',
       ],
     },
     'first-step': {
@@ -481,8 +492,9 @@ const es: Translations = {
     essentials: 'Formalización y cumplimiento básico',
     reclutamiento: 'Encontramos al talento ideal',
     'risk-compliance': 'Auditoría y blindaje legal',
-    'add-grow': 'Aceleración profesional',
+    'cv-rewrite': 'Transformamos tu CV en una herramienta efectiva',
     'first-step': 'Herramientas y estrategia para tu primer empleo o transición laboral',
+    'add-grow': 'Aceleración profesional',
     simulaciones: 'Práctica de entrevistas',
     outplacement: 'Acompañamiento en transición laboral',
     'hr-toolkit': 'Machotes y guías para PYMES',
@@ -553,13 +565,24 @@ const en: Translations = {
       description: 'Basic HR operational management for growing companies.',
       includes: ['Policy creation', 'Labor advisory', 'Document creation', 'Ongoing support'],
     },
-    outplacement: {
+    'cv-rewrite': {
       name: 'CV Formatting',
       description: 'We format your CV to be valid for ATS systems, ensuring your profile is readable by companies\' automated filters.',
       includes: [
         'CV optimization in an ATS-compatible format',
         'Strategic content correction and improvement',
         'Delivery in Word format so you can edit it in the future',
+      ],
+    },
+    outplacement: {
+      name: 'Outplacement',
+      description: 'Comprehensive support for professionals facing termination or seeking a career transition. We help you navigate the change with strategy and practical tools.',
+      includes: [
+        'Situation and transition goals diagnosis',
+        'Personalized job search strategy',
+        'CV and LinkedIn profile review and optimization',
+        'Interview preparation and salary negotiation',
+        'Follow-up during the transition process',
       ],
     },
     'first-step': {
@@ -784,8 +807,9 @@ const en: Translations = {
     essentials: 'Formalization and basic compliance',
     reclutamiento: 'We find the ideal talent',
     'risk-compliance': 'Audit and legal shielding',
-    'add-grow': 'Professional acceleration',
+    'cv-rewrite': 'Transform your CV into an effective tool',
     'first-step': 'Everything you need to know to start your venture related to Labor Law',
+    'add-grow': 'Professional acceleration',
     simulaciones: 'Interview practice',
     outplacement: 'Career transition support',
     'hr-toolkit': 'Templates and guides for SMEs',
