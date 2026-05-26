@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingCTA from '@/components/FloatingCTA';
+import BackButton from '@/components/BackButton';
 
 type Profile = 'empresa' | 'candidato' | 'estudiante' | null;
 type Step = 1 | 2 | 3 | 4 | 5;

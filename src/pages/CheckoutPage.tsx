@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import BackButton from '@/components/BackButton';
 import { useCart } from '@/cart/CartContext';
 import { useI18n } from '@/i18n/context';
 import { formatPriceCRC } from '@/i18n/constants';

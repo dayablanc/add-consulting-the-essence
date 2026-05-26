@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingCTA from '@/components/FloatingCTA';
 import QuoteModal from '@/components/QuoteModal';
+import BackButton from '@/components/BackButton';
 import { services } from '@/data/services';
 import { ChevronDown } from 'lucide-react';
 import { useCart } from '@/cart/CartContext';

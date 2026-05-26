@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingCTA from '@/components/FloatingCTA';
+import BackButton from '@/components/BackButton';
 import { blogPosts } from '@/data/services';
 import blogImage from '@/assets/blog-image.jpg';
 

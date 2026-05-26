@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingCTA from '@/components/FloatingCTA';
+import BackButton from '@/components/BackButton';
 
 export default function InsiderClubPage() {
   return (

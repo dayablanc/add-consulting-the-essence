@@ -2,6 +2,7 @@ import { useSearchParams } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingCTA from '@/components/FloatingCTA';
+import BackButton from '@/components/BackButton';
 import BookingForm from '@/components/BookingForm';
 import { useI18n } from '@/i18n/context';
 

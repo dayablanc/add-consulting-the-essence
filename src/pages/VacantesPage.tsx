@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingCTA from '@/components/FloatingCTA';
+import BackButton from '@/components/BackButton';
 import { vacantes } from '@/data/services';
 
 export default function VacantesPage() {
