@@ -555,12 +555,23 @@ const en: Translations = {
     outplacement: {
       name: 'CV Formatting',
       description: 'We format your CV to be valid for ATS systems, ensuring your profile is readable by companies\' automated filters.',
-      includes: ['ATS-format CV restructuring', 'Keyword optimization', 'Format and design cleanup', 'Editable file delivery'],
+      includes: [
+        'CV optimization in an ATS-compatible format',
+        'Strategic content correction and improvement',
+        'Delivery in Word format so you can edit it in the future',
+      ],
     },
     'first-step': {
       name: 'ADD Step Up',
       description: 'Whether you are looking for your first job or want to improve how you present yourself to the job market, this package gives you the tools and strategy to stand out from your CV to your LinkedIn presence. In just one session you will learn all this.',
-      includes: ['ATS-format CV design and optimization', 'LinkedIn profile from scratch', 'Guide to passing your first interview successfully', 'Career guidance', 'Access to junior openings'],
+      includes: [
+        'Initial diagnosis to deeply understand your experience, strengths and professional goals',
+        'Creation of a professional CV in Harvard format, optimized for ATS filters',
+        'I teach you how to strategically adapt your CV using AI tools',
+        'Recommendation of recruitment platforms based on your professional profile',
+        'Prescreening preparation: how to respond strategically and make an excellent first impression',
+        'Guidance on how to optimize your LinkedIn to attract more job opportunities',
+      ],
     },
     simulaciones: {
       name: 'Interview Simulations',
@@ -570,7 +581,18 @@ const en: Translations = {
     'add-grow': {
       name: 'ADD Grow',
       description: 'Comprehensive professional acceleration program. We support you at every stage: from diagnosis to placement in a new opportunity.',
-      includes: ['360° professional diagnosis', 'Personalized career plan', '1:1 mentorship', 'Strategic networking', 'Access to exclusive openings'],
+      includes: [
+        'Diagnosis to deeply analyze your experience, goals and professional focus',
+        'Creation of CV in Harvard format optimized for ATS and current recruitment processes',
+        'I teach you how to strategically adapt your CV using AI tools',
+        'Recommendation of job platforms and search strategies aligned with your profile',
+        'Preparation for interviews and prescreenings: how to respond strategically and make an excellent first impression',
+        'Practical explanation of the STAR methodology to answer behavioral questions with confidence',
+        'Support to build your professional storytelling and better communicate your experience',
+        'Interview guide as a deliverable with frequently asked questions, response structure and practical exercises',
+        'Information to optimize your LinkedIn and strengthen your professional brand',
+        'Follow-up after the session to resolve questions and accompany you in the process',
+      ],
     },
     reclutamiento: {
       name: 'Talent Acquisition & Selection',
