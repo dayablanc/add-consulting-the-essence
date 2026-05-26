@@ -33,16 +33,16 @@ const ctaBtn =
   'mt-2 px-10 py-3 font-sans text-[11px] uppercase tracking-[3px] font-semibold text-white transition-all hover:opacity-90';
 
 // Radio group helper
-function Radio<T extends string>({
+function Radio({
   name,
   value,
   options,
   onChange,
 }: {
   name: string;
-  value: T;
-  options: { value: T; label: string; hint?: string }[];
-  onChange: (v: T) => void;
+  value: string;
+  options: { value: string; label: string; hint?: string }[];
+  onChange: (v: string) => void;
 }) {
   return (
     <div className="space-y-2">
