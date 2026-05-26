@@ -138,7 +138,7 @@ function SalarioCalc() {
           <Radio
             name="jornada-salario"
             value={jornada}
-            onChange={setJornada}
+            onChange={(v) => setJornada(v as any)}
             options={[
               { value: 'diurna', label: 'Diurna', hint: '8 horas (5am – 7pm)' },
               { value: 'mixta', label: 'Mixta', hint: '7 horas' },
@@ -252,7 +252,7 @@ function HorasCalc() {
           <Radio
             name="modalidad"
             value={modalidad}
-            onChange={setModalidad}
+            onChange={(v) => setModalidad(v as any)}
             options={[
               { value: 'mensual', label: 'Mensual' },
               { value: 'quincenal', label: 'Quincenal' },
@@ -266,7 +266,7 @@ function HorasCalc() {
           <Radio
             name="jornada-horas"
             value={jornada}
-            onChange={setJornada}
+            onChange={(v) => setJornada(v as any)}
             options={[
               { value: 'diurna', label: 'Diurna', hint: '8 horas (5am – 7pm)' },
               { value: 'mixta', label: 'Mixta', hint: '7 horas' },
@@ -294,7 +294,7 @@ function HorasCalc() {
           <Radio
             name="tipo-dia"
             value={tipo}
-            onChange={setTipo}
+            onChange={(v) => setTipo(v as any)}
             options={[
               { value: 'ordinario', label: 'Día ordinario', hint: 'Recargo del 50% (×1.5)' },
               { value: 'descanso', label: 'Día de descanso', hint: 'Pago doble (×2)' },
@@ -449,7 +449,7 @@ function LiquidacionCalc() {
           <Radio
             name="motivo"
             value={motivo}
-            onChange={setMotivo}
+            onChange={(v) => setMotivo(v as any)}
             options={[
               { value: 'despido_con', label: 'Despido con responsabilidad patronal' },
               { value: 'despido_sin', label: 'Despido sin responsabilidad patronal' },
