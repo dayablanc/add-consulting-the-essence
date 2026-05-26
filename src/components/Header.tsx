@@ -34,6 +34,7 @@ export default function Header() {
           { label: 'ADD Grow', description: t.megaDescriptions['add-grow'], to: '/candidato/add-grow' },
           { label: 'ADD Step Up', description: t.megaDescriptions['first-step'], to: '/candidato/first-step' },
           { label: lang === 'es' ? 'Simulaciones' : 'Simulations', description: t.megaDescriptions['simulaciones'], to: '/candidato/simulaciones' },
+          { label: 'Outplacement', description: t.megaDescriptions['outplacement'], to: '/candidato/outplacement' },
         ],
         cta: { label: t.megaCta.vacantes, to: '/vacantes' },
       },
@@ -47,6 +48,10 @@ export default function Header() {
           { label: 'ADD Insider Club', description: t.megaDescriptions['insider-club'], to: '/recursos/insider-club' },
         ],
       },
+    },
+    {
+      label: lang === 'es' ? 'CALCULADORAS' : 'CALCULATORS',
+      to: '/cotizador',
     },
     {
       label: t.nav.blog,
