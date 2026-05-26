@@ -3,10 +3,9 @@ import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingCTA from '@/components/FloatingCTA';
-import QuoteModal from '@/components/QuoteModal';
 import BackButton from '@/components/BackButton';
 import { services } from '@/data/services';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Calendar } from 'lucide-react';
 import { useCart } from '@/cart/CartContext';
 import { useI18n } from '@/i18n/context';
 import { formatPriceCRC } from '@/i18n/constants';
@@ -14,7 +13,6 @@ import { formatPriceCRC } from '@/i18n/constants';
 export default function ServicePage() {
   const { slug } = useParams();
   const service = services.find(s => s.slug === slug);
-  const [quoteOpen, setQuoteOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const { addItem, setOpen: setCartOpen } = useCart();
   const { currency } = useI18n();
@@ -171,17 +169,21 @@ export default function ServicePage() {
             ) : (
               <aside className="lg:sticky lg:top-[88px]">
                 <div className="p-6 bg-aesop-cream" style={{ border: '1px solid hsl(var(--aesop-rule))' }}>
-                  <p className="eyebrow-mono mb-3">· Servicio a medida</p>
+                  <p className="eyebrow-mono mb-3">· Llamada de diagnóstico</p>
+                  <p className="font-serif text-[22px] text-aesop-soil leading-tight mb-3" style={{ letterSpacing: '-0.3px' }}>
+                    Conversemos sobre tu caso
+                  </p>
                   <p className="font-sans text-[13px] text-aesop-umber font-light leading-relaxed mb-5">
-                    Este servicio se cotiza según las necesidades específicas de tu empresa.
+                    Agenda una llamada gratuita de 30 minutos. Revisamos tus necesidades y definimos el camino a seguir, sin compromiso.
                   </p>
                   <div className="flex flex-col gap-2">
-                    <button
-                      onClick={() => setQuoteOpen(true)}
-                      className="w-full bg-aesop-clay hover:bg-aesop-clay-hover text-aesop-parchment font-sans text-[11px] uppercase tracking-[2.5px] py-3 transition-colors duration-200"
+                    <Link
+                      to={`/contacto?service=${encodeURIComponent(service.name)}`}
+                      className="w-full bg-aesop-clay hover:bg-aesop-clay-hover text-aesop-parchment font-sans text-[11px] uppercase tracking-[2.5px] py-3 transition-colors duration-200 inline-flex items-center justify-center gap-2"
                     >
-                      Cotizar servicio →
-                    </button>
+                      <Calendar size={13} strokeWidth={1.5} />
+                      Agendar llamada gratuita
+                    </Link>
                     <Link
                       to="/contacto"
                       className="w-full text-center bg-transparent text-aesop-soil font-sans text-[11px] uppercase tracking-[2.5px] py-2.5 transition-colors duration-200 hover:text-aesop-clay"
@@ -190,6 +192,9 @@ export default function ServicePage() {
                       Contactar
                     </Link>
                   </div>
+                  <p className="font-sans text-[11px] text-aesop-taupe text-center mt-4 leading-relaxed">
+                    Verás disponibilidad real en mi calendario.
+                  </p>
                 </div>
               </aside>
             )}
@@ -227,7 +232,6 @@ export default function ServicePage() {
       </main>
       <Footer />
       <FloatingCTA />
-      <QuoteModal open={quoteOpen} onClose={() => setQuoteOpen(false)} serviceName={service.name} />
     </>
   );
 }
