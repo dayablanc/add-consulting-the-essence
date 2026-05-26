@@ -8,7 +8,7 @@ export default function CTAFinalSection() {
 
   return (
     <>
-      <section className="py-20 lg:py-28 bg-aesop-white">
+      <section className="py-12 lg:py-16 bg-aesop-white">
         <div className="max-w-[800px] mx-auto section-padding text-center">
           <h2
             className="font-serif text-[28px] md:text-[32px] font-light text-aesop-soil mb-6"

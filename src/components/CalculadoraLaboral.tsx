@@ -562,7 +562,7 @@ export default function CalculadoraLaboral() {
   return (
     <section
       id="calculadora-laboral"
-      className="py-24 section-padding"
+      className="py-16 section-padding"
       style={{ backgroundColor: C.lightGray }}
     >
       <div className="max-w-6xl mx-auto">

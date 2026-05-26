@@ -10,9 +10,9 @@ export default function StatsSection() {
   ];
 
   return (
-    <section className="bg-aesop-white py-20 lg:py-28">
+    <section className="bg-aesop-white py-12 lg:py-16">
       <div className="max-w-[1200px] mx-auto section-padding">
-        <div className="grid grid-cols-3 gap-8 text-center mb-20">
+        <div className="grid grid-cols-3 gap-8 text-center mb-10">
           {stats.map((s) => (
             <div key={s.label}>
               <p className="font-serif text-[48px] lg:text-[64px] font-light text-aesop-soil leading-none" style={{ fontStyle: 'normal' }}>
