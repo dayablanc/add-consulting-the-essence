@@ -64,9 +64,9 @@ export default function Header() {
       to: '/#calculadora-laboral',
       mega: {
         items: [
-          { label: lang === 'es' ? 'Cálculo de salario' : 'Salary Calculator', description: lang === 'es' ? 'Salario proporcional, deducciones y neto' : 'Proportional salary, deductions and net pay', to: '/#calculadora-laboral' },
-          { label: lang === 'es' ? 'Horas extras' : 'Overtime', description: lang === 'es' ? 'Cálculo de horas extraordinarias' : 'Overtime hours calculation', to: '/#calculadora-laboral' },
-          { label: lang === 'es' ? 'Liquidaciones' : 'Severance', description: lang === 'es' ? 'Preaviso, cesantía y vacaciones' : 'Notice, severance and vacation pay', to: '/#calculadora-laboral' },
+          { label: lang === 'es' ? 'Cálculo de salario' : 'Salary Calculator', description: lang === 'es' ? 'Salario proporcional, deducciones y neto' : 'Proportional salary, deductions and net pay', to: '/#calc-salario' },
+          { label: lang === 'es' ? 'Horas extras' : 'Overtime', description: lang === 'es' ? 'Cálculo de horas extraordinarias' : 'Overtime hours calculation', to: '/#calc-horas' },
+          { label: lang === 'es' ? 'Liquidaciones' : 'Severance', description: lang === 'es' ? 'Preaviso, cesantía y vacaciones' : 'Notice, severance and vacation pay', to: '/#calc-liquidacion' },
         ],
       },
     },
