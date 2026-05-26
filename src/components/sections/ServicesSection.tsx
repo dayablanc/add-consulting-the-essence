@@ -70,7 +70,7 @@ export default function ServicesSection() {
         </div>
         <Link
           to={servicePath}
-          className="mt-6 inline-flex items-center gap-2 font-sans text-[12px] uppercase tracking-[2px] text-aesop-clay cursor-pointer transition-all duration-200 group-hover:gap-3"
+          className="btn-cta mt-6 inline-flex items-center justify-center gap-2 self-start"
         >
           {isB2C ? 'Obtener servicio' : 'Ver detalle y cotizar'}
           <ArrowRight size={14} strokeWidth={1.5} />
