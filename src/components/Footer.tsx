@@ -41,7 +41,7 @@ export default function Footer() {
           {/* Col 3 */}
           <div>
             <p className="font-sans text-[10px] uppercase tracking-[2px] text-aesop-taupe mb-4">{t.footer.contactTitle}</p>
-            <p className="font-sans text-[13px] mb-2" style={{ color: 'rgba(242,237,228,0.5)' }}>info@addconsulting.cr</p>
+            <p className="font-sans text-[13px] mb-2" style={{ color: 'rgba(242,237,228,0.5)' }}>info@addhrlatam.com</p>
             <p className="font-sans text-[13px] mb-2" style={{ color: 'rgba(242,237,228,0.5)' }}>+506 8888-8888</p>
             <p className="font-sans text-[13px]" style={{ color: 'rgba(242,237,228,0.5)' }}>San José, Costa Rica</p>
           </div>

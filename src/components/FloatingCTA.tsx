@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useToast } from '@/hooks/use-toast';
 import { useI18n } from '@/i18n/context';
 
-const TARGET_EMAIL = 'addconsultingcr@gmail.com';
+const TARGET_EMAIL = 'info@addhrlatam.com';
 
 export default function FloatingCTA() {
   const { t } = useI18n();
