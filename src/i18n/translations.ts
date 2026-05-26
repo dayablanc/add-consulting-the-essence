@@ -253,12 +253,23 @@ const es: Translations = {
     outplacement: {
       name: 'Modificación de CV',
       description: 'Damos a tu CV el formato válido para sistemas ATS, asegurando que tu perfil sea legible por los filtros automáticos de las empresas.',
-      includes: ['Reestructuración de CV en formato ATS', 'Optimización de palabras clave', 'Limpieza de formato y diseño', 'Entrega en formato editable'],
+      includes: [
+        'Optimización de tu CV en un formato compatible con filtros ATS',
+        'Corrección y mejora estratégica del contenido',
+        'Entrega en formato Word para que puedas editarlo en el futuro',
+      ],
     },
     'first-step': {
       name: 'ADD Step Up',
       description: 'Ya sea que estés buscando tu primer empleo o quieras mejorar cómo te presentas al mercado laboral, este paquete te da las herramientas y la estrategia para destacar desde tu CV hasta tu presencia en LinkedIn. En una sola sesión aprenderás todo esto. ',
-      includes: ['Diseño y optimización de CV con formato ATS', 'Perfil de LinkedIn desde cero', 'Guía para poder pasar la primer entrevista con éxito ', 'Orientación vocacional', 'Acceso a vacantes junior'],
+      includes: [
+        'Diagnóstico inicial para conocer a profundidad tu experiencia, fortalezas y objetivos profesionales',
+        'Creación de CV profesional en formato Harvard, optimizado para filtros ATS',
+        'Te enseño cómo adaptar tu CV estratégicamente utilizando herramientas de AI',
+        'Recomendación de páginas y plataformas de reclutamiento según tu perfil profesional',
+        'Preparación para prescreenings: cómo responder de forma estratégica y generar una excelente primera impresión',
+        'Guía sobre cómo optimizar tu LinkedIn para atraer más oportunidades laborales',
+      ],
     },
     simulaciones: {
       name: 'Simulaciones de Entrevista',
@@ -268,7 +279,18 @@ const es: Translations = {
     'add-grow': {
       name: 'ADD Grow',
       description: 'Programa integral de aceleración profesional. Te acompañamos en cada etapa: desde diagnóstico hasta colocación en una nueva oportunidad.',
-      includes: ['Diagnóstico profesional 360°', 'Plan de carrera personalizado', 'Mentoría 1:1', 'Networking estratégico', 'Acceso a vacantes exclusivas'],
+      includes: [
+        'Diagnóstico para analizar a profundidad tu experiencia, metas y enfoque profesional',
+        'Creación de CV en formato Harvard optimizado para ATS y procesos de reclutamiento actuales',
+        'Te enseño cómo adaptar tu CV estratégicamente utilizando herramientas de AI',
+        'Recomendación de páginas de empleo y estrategias de búsqueda alineadas a tu perfil',
+        'Preparación para entrevistas y prescreenings: cómo responder de forma estratégica y generar una excelente primera impresión',
+        'Explicación práctica de la metodología STAR para responder preguntas conductuales con seguridad',
+        'Apoyo para construir tu storytelling profesional y comunicar mejor tu experiencia',
+        'Guía de entrevistas en formato entregable con preguntas frecuentes, estructura de respuestas y ejercicios prácticos',
+        'Información para optimizar tu LinkedIn y fortalecer tu marca profesional',
+        'Seguimiento posterior a la sesión para resolver dudas y acompañarte en el proceso',
+      ],
     },
     reclutamiento: {
       name: 'Atracción y Selección de Talento',
