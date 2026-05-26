@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import FloatingCTA from '@/components/FloatingCTA';
 import BackButton from '@/components/BackButton';
 import { blogPosts } from '@/data/services';
-import blogImage from '@/assets/blog-image.jpg';
+
 
 export default function BlogPage() {
   const [showRegister, setShowRegister] = useState(false);
@@ -25,7 +25,7 @@ export default function BlogPage() {
             {blogPosts.map((post) => (
               <article key={post.id} style={{ borderTop: '1px solid hsl(var(--aesop-rule))' }} className="pt-6">
                 <div className="aspect-[3/2] overflow-hidden mb-6">
-                  <img src={blogImage} alt={post.title} className="w-full h-full object-cover" loading="lazy" width={800} height={544} />
+                  <img src={post.image} alt={post.title} className="w-full h-full object-cover" loading="lazy" width={800} height={544} />
                 </div>
                 <p className="eyebrow-mono text-[10px]">{post.tag}</p>
                 <h3 className="font-serif text-[24px] font-light text-aesop-soil mt-2 leading-snug">{post.title}</h3>

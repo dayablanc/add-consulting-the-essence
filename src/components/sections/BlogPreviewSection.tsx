@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { blogPosts } from '@/data/services';
 import { useI18n } from '@/i18n/context';
-import blogImage from '@/assets/blog-image.jpg';
 
 export default function BlogPreviewSection() {
   const { t } = useI18n();
@@ -19,7 +18,7 @@ export default function BlogPreviewSection() {
             <article key={post.id} style={{ borderTop: '1px solid hsl(var(--aesop-rule))' }} className="pt-6">
               <div className="aspect-[3/2] overflow-hidden mb-5">
                 <img
-                  src={blogImage}
+                  src={post.image}
                   alt={post.title}
                   className="w-full h-full object-cover transition-opacity duration-200 hover:opacity-80"
                   loading="lazy"
