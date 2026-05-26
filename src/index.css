@@ -213,11 +213,11 @@
 }
 .btn-cta-slim {
   font-family: var(--font-sans);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 2.5px;
-  padding: 8px 20px;
+  letter-spacing: 1.5px;
+  padding: 8px 16px;
   border: none;
   background-color: hsl(var(--aesop-clay));
   color: hsl(var(--aesop-parchment));
