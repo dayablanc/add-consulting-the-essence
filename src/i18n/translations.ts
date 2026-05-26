@@ -484,6 +484,7 @@ const es: Translations = {
     'add-grow': 'Aceleración profesional',
     'first-step': 'Herramientas y estrategia para tu primer empleo o transición laboral',
     simulaciones: 'Práctica de entrevistas',
+    outplacement: 'Acompañamiento en transición laboral',
     'hr-toolkit': 'Machotes y guías para PYMES',
     'career-blueprint': 'Curso de estrategia laboral',
     'insider-club': 'Comunidad exclusiva',
