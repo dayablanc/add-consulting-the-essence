@@ -1,9 +1,15 @@
 import { useState, useMemo } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Briefcase, Clock, FileText } from 'lucide-react';
+import { Briefcase, Clock, FileText, CalendarIcon } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Calendar } from '@/components/ui/calendar';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { format } from 'date-fns';
+import { es } from 'date-fns/locale';
+import { cn } from '@/lib/utils';
 
-// ─── Paleta ADD HR (uso local en esta sección) ───
-const COLORS = {
+// ─── Paleta ADD HR ───
+const C = {
   crimson: '#490B14',
   gold: '#A8893A',
   ivory: '#F2ECE4',
@@ -12,11 +18,11 @@ const COLORS = {
 };
 
 const fmtCRC = (n: number) =>
-  isFinite(n)
+  isFinite(n) && n > 0
     ? `₡${Math.round(n).toLocaleString('es-CR').replace(/,/g, '.')}`
     : '₡0';
 
-// ──────────────── Estilos compartidos ────────────────
+// ── Estilos compartidos ──
 const inputCls =
   'w-full px-4 py-3 bg-white border border-aesop-rule font-sans text-[15px] text-aesop-soil focus:border-[#A8893A] outline-none transition-colors';
 const labelCls =
@@ -26,10 +32,65 @@ const resultCard =
 const ctaBtn =
   'mt-2 px-10 py-3 font-sans text-[11px] uppercase tracking-[3px] font-semibold text-white transition-all hover:opacity-90';
 
-type Tab = 'salario' | 'horas' | 'liquidacion';
+// Radio group helper
+function Radio({
+  name,
+  value,
+  options,
+  onChange,
+}: {
+  name: string;
+  value: string;
+  options: { value: string; label: string; hint?: string }[];
+  onChange: (v: string) => void;
+}) {
+  return (
+    <div className="space-y-2">
+      {options.map((opt) => (
+        <label
+          key={opt.value}
+          className={cn(
+            'flex items-start gap-3 p-3 cursor-pointer border transition-colors',
+            value === opt.value
+              ? 'border-[#A8893A] bg-white'
+              : 'border-aesop-rule bg-white/50 hover:border-[#A8893A]/50'
+          )}
+        >
+          <input
+            type="radio"
+            name={name}
+            checked={value === opt.value}
+            onChange={() => onChange(opt.value)}
+            className="mt-1 accent-[#490B14]"
+          />
+          <div>
+            <div className="font-sans text-[14px] text-aesop-soil">{opt.label}</div>
+            {opt.hint && (
+              <div className="font-sans text-[12px] text-aesop-umber mt-0.5">{opt.hint}</div>
+            )}
+          </div>
+        </label>
+      ))}
+    </div>
+  );
+}
+
+function ResultRow({ label, value, highlight }: { label: string; value: string; highlight?: boolean }) {
+  return (
+    <div className={cn(resultCard, 'flex items-center justify-between')} style={{ backgroundColor: C.ivory }}>
+      <span className="font-sans text-[12px] uppercase tracking-[1.5px] text-aesop-umber">{label}</span>
+      <span
+        className={cn('font-mono text-[15px]', highlight && 'font-bold text-[17px]')}
+        style={{ color: highlight ? C.crimson : C.espresso }}
+      >
+        {value}
+      </span>
+    </div>
+  );
+}
 
 // ═════════════════════════════════════════════════════
-//  CALCULADORA 1 — Salario Proporcional y Neto
+//  CALCULADORA 1 — Salario Proporcional
 // ═════════════════════════════════════════════════════
 function SalarioCalc() {
   const [salario, setSalario] = useState('');
@@ -39,252 +100,238 @@ function SalarioCalc() {
   const [shown, setShown] = useState(false);
 
   const horasBase = { diurna: 8, mixta: 7, nocturna: 6 }[jornada];
-  const semBase = { diurna: 48, mixta: 42, nocturna: 36 }[jornada];
+  const diasBase = 5;
 
   const r = useMemo(() => {
     const s = parseFloat(salario) || 0;
     const h = parseFloat(horasDia) || 0;
     const d = parseFloat(diasSem) || 0;
-    const factor = (h / horasBase) * (d / 5);
-    const horasMes = (semBase * 52) / 12;
-    const valorHora = s / horasMes;
-    const valorDia = valorHora * horasBase;
-    const brutoProp = s * factor;
-
-    // Deducciones CCSS
-    const sem = brutoProp * 0.055;
-    const ivm = brutoProp * 0.0417;
-    const bp = brutoProp * 0.01;
-    const ccssTotal = sem + ivm + bp;
-
-    // Impuesto de renta (tramos marginales acumulados)
-    const calcRenta = (b: number) => {
-      let tax = 0;
-      const tramos = [
-        { hasta: 942000, rate: 0 },
-        { hasta: 1413000, rate: 0.1 },
-        { hasta: 2476000, rate: 0.15 },
-        { hasta: 4951000, rate: 0.2 },
-        { hasta: Infinity, rate: 0.25 },
-      ];
-      let prev = 0;
-      for (const t of tramos) {
-        if (b <= prev) break;
-        const slice = Math.min(b, t.hasta) - prev;
-        tax += slice * t.rate;
-        prev = t.hasta;
-      }
-      return tax;
-    };
-    const renta = calcRenta(brutoProp);
-    const totalDed = ccssTotal + renta;
-    const neto = brutoProp - totalDed;
-
-    return { factor, valorHora, valorDia, brutoProp, sem, ivm, bp, ccssTotal, renta, totalDed, neto };
-  }, [salario, jornada, horasDia, diasSem, horasBase, semBase]);
+    const factorH = horasBase ? h / horasBase : 0;
+    const factorD = d / diasBase;
+    const factorTotal = factorH * factorD;
+    const horasMes = (horasBase * 52) / 12;
+    const valorHora = horasMes ? s / horasMes : 0;
+    const valorDia = valorHora * h;
+    const proporcional = s * factorTotal;
+    return { factorH, factorD, factorTotal, valorHora, valorDia, proporcional, h, d };
+  }, [salario, horasDia, diasSem, horasBase]);
 
   return (
     <div className="grid lg:grid-cols-2 gap-10">
-      {/* INPUTS */}
-      <div className="space-y-5">
-        <h3 className="font-serif text-[22px] text-aesop-soil mb-2">Datos del trabajador</h3>
-
+      <div className="space-y-6">
         <div>
-          <label className={labelCls}>Salario mensual base (₡)</label>
-          <input type="number" className={inputCls} value={salario}
-            onChange={(e) => setSalario(e.target.value)} placeholder="Ej: 600000" />
+          <label className={labelCls}>Salario mensual de jornada completa</label>
+          <div className="relative">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 font-mono text-aesop-umber">₡</span>
+            <input
+              type="number"
+              value={salario}
+              onChange={(e) => setSalario(e.target.value)}
+              placeholder="0"
+              className={cn(inputCls, 'pl-8')}
+            />
+          </div>
         </div>
 
         <div>
-          <label className={labelCls}>Tipo de jornada</label>
-          <select className={inputCls} value={jornada} onChange={(e) => setJornada(e.target.value as any)}>
-            <option value="diurna">Diurna (8 hrs)</option>
-            <option value="mixta">Mixta (7 hrs)</option>
-            <option value="nocturna">Nocturna (6 hrs)</option>
-          </select>
+          <label className={labelCls}>Jornada base</label>
+          <Radio
+            name="jornada-salario"
+            value={jornada}
+            onChange={(v) => setJornada(v as any)}
+            options={[
+              { value: 'diurna', label: 'Diurna', hint: '8 horas (5am – 7pm)' },
+              { value: 'mixta', label: 'Mixta', hint: '7 horas' },
+              { value: 'nocturna', label: 'Nocturna', hint: '6 horas (7pm – 5am)' },
+            ]}
+          />
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className={labelCls}>Horas / día</label>
-            <input type="number" className={inputCls} value={horasDia}
-              onChange={(e) => setHorasDia(e.target.value)} placeholder={String(horasBase)} />
+            <label className={labelCls}>Horas por día</label>
+            <input
+              type="number"
+              value={horasDia}
+              onChange={(e) => setHorasDia(e.target.value)}
+              placeholder="0"
+              className={inputCls}
+            />
           </div>
           <div>
-            <label className={labelCls}>Días / semana</label>
-            <input type="number" className={inputCls} value={diasSem}
-              onChange={(e) => setDiasSem(e.target.value)} placeholder="5" />
+            <label className={labelCls}>Días por semana</label>
+            <input
+              type="number"
+              value={diasSem}
+              onChange={(e) => setDiasSem(e.target.value)}
+              placeholder="0"
+              className={inputCls}
+            />
           </div>
         </div>
 
-        <button className={ctaBtn} style={{ backgroundColor: COLORS.crimson }} onClick={() => setShown(true)}>
+        <button
+          onClick={() => setShown(true)}
+          className={ctaBtn}
+          style={{ backgroundColor: C.crimson }}
+        >
           Calcular
         </button>
       </div>
 
-      {/* RESULTADOS */}
-      {shown && (
-        <div className="space-y-6">
-          {/* Bloque A */}
-          <div>
-            <p className="eyebrow mb-3" style={{ color: COLORS.gold }}>Bloque A — Proporcionalidad</p>
-            <div className="grid grid-cols-2 gap-3">
-              <div className={resultCard} style={{ backgroundColor: COLORS.ivory }}>
-                <p className="text-[11px] uppercase tracking-[1.5px] text-aesop-umber">Factor</p>
-                <p className="font-mono text-[18px] mt-1">{(r.factor * 100).toFixed(2)}%</p>
-              </div>
-              <div className={resultCard} style={{ backgroundColor: COLORS.ivory }}>
-                <p className="text-[11px] uppercase tracking-[1.5px] text-aesop-umber">Salario / hora</p>
-                <p className="font-mono text-[18px] mt-1">{fmtCRC(r.valorHora)}</p>
-              </div>
-              <div className={resultCard} style={{ backgroundColor: COLORS.ivory }}>
-                <p className="text-[11px] uppercase tracking-[1.5px] text-aesop-umber">Salario / día</p>
-                <p className="font-mono text-[18px] mt-1">{fmtCRC(r.valorDia)}</p>
-              </div>
-              <div className={resultCard} style={{ backgroundColor: COLORS.ivory }}>
-                <p className="text-[11px] uppercase tracking-[1.5px] text-aesop-umber">Bruto proporcional</p>
-                <p className="font-mono text-[18px] mt-1">{fmtCRC(r.brutoProp)}</p>
-              </div>
-            </div>
+      <div className="space-y-3">
+        <h4 className="font-serif text-[22px] mb-2" style={{ color: C.espresso }}>
+          Resultado
+        </h4>
+        {shown ? (
+          <>
+            <ResultRow label="Factor por horas" value={`${r.h}/${horasBase}h`} />
+            <ResultRow label="Factor por días" value={`${r.d}/${diasBase}d`} />
+            <ResultRow label="Factor total" value={`${(r.factorTotal * 100).toFixed(1)}%`} />
+            <ResultRow label="Salario por hora" value={fmtCRC(r.valorHora)} />
+            <ResultRow label="Salario por día" value={fmtCRC(r.valorDia)} />
+            <ResultRow label="Salario proporcional mensual" value={fmtCRC(r.proporcional)} highlight />
+          </>
+        ) : (
+          <div className={resultCard} style={{ backgroundColor: C.ivory }}>
+            <p className="font-sans text-[14px] text-aesop-umber">
+              Ingresa los datos y presiona "Calcular" para ver el resultado.
+            </p>
           </div>
-
-          {/* Bloque B */}
-          <div>
-            <p className="eyebrow mb-3" style={{ color: COLORS.gold }}>Bloque B — Deducciones</p>
-            <div className="border border-[#A8893A]/40 divide-y divide-[#A8893A]/20" style={{ backgroundColor: COLORS.ivory }}>
-              {[
-                ['Salario bruto', r.brutoProp],
-                ['SEM — CCSS Salud (5.50%)', -r.sem],
-                ['IVM — CCSS Pensión (4.17%)', -r.ivm],
-                ['Banco Popular (1.00%)', -r.bp],
-                ['Total CCSS (10.67%)', -r.ccssTotal],
-                ['Impuesto de renta', -r.renta],
-                ['Total deducciones', -r.totalDed],
-              ].map(([label, val]) => (
-                <div key={label as string} className="flex justify-between items-center px-5 py-3">
-                  <span className="font-sans text-[13px] text-aesop-umber">{label}</span>
-                  <span className="font-mono text-[14px] text-aesop-soil">
-                    {(val as number) < 0 ? '− ' : ''}{fmtCRC(Math.abs(val as number))}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-4 p-6 border-2" style={{ borderColor: COLORS.crimson, backgroundColor: COLORS.lightGray }}>
-              <p className="text-[11px] uppercase tracking-[2px] text-aesop-umber mb-2">Salario neto a recibir</p>
-              <p className="font-serif text-[34px] font-semibold" style={{ color: COLORS.crimson }}>
-                {fmtCRC(r.neto)}
-              </p>
-            </div>
-          </div>
-
-          <div className="space-y-2 text-[12px] text-aesop-umber leading-relaxed">
-            <p>* Los tramos del impuesto de renta se actualizan anualmente por decreto. Consulta la tabla vigente en el Ministerio de Hacienda.</p>
-            <p>* El trabajador a tiempo parcial recibe vacaciones, aguinaldo y cesantía de forma proporcional a su jornada.</p>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
 
 // ═════════════════════════════════════════════════════
-//  CALCULADORA 2 — Horas Extras
+//  CALCULADORA 2 — Horas Extra
 // ═════════════════════════════════════════════════════
-function HorasExtrasCalc() {
+function HorasCalc() {
   const [salario, setSalario] = useState('');
+  const [modalidad, setModalidad] = useState<'mensual' | 'quincenal' | 'semanal'>('mensual');
   const [jornada, setJornada] = useState<'diurna' | 'mixta' | 'nocturna'>('diurna');
-  const [tipo, setTipo] = useState<'15' | '175' | '2' | '225'>('15');
-  const [cantidad, setCantidad] = useState('');
+  const [horas, setHoras] = useState('');
+  const [tipo, setTipo] = useState<'ordinario' | 'descanso' | 'feriado'>('ordinario');
   const [shown, setShown] = useState(false);
 
-  const semBase = { diurna: 48, mixta: 42, nocturna: 36 }[jornada];
-  const factor = { '15': 1.5, '175': 1.75, '2': 2, '225': 2.25 }[tipo];
+  const horasBase = { diurna: 8, mixta: 7, nocturna: 6 }[jornada];
+  const multiplicador = { ordinario: 1.5, descanso: 2, feriado: 2 }[tipo];
+  const multLabel = { ordinario: '×1.5 (50%)', descanso: '×2 (doble)', feriado: '×2 (doble)' }[tipo];
 
   const r = useMemo(() => {
     const s = parseFloat(salario) || 0;
-    const q = parseFloat(cantidad) || 0;
-    const horasMes = (semBase * 52) / 12;
-    const valorHora = s / horasMes;
-    const valorHE = valorHora * factor;
-    const total = valorHE * q;
-    return { horasMes, valorHora, valorHE, total };
-  }, [salario, cantidad, semBase, factor]);
+    const mensual = modalidad === 'mensual' ? s : modalidad === 'quincenal' ? s * 2 : s * 4.33;
+    const horasMes = (horasBase * 52) / 12;
+    const valorHora = horasMes ? mensual / horasMes : 0;
+    const tarifaExtra = valorHora * multiplicador;
+    const cantidad = parseFloat(horas) || 0;
+    const total = tarifaExtra * cantidad;
+    return { valorHora, tarifaExtra, cantidad, total };
+  }, [salario, modalidad, horasBase, multiplicador, horas]);
 
   return (
     <div className="grid lg:grid-cols-2 gap-10">
-      <div className="space-y-5">
-        <h3 className="font-serif text-[22px] text-aesop-soil mb-2">Cálculo de hora extra</h3>
-
+      <div className="space-y-6">
         <div>
-          <label className={labelCls}>Salario mensual (₡)</label>
-          <input type="number" className={inputCls} value={salario}
-            onChange={(e) => setSalario(e.target.value)} placeholder="Ej: 600000" />
+          <label className={labelCls}>Salario bruto</label>
+          <div className="relative">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 font-mono text-aesop-umber">₡</span>
+            <input
+              type="number"
+              value={salario}
+              onChange={(e) => setSalario(e.target.value)}
+              placeholder="0"
+              className={cn(inputCls, 'pl-8')}
+            />
+          </div>
         </div>
 
         <div>
-          <label className={labelCls}>Tipo de jornada</label>
-          <select className={inputCls} value={jornada} onChange={(e) => setJornada(e.target.value as any)}>
-            <option value="diurna">Diurna (8 hrs/día, 48 hrs/sem)</option>
-            <option value="mixta">Mixta (7 hrs/día)</option>
-            <option value="nocturna">Nocturna (6 hrs/día)</option>
-          </select>
+          <label className={labelCls}>Modalidad de pago</label>
+          <Radio
+            name="modalidad"
+            value={modalidad}
+            onChange={(v) => setModalidad(v as any)}
+            options={[
+              { value: 'mensual', label: 'Mensual' },
+              { value: 'quincenal', label: 'Quincenal' },
+              { value: 'semanal', label: 'Semanal' },
+            ]}
+          />
         </div>
 
         <div>
-          <label className={labelCls}>Tipo de hora extra</label>
-          <select className={inputCls} value={tipo} onChange={(e) => setTipo(e.target.value as any)}>
-            <option value="15">Hora extra diurna (1.5×)</option>
-            <option value="175">Extra nocturna sobre jornada diurna (1.75×)</option>
-            <option value="2">Día de descanso/feriado — diurna (2×)</option>
-            <option value="225">Día de descanso/feriado — nocturna (2.25×)</option>
-          </select>
+          <label className={labelCls}>Jornada</label>
+          <Radio
+            name="jornada-horas"
+            value={jornada}
+            onChange={(v) => setJornada(v as any)}
+            options={[
+              { value: 'diurna', label: 'Diurna', hint: '8 horas (5am – 7pm)' },
+              { value: 'mixta', label: 'Mixta', hint: '7 horas' },
+              { value: 'nocturna', label: 'Nocturna', hint: '6 horas (7pm – 5am)' },
+            ]}
+          />
         </div>
 
         <div>
           <label className={labelCls}>Cantidad de horas extra</label>
-          <input type="number" className={inputCls} value={cantidad}
-            onChange={(e) => setCantidad(e.target.value)} placeholder="Ej: 10" />
+          <input
+            type="number"
+            value={horas}
+            onChange={(e) => setHoras(e.target.value)}
+            placeholder="0"
+            className={inputCls}
+          />
+          <p className="font-sans text-[12px] text-aesop-umber mt-2">
+            Máximo 4 horas extra por día para jornada diurna.
+          </p>
         </div>
 
-        <button className={ctaBtn} style={{ backgroundColor: COLORS.crimson }} onClick={() => setShown(true)}>
+        <div>
+          <label className={labelCls}>Tipo de día</label>
+          <Radio
+            name="tipo-dia"
+            value={tipo}
+            onChange={(v) => setTipo(v as any)}
+            options={[
+              { value: 'ordinario', label: 'Día ordinario', hint: 'Recargo del 50% (×1.5)' },
+              { value: 'descanso', label: 'Día de descanso', hint: 'Pago doble (×2)' },
+              { value: 'feriado', label: 'Día feriado', hint: 'Pago doble (×2)' },
+            ]}
+          />
+        </div>
+
+        <button
+          onClick={() => setShown(true)}
+          className={ctaBtn}
+          style={{ backgroundColor: C.crimson }}
+        >
           Calcular
         </button>
       </div>
 
-      {shown && (
-        <div className="space-y-4">
-          <div className="grid grid-cols-2 gap-3">
-            <div className={resultCard} style={{ backgroundColor: COLORS.ivory }}>
-              <p className="text-[11px] uppercase tracking-[1.5px] text-aesop-umber">Horas mes</p>
-              <p className="font-mono text-[18px] mt-1">{r.horasMes.toFixed(2)}</p>
-            </div>
-            <div className={resultCard} style={{ backgroundColor: COLORS.ivory }}>
-              <p className="text-[11px] uppercase tracking-[1.5px] text-aesop-umber">Hora ordinaria</p>
-              <p className="font-mono text-[18px] mt-1">{fmtCRC(r.valorHora)}</p>
-            </div>
-            <div className={resultCard} style={{ backgroundColor: COLORS.ivory }}>
-              <p className="text-[11px] uppercase tracking-[1.5px] text-aesop-umber">Factor aplicado</p>
-              <p className="font-mono text-[18px] mt-1">{factor}×</p>
-            </div>
-            <div className={resultCard} style={{ backgroundColor: COLORS.ivory }}>
-              <p className="text-[11px] uppercase tracking-[1.5px] text-aesop-umber">Valor hora extra</p>
-              <p className="font-mono text-[18px] mt-1">{fmtCRC(r.valorHE)}</p>
-            </div>
-          </div>
-
-          <div className="p-6 border-2" style={{ borderColor: COLORS.crimson, backgroundColor: COLORS.lightGray }}>
-            <p className="text-[11px] uppercase tracking-[2px] text-aesop-umber mb-2">Total a pagar</p>
-            <p className="font-serif text-[34px] font-semibold" style={{ color: COLORS.crimson }}>
-              {fmtCRC(r.total)}
+      <div className="space-y-3">
+        <h4 className="font-serif text-[22px] mb-2" style={{ color: C.espresso }}>
+          Resultado
+        </h4>
+        {shown ? (
+          <>
+            <ResultRow label="Salario por hora ordinaria" value={fmtCRC(r.valorHora)} />
+            <ResultRow label="Multiplicador aplicado" value={multLabel} />
+            <ResultRow label="Tarifa por hora extra" value={fmtCRC(r.tarifaExtra)} />
+            <ResultRow label="Cantidad de horas extra" value={`${r.cantidad} h`} />
+            <ResultRow label="Total horas extra a pagar" value={fmtCRC(r.total)} highlight />
+          </>
+        ) : (
+          <div className={resultCard} style={{ backgroundColor: C.ivory }}>
+            <p className="font-sans text-[14px] text-aesop-umber">
+              Ingresa los datos y presiona "Calcular" para ver el resultado.
             </p>
           </div>
-
-          <p className="text-[12px] text-aesop-umber leading-relaxed">
-            * Según el Artículo 139 del Código de Trabajo de Costa Rica, las horas extras no pueden exceder 4 por día ni 12 por semana.
-          </p>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
@@ -293,218 +340,284 @@ function HorasExtrasCalc() {
 //  CALCULADORA 3 — Liquidación Laboral
 // ═════════════════════════════════════════════════════
 function LiquidacionCalc() {
-  const [motivo, setMotivo] = useState<'despido_cr' | 'despido_sr' | 'renuncia'>('despido_cr');
-  const [inicio, setInicio] = useState('');
-  const [salida, setSalida] = useState('');
+  const [motivo, setMotivo] = useState<'despido_con' | 'despido_sin' | 'renuncia'>('despido_con');
+  const [fIn, setFIn] = useState<Date | undefined>();
+  const [fOut, setFOut] = useState<Date | undefined>();
   const [salario, setSalario] = useState('');
   const [vacPend, setVacPend] = useState('');
-  const [totalSalarios, setTotalSalarios] = useState('');
+  const [salariosAcum, setSalariosAcum] = useState('');
   const [shown, setShown] = useState(false);
 
-  const r = useMemo(() => {
-    const s = parseFloat(salario) || 0;
-    const vp = parseFloat(vacPend) || 0;
-    const ts = parseFloat(totalSalarios) || 0;
-    if (!inicio || !salida) return null;
-
-    const d1 = new Date(inicio);
-    const d2 = new Date(salida);
-    if (isNaN(d1.getTime()) || isNaN(d2.getTime()) || d2 < d1) return null;
-
-    // años/meses/días
-    let years = d2.getFullYear() - d1.getFullYear();
-    let months = d2.getMonth() - d1.getMonth();
-    let days = d2.getDate() - d1.getDate();
+  const tiempo = useMemo(() => {
+    if (!fIn || !fOut || fOut < fIn) return null;
+    let years = fOut.getFullYear() - fIn.getFullYear();
+    let months = fOut.getMonth() - fIn.getMonth();
+    let days = fOut.getDate() - fIn.getDate();
     if (days < 0) {
       months -= 1;
-      const prev = new Date(d2.getFullYear(), d2.getMonth(), 0);
+      const prev = new Date(fOut.getFullYear(), fOut.getMonth(), 0);
       days += prev.getDate();
     }
-    if (months < 0) { years -= 1; months += 12; }
-
-    const totalMonths = years * 12 + months + days / 30;
-    const diaSal = s / 30;
-
-    // Preaviso (días)
-    let preavisoDias = 0;
-    if (totalMonths >= 12) preavisoDias = 30;
-    else if (totalMonths >= 6) preavisoDias = 14;
-    else if (totalMonths >= 3) preavisoDias = 7;
-    const aplicaPreaviso = motivo === 'despido_cr';
-    const preaviso = aplicaPreaviso ? diaSal * preavisoDias : 0;
-
-    // Cesantía
-    let cesantiaDias = 0;
-    if (motivo === 'despido_cr') {
-      if (totalMonths >= 12) {
-        const yrs = Math.min(years + (months >= 6 ? 1 : 0), 8);
-        cesantiaDias = 20 * yrs;
-      } else if (totalMonths >= 6) cesantiaDias = 14;
-      else if (totalMonths >= 3) cesantiaDias = 7;
+    if (months < 0) {
+      years -= 1;
+      months += 12;
     }
-    const cesantia = diaSal * cesantiaDias;
+    const totalMonths = years * 12 + months + days / 30;
+    return { years, months, days, totalMonths };
+  }, [fIn, fOut]);
 
-    // Vacaciones
-    const vacGanadas = totalMonths * (14 / 12);
-    const vacTotalDias = vacGanadas + vp;
-    const vacaciones = diaSal * vacTotalDias;
+  const r = useMemo(() => {
+    if (!tiempo) return null;
+    const s = parseFloat(salario) || 0;
+    const diaria = s / 30;
+    const vp = parseFloat(vacPend) || 0;
+    const sa = parseFloat(salariosAcum) || 0;
+    const meses = tiempo.totalMonths;
 
-    // Aguinaldo
-    const aguinaldo = ts / 12;
+    // Preaviso (solo despido con responsabilidad patronal)
+    let diasPreaviso = 0;
+    if (motivo === 'despido_con') {
+      if (meses < 3) diasPreaviso = 0;
+      else if (meses < 6) diasPreaviso = 7;
+      else if (meses < 12) diasPreaviso = 14;
+      else diasPreaviso = 30;
+    }
+    const preaviso = diaria * diasPreaviso;
+
+    // Cesantía (solo despido con responsabilidad patronal, máx 8 años)
+    let diasCesantia = 0;
+    if (motivo === 'despido_con') {
+      if (meses < 3) diasCesantia = 0;
+      else if (meses < 6) diasCesantia = 7;
+      else if (meses < 12) diasCesantia = 14;
+      else {
+        const anios = Math.min(tiempo.years, 8);
+        diasCesantia = 20 * anios;
+      }
+    }
+    const cesantia = diaria * diasCesantia;
+
+    // Vacaciones proporcionales
+    const diasGanados = meses * (14 / 12);
+    const totalDiasVac = diasGanados + vp;
+    const vacaciones = diaria * totalDiasVac;
+
+    // Aguinaldo proporcional
+    const aguinaldo = sa / 12;
 
     const total = preaviso + cesantia + vacaciones + aguinaldo;
+    return { preaviso, cesantia, vacaciones, aguinaldo, total };
+  }, [tiempo, salario, vacPend, salariosAcum, motivo]);
 
-    return { years, months, days, preaviso, cesantia, vacaciones, aguinaldo, total, aplicaPreaviso, motivo, preavisoDias };
-  }, [motivo, inicio, salida, salario, vacPend, totalSalarios]);
+  const DateField = ({ value, onChange, label }: { value?: Date; onChange: (d?: Date) => void; label: string }) => (
+    <div>
+      <label className={labelCls}>{label}</label>
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button
+            variant="outline"
+            className={cn(
+              'w-full justify-start text-left font-normal bg-white border-aesop-rule h-auto py-3 px-4',
+              !value && 'text-aesop-umber'
+            )}
+          >
+            <CalendarIcon className="mr-2 h-4 w-4" />
+            {value ? format(value, "d 'de' MMMM yyyy", { locale: es }) : 'Selecciona fecha'}
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent className="w-auto p-0 pointer-events-auto" align="start">
+          <Calendar
+            mode="single"
+            selected={value}
+            onSelect={onChange}
+            captionLayout="dropdown-buttons"
+            fromYear={1980}
+            toYear={new Date().getFullYear() + 1}
+            locale={es}
+            className={cn('p-3 pointer-events-auto')}
+          />
+        </PopoverContent>
+      </Popover>
+    </div>
+  );
 
   return (
     <div className="grid lg:grid-cols-2 gap-10">
-      <div className="space-y-5">
-        <h3 className="font-serif text-[22px] text-aesop-soil mb-2">Datos de la relación laboral</h3>
-
+      <div className="space-y-6">
         <div>
-          <label className={labelCls}>Motivo de salida</label>
-          <select className={inputCls} value={motivo} onChange={(e) => setMotivo(e.target.value as any)}>
-            <option value="despido_cr">Despido con responsabilidad patronal</option>
-            <option value="despido_sr">Despido sin responsabilidad (renuncia justificada)</option>
-            <option value="renuncia">Renuncia voluntaria</option>
-          </select>
+          <label className={labelCls}>Motivo de terminación</label>
+          <Radio
+            name="motivo"
+            value={motivo}
+            onChange={(v) => setMotivo(v as any)}
+            options={[
+              { value: 'despido_con', label: 'Despido con responsabilidad patronal' },
+              { value: 'despido_sin', label: 'Despido sin responsabilidad patronal' },
+              { value: 'renuncia', label: 'Renuncia voluntaria' },
+            ]}
+          />
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className={labelCls}>Fecha de inicio</label>
-            <input type="date" className={inputCls} value={inicio} onChange={(e) => setInicio(e.target.value)} />
+        <div className="grid sm:grid-cols-2 gap-4">
+          <DateField label="Fecha de ingreso" value={fIn} onChange={setFIn} />
+          <DateField label="Fecha de salida" value={fOut} onChange={setFOut} />
+        </div>
+
+        <div>
+          <label className={labelCls}>Salario bruto mensual promedio (últimos 6 meses)</label>
+          <div className="relative">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 font-mono text-aesop-umber">₡</span>
+            <input
+              type="number"
+              value={salario}
+              onChange={(e) => setSalario(e.target.value)}
+              placeholder="0"
+              className={cn(inputCls, 'pl-8')}
+            />
           </div>
-          <div>
-            <label className={labelCls}>Fecha de salida</label>
-            <input type="date" className={inputCls} value={salida} onChange={(e) => setSalida(e.target.value)} />
+        </div>
+
+        <div>
+          <label className={labelCls}>Días de vacaciones no disfrutadas</label>
+          <input
+            type="number"
+            value={vacPend}
+            onChange={(e) => setVacPend(e.target.value)}
+            placeholder="0"
+            className={inputCls}
+          />
+        </div>
+
+        <div>
+          <label className={labelCls}>Total salarios brutos acumulados en el período</label>
+          <div className="relative">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 font-mono text-aesop-umber">₡</span>
+            <input
+              type="number"
+              value={salariosAcum}
+              onChange={(e) => setSalariosAcum(e.target.value)}
+              placeholder="0"
+              className={cn(inputCls, 'pl-8')}
+            />
           </div>
         </div>
 
-        <div>
-          <label className={labelCls}>Salario promedio mensual (últimos 6 meses) ₡</label>
-          <input type="number" className={inputCls} value={salario}
-            onChange={(e) => setSalario(e.target.value)} placeholder="Ej: 700000" />
-        </div>
-
-        <div>
-          <label className={labelCls}>Días de vacaciones pendientes</label>
-          <input type="number" className={inputCls} value={vacPend}
-            onChange={(e) => setVacPend(e.target.value)} placeholder="0" />
-        </div>
-
-        <div>
-          <label className={labelCls}>Total de salarios brutos acumulados (aguinaldo) ₡</label>
-          <input type="number" className={inputCls} value={totalSalarios}
-            onChange={(e) => setTotalSalarios(e.target.value)} placeholder="Ej: 8400000" />
-        </div>
-
-        <button className={ctaBtn} style={{ backgroundColor: COLORS.crimson }} onClick={() => setShown(true)}>
+        <button
+          onClick={() => setShown(true)}
+          className={ctaBtn}
+          style={{ backgroundColor: C.crimson }}
+        >
           Calcular liquidación
         </button>
       </div>
 
-      {shown && r && (
-        <div className="space-y-3">
-          <div className={resultCard} style={{ backgroundColor: COLORS.ivory }}>
-            <p className="text-[11px] uppercase tracking-[1.5px] text-aesop-umber">Tiempo laborado</p>
-            <p className="font-mono text-[16px] mt-1">
-              {r.years} años · {r.months} meses · {r.days} días
+      <div className="space-y-3">
+        <h4 className="font-serif text-[22px] mb-2" style={{ color: C.espresso }}>
+          Resultado
+        </h4>
+        {!shown ? (
+          <div className={resultCard} style={{ backgroundColor: C.ivory }}>
+            <p className="font-sans text-[14px] text-aesop-umber">
+              Ingrese las fechas y datos para ver el resultado.
             </p>
           </div>
-
-          <div className={resultCard} style={{ backgroundColor: COLORS.ivory }}>
-            <div className="flex justify-between items-center">
-              <div>
-                <p className="text-[11px] uppercase tracking-[1.5px] text-aesop-umber">Preaviso ({r.preavisoDias} días)</p>
-                {!r.aplicaPreaviso && (
-                  <p className="text-[10px] text-aesop-umber italic mt-1">
-                    {r.motivo === 'renuncia' ? 'En renuncia voluntaria lo paga el trabajador' : 'No aplica para este motivo'}
-                  </p>
-                )}
+        ) : !tiempo ? (
+          <div className={resultCard} style={{ backgroundColor: C.ivory }}>
+            <p className="font-sans text-[14px] text-aesop-umber">
+              Ingrese las fechas para ver el resultado.
+            </p>
+          </div>
+        ) : r && (
+          <>
+            <ResultRow
+              label="Tiempo laborado"
+              value={`${tiempo.years} años, ${tiempo.months} meses, ${tiempo.days} días`}
+            />
+            <ResultRow label="Preaviso" value={fmtCRC(r.preaviso)} />
+            <ResultRow label="Cesantía" value={fmtCRC(r.cesantia)} />
+            <ResultRow label="Vacaciones proporcionales" value={fmtCRC(r.vacaciones)} />
+            <ResultRow label="Aguinaldo proporcional" value={fmtCRC(r.aguinaldo)} />
+            <div
+              className="p-6 border-2 mt-4"
+              style={{ backgroundColor: C.ivory, borderColor: C.gold }}
+            >
+              <div className="font-sans text-[11px] uppercase tracking-[2px] text-aesop-umber mb-2">
+                Total liquidación
               </div>
-              <p className="font-mono text-[18px]">{fmtCRC(r.preaviso)}</p>
+              <div className="font-mono text-[28px] font-bold" style={{ color: C.crimson }}>
+                {fmtCRC(r.total)}
+              </div>
             </div>
-          </div>
-
-          <div className={resultCard} style={{ backgroundColor: COLORS.ivory }}>
-            <div className="flex justify-between items-center">
-              <p className="text-[11px] uppercase tracking-[1.5px] text-aesop-umber">Cesantía</p>
-              <p className="font-mono text-[18px]">{fmtCRC(r.cesantia)}</p>
-            </div>
-          </div>
-
-          <div className={resultCard} style={{ backgroundColor: COLORS.ivory }}>
-            <div className="flex justify-between items-center">
-              <p className="text-[11px] uppercase tracking-[1.5px] text-aesop-umber">Vacaciones proporcionales</p>
-              <p className="font-mono text-[18px]">{fmtCRC(r.vacaciones)}</p>
-            </div>
-          </div>
-
-          <div className={resultCard} style={{ backgroundColor: COLORS.ivory }}>
-            <div className="flex justify-between items-center">
-              <p className="text-[11px] uppercase tracking-[1.5px] text-aesop-umber">Aguinaldo proporcional</p>
-              <p className="font-mono text-[18px]">{fmtCRC(r.aguinaldo)}</p>
-            </div>
-          </div>
-
-          <div className="p-6 border-2 mt-4" style={{ borderColor: COLORS.crimson, backgroundColor: COLORS.lightGray }}>
-            <p className="text-[11px] uppercase tracking-[2px] text-aesop-umber mb-2">Total liquidación</p>
-            <p className="font-serif text-[36px] font-semibold" style={{ color: COLORS.crimson }}>
-              {fmtCRC(r.total)}
-            </p>
-          </div>
-        </div>
-      )}
+          </>
+        )}
+      </div>
     </div>
   );
 }
 
 // ═════════════════════════════════════════════════════
-//  SECCIÓN PRINCIPAL
+//  COMPONENTE PRINCIPAL
 // ═════════════════════════════════════════════════════
 export default function CalculadoraLaboral() {
-  const [tab, setTab] = useState<Tab>('salario');
-
   return (
-    <section id="calculadora-laboral" className="py-20 lg:py-28" style={{ backgroundColor: COLORS.lightGray }}>
-      <div className="max-w-[1200px] mx-auto section-padding">
-        <div className="text-center mb-14">
-          <p className="eyebrow mb-4" style={{ color: COLORS.gold }}>Herramientas</p>
-          <h2 className="text-aesop-soil mb-4">Calculadora Laboral Costa Rica</h2>
-          <p className="text-body max-w-[620px] mx-auto">
-            Calcula salarios, horas extra y liquidaciones según el Código de Trabajo.
+    <section
+      id="calculadora-laboral"
+      className="py-24 section-padding"
+      style={{ backgroundColor: C.lightGray }}
+    >
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-12">
+          <div className="eyebrow-mono mb-4">Herramientas</div>
+          <h2 className="mb-4" style={{ color: C.espresso }}>
+            Calculadora <em>Laboral</em> Costa Rica
+          </h2>
+          <p className="font-sans text-[16px] text-aesop-umber max-w-2xl mx-auto">
+            Calcula salarios proporcionales, horas extra y liquidaciones según el Código de Trabajo.
           </p>
         </div>
 
-        <Tabs value={tab} onValueChange={(v) => setTab(v as Tab)}>
-          <TabsList className="w-full bg-transparent border-b border-aesop-rule p-0 h-auto justify-start gap-0 mb-10 overflow-x-auto flex-nowrap">
-            {[
-              { id: 'salario', label: 'Salario y Deducciones', Icon: Briefcase },
-              { id: 'horas', label: 'Horas Extras', Icon: Clock },
-              { id: 'liquidacion', label: 'Liquidación Laboral', Icon: FileText },
-            ].map(({ id, label, Icon }) => (
-              <TabsTrigger
-                key={id}
-                value={id}
-                className="flex-1 min-w-fit px-6 py-4 font-sans text-[12px] uppercase tracking-[2px] text-aesop-umber data-[state=active]:text-aesop-soil data-[state=active]:bg-transparent rounded-none border-b-2 border-transparent data-[state=active]:border-[#490B14] transition-colors"
-              >
-                <Icon size={16} className="mr-2" />
-                <span className="whitespace-nowrap">{label}</span>
-              </TabsTrigger>
-            ))}
+        <Tabs defaultValue="salario" className="w-full">
+          <TabsList className="grid grid-cols-3 w-full max-w-3xl mx-auto mb-10 bg-white border border-aesop-rule h-auto p-1">
+            <TabsTrigger
+              value="salario"
+              className="flex items-center gap-2 py-3 font-sans text-[11px] uppercase tracking-[1.5px] data-[state=active]:bg-[#490B14] data-[state=active]:text-white"
+            >
+              <Briefcase className="w-4 h-4" />
+              <span className="hidden sm:inline">Salario Proporcional</span>
+              <span className="sm:hidden">Salario</span>
+            </TabsTrigger>
+            <TabsTrigger
+              value="horas"
+              className="flex items-center gap-2 py-3 font-sans text-[11px] uppercase tracking-[1.5px] data-[state=active]:bg-[#490B14] data-[state=active]:text-white"
+            >
+              <Clock className="w-4 h-4" />
+              <span className="hidden sm:inline">Horas Extras</span>
+              <span className="sm:hidden">Horas</span>
+            </TabsTrigger>
+            <TabsTrigger
+              value="liquidacion"
+              className="flex items-center gap-2 py-3 font-sans text-[11px] uppercase tracking-[1.5px] data-[state=active]:bg-[#490B14] data-[state=active]:text-white"
+            >
+              <FileText className="w-4 h-4" />
+              <span className="hidden sm:inline">Liquidación Laboral</span>
+              <span className="sm:hidden">Liquidación</span>
+            </TabsTrigger>
           </TabsList>
 
-          <div className="bg-white p-8 lg:p-12 border border-aesop-rule">
-            <TabsContent value="salario" className="mt-0"><SalarioCalc /></TabsContent>
-            <TabsContent value="horas" className="mt-0"><HorasExtrasCalc /></TabsContent>
-            <TabsContent value="liquidacion" className="mt-0"><LiquidacionCalc /></TabsContent>
-          </div>
+          <TabsContent value="salario" className="mt-0">
+            <SalarioCalc />
+          </TabsContent>
+          <TabsContent value="horas" className="mt-0">
+            <HorasCalc />
+          </TabsContent>
+          <TabsContent value="liquidacion" className="mt-0">
+            <LiquidacionCalc />
+          </TabsContent>
         </Tabs>
 
-        <p className="text-center text-[12px] text-aesop-umber mt-10 max-w-[720px] mx-auto leading-relaxed">
-          Esta calculadora es orientativa. Los resultados se basan en el Código de Trabajo de Costa Rica y las tarifas vigentes de CCSS e impuesto de renta. Para casos específicos, consulta con un profesional de RRHH o legal.
+        <p className="font-sans text-[12px] text-aesop-umber text-center mt-12 max-w-3xl mx-auto leading-relaxed">
+          Esta calculadora es orientativa y se basa en el Código de Trabajo de Costa Rica. Para casos específicos,
+          consulta con un profesional de RRHH o legal.
         </p>
       </div>
     </section>
