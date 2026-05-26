@@ -787,6 +787,7 @@ const en: Translations = {
     'add-grow': 'Professional acceleration',
     'first-step': 'Everything you need to know to start your venture related to Labor Law',
     simulaciones: 'Interview practice',
+    outplacement: 'Career transition support',
     'hr-toolkit': 'Templates and guides for SMEs',
     'career-blueprint': 'Labor strategy course',
     'insider-club': 'Exclusive community',
