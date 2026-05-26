@@ -1,5 +1,12 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+
+const HASH_TO_TAB: Record<string, string> = {
+  'calc-salario': 'salario',
+  'calc-horas': 'horas',
+  'calc-liquidacion': 'liquidacion',
+  'calculadora-laboral': 'salario',
+};
 import { Briefcase, Clock, FileText, CalendarIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
