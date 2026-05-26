@@ -157,10 +157,10 @@ export default function ServicesSection() {
                     )}
                     <Link
                       to={`/${s.category}/${s.slug}`}
-                      className="btn-cta inline-flex items-center gap-2"
+                      className="btn-cta-slim inline-flex items-center gap-2"
                     >
-                      {s.category === 'candidato' ? 'Obtener servicio' : 'Ver detalle y cotizar'}
-                      <ArrowRight size={14} strokeWidth={1.5} />
+                      {s.category === 'candidato' ? 'Más información' : 'Ver detalle y cotizar'}
+                      <ArrowRight size={12} strokeWidth={1.5} />
                     </Link>
                   </AccordionContent>
                 </AccordionItem>
