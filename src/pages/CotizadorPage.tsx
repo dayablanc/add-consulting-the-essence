@@ -43,7 +43,8 @@ export default function CotizadorPage() {
       <Header />
       <main className="bg-aesop-cream min-h-screen pt-[64px]">
         <div className="max-w-[700px] mx-auto px-6 py-16 lg:py-24">
-          <p className="eyebrow mb-6">· Cotizador</p>
+          <BackButton />
+          <p className="eyebrow mb-6 mt-4">· Cotizador</p>
           <h2 className="text-aesop-soil text-[36px] lg:text-[48px] mb-12">Encuentra tu servicio ideal</h2>
 
           {/* Progress */}

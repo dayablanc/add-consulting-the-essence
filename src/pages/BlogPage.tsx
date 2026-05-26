@@ -16,7 +16,8 @@ export default function BlogPage() {
       <Header />
       <main className="bg-aesop-parchment min-h-screen pt-[64px]">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-12 py-16 lg:py-24">
-          <p className="eyebrow mb-6">· Recursos Editoriales</p>
+          <BackButton />
+          <p className="eyebrow mb-6 mt-4">· Recursos Editoriales</p>
           <h2 className="text-aesop-soil text-[40px] lg:text-[52px] mb-4">Blog</h2>
           <p className="text-body mb-16">Artículos sobre el mercado laboral y derecho laboral costarricense.</p>
 
