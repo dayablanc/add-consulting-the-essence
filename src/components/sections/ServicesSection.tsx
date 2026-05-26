@@ -73,10 +73,10 @@ export default function ServicesSection() {
         </div>
         <Link
           to={servicePath}
-          className="btn-cta mt-6 inline-flex items-center justify-center gap-2 self-start"
+          className="btn-cta-slim mt-6 inline-flex items-center justify-center gap-2 self-start"
         >
-          {isB2C ? 'Obtener servicio' : 'Ver detalle y cotizar'}
-          <ArrowRight size={14} strokeWidth={1.5} />
+          {isB2C ? 'Más información' : 'Ver detalle y cotizar'}
+          <ArrowRight size={12} strokeWidth={1.5} />
         </Link>
       </div>
     );
