@@ -6,11 +6,11 @@ export default function AboutSection() {
   const { t } = useI18n();
 
   return (
-    <section className="bg-aesop-white py-12 lg:py-16">
+    <section className="bg-aesop-white pb-12 lg:pb-16">
       <div className="max-w-[1200px] mx-auto section-padding">
-        <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+        <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 pt-12 lg:pt-0">
           {/* Text content */}
-          <div className="lg:w-[60%] order-2 lg:order-1">
+          <div className="lg:w-[60%] order-2 lg:order-1 lg:pt-12 lg:pb-4">
             <p className="eyebrow mb-3">{t.about.eyebrow}</p>
             <h2 className="text-aesop-soil text-[26px] md:text-[30px]" style={{ letterSpacing: '-0.5px' }}>
               {t.about.heading}
