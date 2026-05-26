@@ -187,7 +187,10 @@ export default function Header() {
             <div style={{ width: '1px', height: '16px', background: 'rgba(242,237,228,0.2)' }} />
 
             {/* Stacked Language + Currency toggles — aligned columns */}
-            <div className="flex flex-col items-stretch gap-0.5 font-sans text-[9px] tracking-[0.5px] leading-none">
+            <div
+              className="flex flex-col items-stretch gap-0.5 font-sans text-[9px] tracking-[0.5px] leading-none px-2 py-1.5"
+              style={{ border: '1px solid rgba(242,237,228,0.25)' }}
+            >
               <div className="grid grid-cols-[40px_6px_40px] items-center">
                 <button
                   onClick={() => setLang('es')}
