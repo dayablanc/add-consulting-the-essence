@@ -164,7 +164,7 @@ export const services: Service[] = [
     priceCRC: 18000,
     faq: [
       { q: '¿Necesito experiencia previa?', a: 'No. Este programa está diseñado específicamente para quienes inician.' },
-      { q: '¿Incluye prácticas profesionales?', a: 'No directamente, pero te conectamos con empresas que buscan practicantes.' },
+      { q: '¿Incluye prácticas profesionales?', a: 'No directamente, pero te asesoramos para que sepas como iniciar y donde buscar.' },
       { q: '¿Puedo tomarlo mientras estudio?', a: 'Sí, las sesiones son flexibles y se adaptan a tu horario.' },
     ],
   },
