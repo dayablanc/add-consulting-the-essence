@@ -141,7 +141,7 @@ export const services: Service[] = [
     faq: [
       { q: '¿Qué es un formato ATS?', a: 'Es la estructura que utilizan los sistemas automatizados de reclutamiento para leer y filtrar CVs antes de que un humano los revise.' },
       { q: '¿En cuánto tiempo recibo mi CV?', a: 'Entre 2 y 3 días hábiles después de recibir tu información actual.' },
-      { q: '¿Incluye rediseño visual?', a: 'No. El objetivo es priorizar la legibilidad por sistemas ATS, por eso usamos formatos limpios y estandarizados.' },
+      { q: '¿Incluye rediseño visual?', a: 'El objetivo es priorizar la legibilidad por sistemas ATS, por eso usamos formatos limpios y estandarizados.' },
     ],
   },
   {
