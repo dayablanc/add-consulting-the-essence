@@ -151,7 +151,7 @@ export const services: Service[] = [
     category: 'candidato',
     icon: 'rocket',
     idealFor: 'IDEAL PARA: ESTUDIANTES, PROFESIONALES EN TRANSICIÓN Y QUIENES QUIEREN MEJORAR SU EMPLEABILIDAD',
-    description: 'Ya sea que estés buscando tu primer empleo o quieras mejorar cómo te presentas al mercado laboral, este paquete te da las herramientas y la estrategia para destacar desde tu CV hasta tu presencia en LinkedIn. En una sola sesión aprenderás todo esto. ',
+    description: 'Ya sea que estés buscando tu primer empleo o quieras mejorar cómo te presentas al mercado laboral, este paquete te da las herramientas y la estrategia para destacar desde tu CV hasta tu primera entrevista y posicionamiento en LinkedIn. En una sola sesión aprenderás todo esto.',
     includes: [
       'Diagnóstico inicial para conocer a profundidad tu experiencia, fortalezas y objetivos profesionales',
       'Creación de CV profesional en formato Harvard, optimizado para filtros ATS',
