@@ -2,12 +2,6 @@ import { Link } from 'react-router-dom';
 import { services } from '@/data/services';
 import { useI18n } from '@/i18n/context';
 import { Users, Scale, Building2, BookOpen, TrendingUp, Shield, Rocket, Mic, FileText, ArrowRight } from 'lucide-react';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
 
 const iconMap: Record<string, React.ReactNode> = {
   users: <Users className="w-6 h-6 text-aesop-clay" strokeWidth={1.5} />,
@@ -19,18 +13,6 @@ const iconMap: Record<string, React.ReactNode> = {
   shield: <Shield className="w-6 h-6 text-aesop-clay" strokeWidth={1.5} />,
   rocket: <Rocket className="w-6 h-6 text-aesop-clay" strokeWidth={1.5} />,
   mic: <Mic className="w-6 h-6 text-aesop-clay" strokeWidth={1.5} />,
-};
-
-const iconMapSmall: Record<string, React.ReactNode> = {
-  users: <Users className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
-  scale: <Scale className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
-  building: <Building2 className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
-  'book-open': <BookOpen className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
-  'trending-up': <TrendingUp className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
-  'file-text': <FileText className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
-  shield: <Shield className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
-  rocket: <Rocket className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
-  mic: <Mic className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
 };
 
 export default function ServicesSection() {
