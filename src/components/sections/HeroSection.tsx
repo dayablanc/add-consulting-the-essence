@@ -1,18 +1,27 @@
 import { Link } from 'react-router-dom';
 import { useI18n } from '@/i18n/context';
-import heroImage from '@/assets/hero-image.jpg';
+import founderAsset from '@/assets/founder-portrait.jpeg.asset.json';
 
 export default function HeroSection() {
   const { t } = useI18n();
 
   return (
     <section className="min-h-screen flex flex-col lg:flex-row">
-      <div className="lg:hidden w-full h-[45vh] relative overflow-hidden">
-        <img src={heroImage} alt="Profesional en oficina moderna" className="w-full h-full object-cover" />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(61,53,48,0.06) 0%, rgba(61,53,48,0.16) 100%)' }} />
+      <div className="lg:hidden w-full flex justify-center bg-aesop-parchment pt-[120px] pb-10">
+        <div className="relative">
+          <div className="absolute -inset-3 rounded-full border border-aesop-rule" aria-hidden="true" />
+          <div className="relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] rounded-full overflow-hidden">
+            <img
+              src={founderAsset.url}
+              alt="Fundadora de ADD Consulting"
+              className="w-full h-full object-cover"
+              style={{ objectPosition: '50% 18%' }}
+            />
+          </div>
+        </div>
       </div>
 
-      <div className="w-full lg:w-1/2 bg-aesop-white flex items-center pt-[120px] lg:pt-[140px]">
+      <div className="w-full lg:w-1/2 bg-aesop-white flex items-center pt-10 lg:pt-[140px]">
         <div className="section-padding py-16 lg:py-0 max-w-[600px]">
           <p className="eyebrow-mono animate-fade-in-up" style={{ animationDelay: '0ms' }}>
             {t.hero.eyebrow}
@@ -34,9 +43,22 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="hidden lg:block w-1/2 relative overflow-hidden">
-        <img src={heroImage} alt="Profesional en oficina moderna" className="w-full h-full object-cover" />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(61,53,48,0.06) 0%, rgba(61,53,48,0.16) 100%)' }} />
+      <div className="hidden lg:flex w-1/2 relative items-center justify-center bg-aesop-parchment overflow-hidden">
+        <div className="relative animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+          <div className="absolute -inset-5 rounded-full border border-aesop-rule" aria-hidden="true" />
+          <div className="absolute -inset-10 rounded-full border border-aesop-rule/50" aria-hidden="true" />
+          <div className="relative w-[420px] h-[420px] xl:w-[480px] xl:h-[480px] rounded-full overflow-hidden">
+            <img
+              src={founderAsset.url}
+              alt="Fundadora de ADD Consulting"
+              className="w-full h-full object-cover"
+              style={{ objectPosition: '50% 15%' }}
+            />
+          </div>
+          <p className="mt-8 text-center font-mono text-[11px] tracking-[0.2em] uppercase text-aesop-taupe">
+            ADD Consulting · Fundadora
+          </p>
+        </div>
       </div>
     </section>
   );
