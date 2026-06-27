@@ -10,7 +10,7 @@ export default function StatsSection() {
   ];
 
   return (
-    <section className="bg-aesop-white py-12 lg:py-16">
+    <section className="bg-aesop-white py-10 lg:py-12">
       <div className="max-w-[1200px] mx-auto section-padding">
         <div className="grid grid-cols-3 gap-8 text-center mb-10">
           {stats.map((s) => (

@@ -5,7 +5,7 @@ export default function CTAFinalSection() {
   const { t } = useI18n();
 
   return (
-    <section className="py-12 lg:py-16 bg-aesop-white">
+    <section className="py-10 lg:py-12 bg-aesop-white">
       <div className="max-w-[800px] mx-auto section-padding text-center">
         <h2
           className="font-serif text-[28px] md:text-[32px] font-light text-aesop-soil mb-6"
