@@ -74,8 +74,8 @@ export default function HeroSection() {
               style={{
                 right: '8%',
                 bottom: '12%',
-                width: '420px',
-                height: '420px',
+                width: '320px',
+                height: '320px',
                 borderRadius: '9999px',
                 background: 'hsl(var(--aesop-linen))',
                 zIndex: 0,
