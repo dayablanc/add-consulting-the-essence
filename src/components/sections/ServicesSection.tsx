@@ -2,12 +2,6 @@ import { Link } from 'react-router-dom';
 import { services } from '@/data/services';
 import { useI18n } from '@/i18n/context';
 import { Users, Scale, Building2, BookOpen, TrendingUp, Shield, Rocket, Mic, FileText, ArrowRight } from 'lucide-react';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
 
 const iconMap: Record<string, React.ReactNode> = {
   users: <Users className="w-6 h-6 text-aesop-clay" strokeWidth={1.5} />,
@@ -19,18 +13,6 @@ const iconMap: Record<string, React.ReactNode> = {
   shield: <Shield className="w-6 h-6 text-aesop-clay" strokeWidth={1.5} />,
   rocket: <Rocket className="w-6 h-6 text-aesop-clay" strokeWidth={1.5} />,
   mic: <Mic className="w-6 h-6 text-aesop-clay" strokeWidth={1.5} />,
-};
-
-const iconMapSmall: Record<string, React.ReactNode> = {
-  users: <Users className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
-  scale: <Scale className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
-  building: <Building2 className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
-  'book-open': <BookOpen className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
-  'trending-up': <TrendingUp className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
-  'file-text': <FileText className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
-  shield: <Shield className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
-  rocket: <Rocket className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
-  mic: <Mic className="w-5 h-5 text-aesop-clay" strokeWidth={1.5} />,
 };
 
 export default function ServicesSection() {
@@ -116,57 +98,6 @@ export default function ServicesSection() {
           </div>
         </div>
 
-        <div style={{ borderBottom: '1px solid hsl(var(--aesop-rule))' }} className="mb-16" />
-
-        {/* Full services accordion */}
-        <div>
-          <p className="eyebrow mb-3">· Catálogo completo</p>
-          <p className="font-serif text-[24px] lg:text-[28px] text-aesop-soil mb-10" style={{ letterSpacing: '-0.5px', fontStyle: 'normal' }}>
-            Explora todos nuestros servicios
-          </p>
-          <Accordion type="single" collapsible className="w-full">
-            {services.map((s) => {
-              const text = getServiceText(s);
-              return (
-                <AccordionItem
-                  key={s.id}
-                  value={s.id}
-                  style={{ borderBottom: '1px solid hsl(var(--aesop-rule))' }}
-                  className="border-b"
-                >
-                  <AccordionTrigger className="hover:no-underline py-6 group">
-                    <div className="flex items-center gap-4 text-left">
-                      {iconMapSmall[s.icon]}
-                      <span className="font-serif text-[20px] lg:text-[22px] text-aesop-soil font-normal" style={{ letterSpacing: '-0.3px' }}>
-                        {text.name}
-                      </span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="pb-6 pl-9">
-                    <p className="text-body mb-4 max-w-[680px]">{text.description}</p>
-                    {text.includes && text.includes.length > 0 && (
-                      <ul className="space-y-1.5 mb-5">
-                        {text.includes.map((item, i) => (
-                          <li key={i} className="font-sans text-[14px] text-aesop-umber font-light flex items-start gap-2">
-                            <span className="text-aesop-clay mt-1">·</span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                    <Link
-                      to={`/${s.category}/${s.slug}`}
-                      className="btn-cta-slim inline-flex items-center gap-2"
-                    >
-                      {s.category === 'candidato' ? 'Más información' : 'Ver servicio completo'}
-                      <ArrowRight size={12} strokeWidth={1.5} />
-                    </Link>
-                  </AccordionContent>
-                </AccordionItem>
-              );
-            })}
-          </Accordion>
-        </div>
       </div>
     </section>
   );
