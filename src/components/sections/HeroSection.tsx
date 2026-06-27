@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useI18n } from '@/i18n/context';
-import founderAsset from '@/assets/founder-cutout.png.asset.json';
+import heroImage from '@/assets/hero-image.jpg';
 
 export default function HeroSection() {
   const { t } = useI18n();
@@ -66,80 +66,14 @@ export default function HeroSection() {
             </p>
           </div>
 
-          {/* Portrait column */}
+          {/* Image column */}
           <div className="lg:col-span-6 xl:col-span-6 relative flex justify-center items-center">
-            {/* Decorative circle behind */}
-            <div
-              className="hidden lg:block absolute pointer-events-none"
-              style={{
-                right: '50%',
-                top: '50%',
-                transform: 'translate(50%, -50%)',
-                width: '260px',
-                height: '260px',
-                borderRadius: '9999px',
-                background: 'hsl(var(--aesop-linen))',
-                zIndex: 0,
-              }}
-              aria-hidden="true"
-            />
-            {/* Vertical mono label */}
-            <div
-              className="hidden lg:flex absolute left-0 bottom-16 flex-col items-center gap-3 z-10"
-              aria-hidden="true"
-            >
-              <span className="block h-12 w-px bg-aesop-rule" />
-              <span
-                style={{
-                  writingMode: 'vertical-rl',
-                  transform: 'rotate(180deg)',
-                  fontFamily: "'Courier Prime', monospace",
-                  fontSize: '9px',
-                  letterSpacing: '0.32em',
-                  textTransform: 'uppercase',
-                  color: 'hsl(var(--aesop-taupe))',
-                }}
-              >
-                ADD Consulting · Est. 2018
-              </span>
-            </div>
-
-            {/* Portrait */}
             <img
-              src={founderAsset.url}
-              alt="Fundadora de ADD Consulting"
-              className="relative z-[5] w-full max-w-[240px] md:max-w-[280px] lg:max-w-none lg:w-auto lg:h-[40vh] object-contain object-bottom animate-fade-in-up"
+              src={heroImage}
+              alt="Oficina ADD Consulting"
+              className="relative z-[5] w-full max-w-[280px] md:max-w-[340px] lg:max-w-none lg:w-full lg:h-[40vh] object-cover animate-fade-in-up rounded-sm"
               style={{ animationDelay: '200ms' }}
             />
-
-            {/* Mono caption bottom-right */}
-            <div
-              className="hidden lg:block absolute right-0 bottom-4 text-right z-10"
-              aria-hidden="true"
-            >
-              <p
-                style={{
-                  fontFamily: "'Courier Prime', monospace",
-                  fontSize: '9px',
-                  letterSpacing: '0.28em',
-                  textTransform: 'uppercase',
-                  color: 'hsl(var(--aesop-taupe))',
-                  marginBottom: '4px',
-                }}
-              >
-                Fundadora · CR
-              </p>
-              <p
-                style={{
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontStyle: 'italic',
-                  fontSize: '18px',
-                  color: 'hsl(var(--aesop-bark))',
-                }}
-              >
-                Andrea D. Delgado
-              </p>
-            </div>
           </div>
         </div>
       </div>
