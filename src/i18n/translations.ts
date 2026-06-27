@@ -527,7 +527,7 @@ const en: Translations = {
 
   services: {
     eyebrow: '· ADD SERVICES',
-    heading: 'What we do',
+    heading: 'OUR SERVICES',
     subtitle: 'Comprehensive HR and labor law solutions for companies and professionals in Costa Rica.',
     b2bEyebrow: '· CORPORATE DIVISION',
     b2bTitle: 'B2B — For Companies',
