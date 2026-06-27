@@ -8,7 +8,6 @@ import CalculadoraLaboral from '@/components/CalculadoraLaboral';
 import KitPymeSection from '@/components/sections/KitPymeSection';
 import StatsSection from '@/components/sections/StatsSection';
 import CTAFinalSection from '@/components/sections/CTAFinalSection';
-import BlogPreviewSection from '@/components/sections/BlogPreviewSection';
 
 export default function Index() {
   return (
