@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
+import { useRef } from 'react';
 import { services } from '@/data/services';
 import { useI18n } from '@/i18n/context';
-import { Users, Scale, Building2, BookOpen, TrendingUp, Shield, Rocket, Mic, FileText, ArrowRight } from 'lucide-react';
+import { Users, Scale, Building2, BookOpen, TrendingUp, Shield, Rocket, Mic, FileText, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const iconMap: Record<string, React.ReactNode> = {
   users: <Users className="w-6 h-6 text-aesop-clay" strokeWidth={1.5} />,
@@ -36,8 +37,8 @@ export default function ServicesSection() {
     return (
       <div
         key={s.id}
-        className="group flex flex-col justify-between p-8 bg-aesop-white transition-all duration-200"
-        style={{ border: '1px solid hsl(var(--aesop-rule))' }}
+        className="group flex flex-col justify-between p-8 bg-aesop-white transition-all duration-200 snap-start shrink-0 w-[85%] sm:w-[55%] md:w-[42%] lg:w-[280px]"
+        style={{ border: '1px solid hsl(var(--aesop-rule))', borderRadius: '24px' }}
         onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'hsl(var(--aesop-clay))'; }}
         onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'hsl(var(--aesop-rule))'; }}
       >
@@ -46,7 +47,7 @@ export default function ServicesSection() {
           <h3 className="font-serif text-[22px] lg:text-[24px] text-aesop-soil mb-3" style={{ letterSpacing: '-0.3px', fontStyle: 'normal' }}>
             {text.name}
           </h3>
-          <p className="font-sans text-[15px] text-aesop-umber font-light leading-relaxed line-clamp-2">
+          <p className="font-sans text-[15px] text-aesop-umber font-light leading-relaxed line-clamp-3">
             {text.description}
           </p>
         </div>
@@ -57,6 +58,40 @@ export default function ServicesSection() {
           {isB2C ? 'Más información' : 'Ver servicio completo'}
           <ArrowRight size={12} strokeWidth={1.5} />
         </Link>
+      </div>
+    );
+  };
+
+  const Carousel = ({ items }: { items: typeof services }) => {
+    const ref = useRef<HTMLDivElement>(null);
+    const scrollBy = (dir: number) => {
+      if (!ref.current) return;
+      const amount = ref.current.clientWidth * 0.8 * dir;
+      ref.current.scrollBy({ left: amount, behavior: 'smooth' });
+    };
+    return (
+      <div className="relative">
+        <div
+          ref={ref}
+          className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 -mx-4 px-4"
+          style={{ scrollbarWidth: 'none' }}
+        >
+          {items.map(s => renderServiceCard(s))}
+        </div>
+        <button
+          aria-label="Anterior"
+          onClick={() => scrollBy(-1)}
+          className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-aesop-white border border-aesop-rule items-center justify-center hover:bg-aesop-parchment transition-colors shadow-sm"
+        >
+          <ChevronLeft className="w-5 h-5 text-aesop-bark" strokeWidth={1.5} />
+        </button>
+        <button
+          aria-label="Siguiente"
+          onClick={() => scrollBy(1)}
+          className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-aesop-white border border-aesop-rule items-center justify-center hover:bg-aesop-parchment transition-colors shadow-sm"
+        >
+          <ChevronRight className="w-5 h-5 text-aesop-bark" strokeWidth={1.5} />
+        </button>
       </div>
     );
   };
@@ -72,9 +107,7 @@ export default function ServicesSection() {
         {/* B2C */}
         <div className="mb-12">
           <p className="eyebrow mb-6">{t.services.b2cEyebrow}</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {b2cCards.map(s => renderServiceCard(s))}
-          </div>
+          <Carousel items={b2cCards} />
         </div>
 
         <div style={{ borderBottom: '1px solid hsl(var(--aesop-rule))' }} className="mb-12" />
@@ -82,9 +115,7 @@ export default function ServicesSection() {
         {/* B2B */}
         <div className="mb-0">
           <p className="eyebrow mb-6">{t.services.b2bEyebrow}</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {b2bCards.map(s => renderServiceCard(s))}
-          </div>
+          <Carousel items={b2bCards} />
         </div>
 
       </div>
