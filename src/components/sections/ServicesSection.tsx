@@ -65,8 +65,13 @@ export default function ServicesSection() {
     <section className="bg-aesop-white pt-6 lg:pt-8 pb-12 lg:pb-16">
       <div className="max-w-[1200px] mx-auto section-padding">
 
+        <h2 className="font-serif text-[36px] md:text-[44px] lg:text-[52px] text-aesop-clay mb-10" style={{ letterSpacing: '-0.5px' }}>
+          {t.services.heading}
+        </h2>
+
         {/* B2C */}
         <div className="mb-12">
+          <p className="eyebrow mb-6">{t.services.b2cEyebrow}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {b2cCards.map(s => renderServiceCard(s))}
           </div>
@@ -76,6 +81,7 @@ export default function ServicesSection() {
 
         {/* B2B */}
         <div className="mb-0">
+          <p className="eyebrow mb-6">{t.services.b2bEyebrow}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {b2bCards.map(s => renderServiceCard(s))}
           </div>

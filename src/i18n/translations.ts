@@ -223,7 +223,7 @@ const es: Translations = {
 
   services: {
     eyebrow: '· NUESTROS SERVICIOS ',
-    heading: 'Acompañamiento experto en cada etapa',
+    heading: 'NUESTROS SERVICIOS',
     subtitle: 'Brindamos soluciones reales a profesionales que quieren avanzar y a empresas que quieren crecer. Siempre boutique, siempre a la medida.',
     b2bEyebrow: '· DIVISIÓN CORPORATIVA',
     b2bTitle: 'B2B — Soy Empresa',
@@ -527,7 +527,7 @@ const en: Translations = {
 
   services: {
     eyebrow: '· ADD SERVICES',
-    heading: 'What we do',
+    heading: 'OUR SERVICES',
     subtitle: 'Comprehensive HR and labor law solutions for companies and professionals in Costa Rica.',
     b2bEyebrow: '· CORPORATE DIVISION',
     b2bTitle: 'B2B — For Companies',
