@@ -98,57 +98,6 @@ export default function ServicesSection() {
           </div>
         </div>
 
-        <div style={{ borderBottom: '1px solid hsl(var(--aesop-rule))' }} className="mb-16" />
-
-        {/* Full services accordion */}
-        <div>
-          <p className="eyebrow mb-3">· Catálogo completo</p>
-          <p className="font-serif text-[24px] lg:text-[28px] text-aesop-soil mb-10" style={{ letterSpacing: '-0.5px', fontStyle: 'normal' }}>
-            Explora todos nuestros servicios
-          </p>
-          <Accordion type="single" collapsible className="w-full">
-            {services.map((s) => {
-              const text = getServiceText(s);
-              return (
-                <AccordionItem
-                  key={s.id}
-                  value={s.id}
-                  style={{ borderBottom: '1px solid hsl(var(--aesop-rule))' }}
-                  className="border-b"
-                >
-                  <AccordionTrigger className="hover:no-underline py-6 group">
-                    <div className="flex items-center gap-4 text-left">
-                      {iconMapSmall[s.icon]}
-                      <span className="font-serif text-[20px] lg:text-[22px] text-aesop-soil font-normal" style={{ letterSpacing: '-0.3px' }}>
-                        {text.name}
-                      </span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="pb-6 pl-9">
-                    <p className="text-body mb-4 max-w-[680px]">{text.description}</p>
-                    {text.includes && text.includes.length > 0 && (
-                      <ul className="space-y-1.5 mb-5">
-                        {text.includes.map((item, i) => (
-                          <li key={i} className="font-sans text-[14px] text-aesop-umber font-light flex items-start gap-2">
-                            <span className="text-aesop-clay mt-1">·</span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                    <Link
-                      to={`/${s.category}/${s.slug}`}
-                      className="btn-cta-slim inline-flex items-center gap-2"
-                    >
-                      {s.category === 'candidato' ? 'Más información' : 'Ver servicio completo'}
-                      <ArrowRight size={12} strokeWidth={1.5} />
-                    </Link>
-                  </AccordionContent>
-                </AccordionItem>
-              );
-            })}
-          </Accordion>
-        </div>
       </div>
     </section>
   );
