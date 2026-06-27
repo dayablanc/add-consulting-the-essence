@@ -20,7 +20,6 @@ export default function Index() {
         <KitPymeSection />
         <CalculadoraLaboral />
         <StatsSection />
-        <BlogPreviewSection />
         <CTAFinalSection />
       </main>
       <Footer />
