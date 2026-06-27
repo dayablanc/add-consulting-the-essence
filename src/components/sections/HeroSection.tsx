@@ -7,7 +7,7 @@ export default function HeroSection() {
 
   return (
     <section className="relative bg-aesop-parchment overflow-hidden">
-      <div className="relative max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 pt-[140px] lg:pt-[160px] pb-0 lg:pb-0 min-h-[88vh] lg:min-h-[92vh]">
+      <div className="relative max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 pt-[120px] lg:pt-[140px] pb-10 lg:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-end">
 
           {/* Text column */}
