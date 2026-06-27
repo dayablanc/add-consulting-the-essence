@@ -107,7 +107,7 @@ export default function HeroSection() {
             <img
               src={founderAsset.url}
               alt="Fundadora de ADD Consulting"
-              className="relative z-[5] w-full max-w-[420px] lg:max-w-none lg:w-auto lg:h-[78vh] xl:h-[82vh] object-contain object-bottom animate-fade-in-up"
+              className="relative z-[5] w-full max-w-[280px] md:max-w-[340px] lg:max-w-none lg:w-auto lg:h-[52vh] xl:h-[56vh] object-contain object-bottom animate-fade-in-up"
               style={{ animationDelay: '200ms' }}
             />
 
