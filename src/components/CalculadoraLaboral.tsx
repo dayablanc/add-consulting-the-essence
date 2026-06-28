@@ -32,13 +32,13 @@ const fmtCRC = (n: number) =>
 
 // ── Estilos compartidos ──
 const inputCls =
-  'w-full px-4 py-3 bg-white border border-aesop-rule font-sans text-[15px] text-aesop-soil focus:border-[#A8893A] outline-none transition-colors';
+  'w-full px-4 py-3 bg-white border border-aesop-rule font-sans text-[15px] text-aesop-soil focus:border-[#A8893A] outline-none transition-colors rounded-[12px]';
 const labelCls =
   'block font-sans text-[12px] uppercase tracking-[1.5px] text-aesop-umber mb-2 font-medium';
 const resultCard =
-  'p-5 border border-[#A8893A]/40';
+  'p-5 border border-[#A8893A]/40 rounded-[12px]';
 const ctaBtn =
-  'mt-2 px-10 py-3 font-sans text-[11px] uppercase tracking-[3px] font-semibold text-white transition-all hover:opacity-90';
+  'mt-2 px-10 py-3 font-sans text-[11px] uppercase tracking-[3px] font-semibold text-white transition-all hover:opacity-90 rounded-[9999px]';
 
 // Radio group helper
 function Radio({
