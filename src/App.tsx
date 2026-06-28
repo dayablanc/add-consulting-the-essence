@@ -17,6 +17,7 @@ import ContactoPage from "./pages/ContactoPage";
 import RecursoPage from "./pages/RecursoPage";
 import InsiderClubPage from "./pages/InsiderClubPage";
 import CheckoutPage from "./pages/CheckoutPage";
+import RecursosDigitalesPage from "./pages/RecursosDigitalesPage";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
