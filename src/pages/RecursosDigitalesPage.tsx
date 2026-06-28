@@ -20,7 +20,7 @@ export default function RecursosDigitalesPage() {
           {t.kitPyme.heading}
         </h1>
         <p className="font-sans text-[14px] text-aesop-umber font-light max-w-[600px] mb-16">
-          {t.kitPyme.sub}
+          Todo lo que necesitas, listo para usar.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
