@@ -568,12 +568,14 @@ function LiquidacionCalc() {
 // ═════════════════════════════════════════════════════
 export default function CalculadoraLaboral() {
   const [tab, setTab] = useState<string>('salario');
+  const [expanded, setExpanded] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     const h = (location.hash || window.location.hash).replace('#', '');
     if (HASH_TO_TAB[h]) {
       setTab(HASH_TO_TAB[h]);
+      setExpanded(true);
       requestAnimationFrame(() => {
         const el = document.getElementById('calculadora-laboral');
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -598,8 +600,15 @@ export default function CalculadoraLaboral() {
           </p>
         </div>
 
-        <Tabs value={tab} onValueChange={setTab} className="w-full">
-          <TabsList className="grid grid-cols-3 w-full max-w-3xl mx-auto mb-10 bg-white border border-aesop-rule h-auto p-1">
+        <Tabs
+          value={tab}
+          onValueChange={(v) => {
+            setTab(v);
+            setExpanded(true);
+          }}
+          className="w-full"
+        >
+          <TabsList className="grid grid-cols-3 w-full max-w-3xl mx-auto mb-6 bg-white border border-aesop-rule h-auto p-1">
             <TabsTrigger
               value="salario"
               className="flex items-center gap-2 py-3 font-sans text-[11px] uppercase tracking-[1.5px] data-[state=active]:bg-[#490B14] data-[state=active]:text-white"
@@ -626,15 +635,37 @@ export default function CalculadoraLaboral() {
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="salario" className="mt-0">
-            <SalarioCalc />
-          </TabsContent>
-          <TabsContent value="horas" className="mt-0">
-            <HorasCalc />
-          </TabsContent>
-          <TabsContent value="liquidacion" className="mt-0">
-            <LiquidacionCalc />
-          </TabsContent>
+          {expanded ? (
+            <>
+              <TabsContent value="salario" className="mt-0">
+                <SalarioCalc />
+              </TabsContent>
+              <TabsContent value="horas" className="mt-0">
+                <HorasCalc />
+              </TabsContent>
+              <TabsContent value="liquidacion" className="mt-0">
+                <LiquidacionCalc />
+              </TabsContent>
+
+              <div className="text-center mt-8">
+                <button
+                  onClick={() => setExpanded(false)}
+                  className="font-sans text-[12px] uppercase tracking-[2px] text-aesop-clay hover:text-[#490B14] underline underline-offset-4 transition-colors"
+                >
+                  Ver menos
+                </button>
+              </div>
+            </>
+          ) : (
+            <div className="text-center py-6">
+              <button
+                onClick={() => setExpanded(true)}
+                className="font-sans text-[12px] uppercase tracking-[2px] text-aesop-clay hover:text-[#490B14] underline underline-offset-4 transition-colors"
+              >
+                Ver más
+              </button>
+            </div>
+          )}
         </Tabs>
 
         <p className="font-sans text-[12px] text-aesop-umber text-center mt-12 max-w-3xl mx-auto leading-relaxed">
