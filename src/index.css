@@ -263,6 +263,26 @@
   border-color: hsl(var(--aesop-clay));
 }
 
+.btn-header-cta {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 14px 36px;
+  background-color: hsl(var(--aesop-parchment));
+  border: 1px solid hsl(var(--aesop-parchment));
+  color: hsl(var(--aesop-bark));
+  cursor: pointer;
+  transition: all 200ms ease;
+  border-radius: 9999px !important;
+}
+.btn-header-cta:hover {
+  background-color: crimson;
+  border-color: crimson;
+  color: hsl(var(--aesop-parchment));
+}
+
 /* ─── ACENTO GOLD (uso máx. 1 por sección) ─── */
 .text-gold {
   color: hsl(var(--hr-gold));
