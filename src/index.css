@@ -72,7 +72,6 @@
   * {
     @apply border-border;
     box-shadow: none !important;
-    border-radius: 0 !important;
   }
 
   html {
@@ -112,12 +111,7 @@
     font-style: italic;
   }
 
-  img {
-    border-radius: 0 !important;
-  }
-
   button, input, select, textarea {
-    border-radius: 0 !important;
     box-shadow: none !important;
   }
 
