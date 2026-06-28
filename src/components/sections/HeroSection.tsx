@@ -37,7 +37,7 @@ export default function HeroSection() {
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: '15px',
                 lineHeight: 1.5,
-                color: 'hsl(var(--aesop-taupe))',
+                color: 'hsl(var(--aesop-bark))',
               }}
             >
               {t.hero.subtitle}
