@@ -591,12 +591,12 @@ export default function CalculadoraLaboral() {
     >
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <div className="eyebrow-mono mb-4">Herramientas</div>
+          <div className="eyebrow-mono mb-4"></div>
           <h2 className="mb-4" style={{ color: C.espresso }}>
             Calculadora <em>Laboral</em> Costa Rica
           </h2>
           <p className="font-sans text-[16px] text-aesop-umber max-w-2xl mx-auto">
-            Calcula salarios proporcionales, horas extra y liquidaciones según el Código de Trabajo.
+            Calcula acá salarios proporcionales, montos de horas extra y liquidaciones laborales según el Código de Trabajo.
           </p>
         </div>
 
