@@ -346,8 +346,8 @@ const es: Translations = {
   },
 
   kitPyme: {
-    eyebrow: '· RECURSOS DIGITALES',
-    heading: 'Todo lo que necesitas, listo para usar.',
+    eyebrow: '\n',
+    heading: 'Recursos Digitales',
     obtain: 'Obtener →',
   },
 
@@ -650,8 +650,8 @@ const en: Translations = {
   },
 
   kitPyme: {
-    eyebrow: '· Digital Products',
-    heading: 'Tools that work when you can\'t.',
+    eyebrow: '\n',
+    heading: 'Digital Resources',
     obtain: 'Get it →',
   },
 

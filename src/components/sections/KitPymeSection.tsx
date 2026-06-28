@@ -17,7 +17,7 @@ export default function KitPymeSection() {
           {t.kitPyme.heading}
         </h2>
         <p className="font-sans text-[13px] font-light max-w-[520px] mb-10" style={{ color: 'rgba(242,237,228,0.6)' }}>
-          Todo lo que necesitas, listo para usar.
+          Todo lo que necesitas, a un sólo clic.&nbsp;
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
@@ -54,7 +54,7 @@ export default function KitPymeSection() {
           to="/recursos-digitales"
           className="btn-cta inline-flex items-center gap-2"
         >
-          Explorar recursos digitales
+          EXPLORAR TODOS LOS RECURSOS DIGITALES
           <ArrowRight size={14} strokeWidth={1.5} />
         </Link>
       </div>
