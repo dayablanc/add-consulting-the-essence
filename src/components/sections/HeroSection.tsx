@@ -50,20 +50,6 @@ export default function HeroSection() {
               <Link to="/candidato" className="btn-ghost text-[9px] py-2 px-4">{t.hero.ctaSecondary}</Link>
             </div>
 
-            <p
-              className="animate-fade-in-up mt-6 flex items-center gap-3"
-              style={{
-                animationDelay: '600ms',
-                fontFamily: "'Courier Prime', monospace",
-                fontSize: '10px',
-                letterSpacing: '0.18em',
-                textTransform: 'uppercase',
-                color: 'hsl(var(--aesop-taupe))',
-              }}
-            >
-              <span className="inline-block w-6 h-px bg-aesop-rule" />
-              {t.hero.socialProof}
-            </p>
           </div>
 
           {/* Image column */}
