@@ -347,7 +347,7 @@ const es: Translations = {
 
   kitPyme: {
     eyebrow: '\n',
-    heading: 'Recursos Digitales',
+    heading: 'RECURSOS DIGITALES',
     obtain: 'Obtener →',
   },
 
@@ -661,7 +661,7 @@ const en: Translations = {
 
   kitPyme: {
     eyebrow: '\n',
-    heading: 'Digital Resources',
+    heading: 'DIGITAL RESOURCES',
     obtain: 'Get it →',
   },
 
