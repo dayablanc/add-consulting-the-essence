@@ -69,13 +69,8 @@ export default function BookingForm({ defaultService = '', serviceOptions = [] }
     setLoadingSlots(true);
     setSlots([]);
     setSelectedSlot(null);
-    supabase.functions.invoke('calendar-availability', {
-      method: 'GET',
-      // @ts-ignore - allow query params
-      headers: {},
-    } as any).then(async () => {
-      // fallback: use fetch since invoke doesn't support GET query params well
-    }).catch(() => {});
+
+
 
     // Use direct fetch for GET with query params
     const url = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/calendar-availability?date=${dateStr}`;
