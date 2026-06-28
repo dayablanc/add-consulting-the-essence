@@ -1,89 +1,62 @@
+import { Link } from 'react-router-dom';
 import { digitalProducts } from '@/data/services';
 import { useI18n } from '@/i18n/context';
-import { formatPrice, EXCHANGE_RATE } from '@/i18n/constants';
-import { useCart } from '@/cart/CartContext';
-import { useNavigate } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 
 export default function KitPymeSection() {
-  const { t, currency } = useI18n();
-  const { addItem, setOpen: setCartOpen } = useCart();
-  const navigate = useNavigate();
+  const { t } = useI18n();
 
   return (
     <section className="bg-aesop-bark py-12 lg:py-16">
       <div className="max-w-[1200px] mx-auto section-padding">
-        <p className="eyebrow-mono text-gold mb-4">{t.kitPyme.eyebrow}</p>
-        <h2 className="text-aesop-parchment text-[28px] md:text-[32px] mb-12" style={{ letterSpacing: '-0.5px' }}>
+        <p className="eyebrow-mono text-aesop-parchment/70 mb-4">{t.kitPyme.eyebrow}</p>
+        <h2
+          className="font-serif text-aesop-parchment text-[44px] md:text-[64px] lg:text-[84px] mb-3"
+          style={{ letterSpacing: '-1px', lineHeight: 1, fontStyle: 'normal' }}
+        >
           {t.kitPyme.heading}
         </h2>
+        <p className="font-sans text-[13px] font-light max-w-[520px] mb-10" style={{ color: 'rgba(242,237,228,0.6)' }}>
+          Todo lo que necesitas, listo para usar.
+        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
           {digitalProducts.map((p) => {
             const translated = t.digitalProducts[p.slug] || { name: p.name, audience: p.audience, description: p.description };
-            const priceUSD = parseFloat(p.price.replace('$', ''));
-            const priceCRC = Math.round(priceUSD * EXCHANGE_RATE);
-
-            const handleBuy = () => {
-              addItem({
-                serviceId: p.id,
-                slug: p.slug,
-                name: translated.name,
-                priceCRC,
-              });
-              setCartOpen(false);
-              navigate('/checkout');
-            };
-
-            const handleAdd = () => {
-              addItem({
-                serviceId: p.id,
-                slug: p.slug,
-                name: translated.name,
-                priceCRC,
-              });
-            };
-
             return (
-              <div
+              <Link
                 key={p.id}
-                className="p-8 transition-all duration-200"
+                to={`/recursos/${p.slug}`}
+                className="group flex items-start justify-between gap-4 p-5 transition-all duration-200"
                 style={{
                   border: '1px solid rgba(242,237,228,0.15)',
+                  borderRadius: '20px',
                   background: 'rgba(242,237,228,0.04)',
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'rgba(242,237,228,1)')}
+                onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'rgba(242,237,228,0.6)')}
                 onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'rgba(242,237,228,0.15)')}
               >
-                <h3 className="font-serif text-[24px] font-light text-aesop-parchment" style={{ fontStyle: 'normal' }}>{translated.name}</h3>
-                <p className="label-mono text-aesop-taupe mt-1">{translated.audience}</p>
-
-                <hr className="my-5" style={{ borderColor: 'rgba(242,237,228,0.15)' }} />
-
-                <p className="font-sans text-[14px] font-light leading-relaxed" style={{ color: 'rgba(242,237,228,0.7)' }}>
-                  {translated.description}
-                </p>
-
-                <hr className="my-5" style={{ borderColor: 'rgba(242,237,228,0.15)' }} />
-
-                <p className="font-mono text-[20px] text-aesop-parchment mb-5">
-                  {formatPrice(priceUSD, currency)}
-                </p>
-
-                <div className="flex flex-wrap gap-3">
-                  <button onClick={handleBuy} className="btn-ghost-light">
-                    {t.kitPyme.obtain}
-                  </button>
-                  <button
-                    onClick={handleAdd}
-                    className="font-sans text-[11px] uppercase tracking-[2.5px] text-aesop-parchment/70 hover:text-aesop-parchment transition-colors py-2"
-                  >
-                    + Agregar al carrito
-                  </button>
+                <div className="min-w-0">
+                  <h3 className="font-serif text-[18px] text-aesop-parchment mb-1 truncate" style={{ fontStyle: 'normal' }}>
+                    {translated.name}
+                  </h3>
+                  <p className="font-sans text-[12px] font-light leading-snug line-clamp-2" style={{ color: 'rgba(242,237,228,0.6)' }}>
+                    {translated.description}
+                  </p>
                 </div>
-              </div>
+                <ArrowRight size={16} strokeWidth={1.5} className="text-aesop-parchment/70 shrink-0 mt-1 group-hover:translate-x-1 transition-transform" />
+              </Link>
             );
           })}
         </div>
+
+        <Link
+          to="/recursos-digitales"
+          className="btn-cta inline-flex items-center gap-2"
+        >
+          Explorar recursos digitales
+          <ArrowRight size={14} strokeWidth={1.5} />
+        </Link>
       </div>
     </section>
   );
