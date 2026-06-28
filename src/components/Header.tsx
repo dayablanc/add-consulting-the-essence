@@ -206,7 +206,7 @@ export default function Header() {
 
             {/* Stacked Language + Currency toggles — filled parchment frame for legibility */}
             <div
-              className="flex flex-col items-stretch gap-0.5 font-sans text-[9px] tracking-[0.5px] leading-none px-2 py-1.5"
+              className="flex flex-col items-stretch gap-0.5 font-sans text-[9px] tracking-[0.5px] leading-none px-3 py-2 rounded-full"
               style={{ background: 'hsl(var(--aesop-parchment))', border: '1px solid hsl(var(--aesop-parchment))' }}
             >
               <div className="grid grid-cols-[40px_6px_40px] items-center">
