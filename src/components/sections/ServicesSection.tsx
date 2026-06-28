@@ -70,25 +70,25 @@ export default function ServicesSection() {
       ref.current.scrollBy({ left: amount, behavior: 'smooth' });
     };
     return (
-      <div className="relative">
+      <div className="flex items-center gap-3">
+        <button
+          aria-label="Anterior"
+          onClick={() => scrollBy(-1)}
+          className="hidden md:flex shrink-0 w-10 h-10 rounded-full bg-aesop-white border border-aesop-rule items-center justify-center hover:bg-aesop-parchment transition-colors"
+        >
+          <ChevronLeft className="w-5 h-5 text-aesop-bark" strokeWidth={1.5} />
+        </button>
         <div
           ref={ref}
-          className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 -mx-4 px-4"
+          className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 flex-1"
           style={{ scrollbarWidth: 'none' }}
         >
           {items.map(s => renderServiceCard(s))}
         </div>
         <button
-          aria-label="Anterior"
-          onClick={() => scrollBy(-1)}
-          className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-aesop-white border border-aesop-rule items-center justify-center hover:bg-aesop-parchment transition-colors shadow-sm"
-        >
-          <ChevronLeft className="w-5 h-5 text-aesop-bark" strokeWidth={1.5} />
-        </button>
-        <button
           aria-label="Siguiente"
           onClick={() => scrollBy(1)}
-          className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-aesop-white border border-aesop-rule items-center justify-center hover:bg-aesop-parchment transition-colors shadow-sm"
+          className="hidden md:flex shrink-0 w-10 h-10 rounded-full bg-aesop-white border border-aesop-rule items-center justify-center hover:bg-aesop-parchment transition-colors"
         >
           <ChevronRight className="w-5 h-5 text-aesop-bark" strokeWidth={1.5} />
         </button>
