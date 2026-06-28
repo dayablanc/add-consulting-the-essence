@@ -54,7 +54,7 @@ export default function KitPymeSection() {
           to="/recursos-digitales"
           className="btn-cta inline-flex items-center gap-2"
         >
-          Explorar recursos digitales
+          EXPLORAR TODOS LOS RECURSOS DIGITALES
           <ArrowRight size={14} strokeWidth={1.5} />
         </Link>
       </div>
