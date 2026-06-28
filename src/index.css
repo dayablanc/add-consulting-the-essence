@@ -278,8 +278,8 @@
   border-radius: 9999px !important;
 }
 .btn-header-cta:hover {
-  background-color: crimson;
-  border-color: crimson;
+  background-color: hsl(var(--aesop-clay));
+  border-color: hsl(var(--aesop-clay));
   color: hsl(var(--aesop-parchment));
 }
 
