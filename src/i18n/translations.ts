@@ -362,6 +362,16 @@ const es: Translations = {
       audience: 'PARA EMPRENDEDORES O PARTICULARES',
       description: 'De los fundamentos al criterio experto. Formación en liderazgo y RR.HH. para quienes quieren entender y aplicar.',
     },
+    'linkedin-mastery': {
+      name: 'LinkedIn Mastery',
+      audience: 'Para Profesionales',
+      description: 'Optimiza tu perfil de LinkedIn y aprende a atraer oportunidades laborales reales.',
+    },
+    'leadership-lab': {
+      name: 'Leadership Lab',
+      audience: 'Para Líderes y Mandos Medios',
+      description: 'Programa práctico de liderazgo para quienes recién asumen equipos a cargo.',
+    },
   },
 
   blogPreview: {
