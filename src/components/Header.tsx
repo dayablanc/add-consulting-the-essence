@@ -195,12 +195,14 @@ export default function Header() {
               {t.nav.aboutAdd}
             </button>
 
-            <Link
-              to="/contacto"
+            <a
+              href="https://wa.me/50689069915"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-ghost-light !py-1.5 !px-4 !text-[11px]"
             >
               {t.nav.contactUs}
-            </Link>
+            </a>
 
             <div style={{ width: '1px', height: '16px', background: 'rgba(242,237,228,0.2)' }} />
 
@@ -474,13 +476,15 @@ export default function Header() {
               {lang === 'es' ? 'Agendar cita' : 'Book a meeting'}
             </a>
 
-            <Link
-              to="/contacto"
+            <a
+              href="https://wa.me/50689069915"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-ghost-light block text-center mt-3"
               onClick={() => setMobileOpen(false)}
             >
               {t.nav.contactUs}
-            </Link>
+            </a>
           </div>
         </div>
       )}
