@@ -32,13 +32,13 @@ const fmtCRC = (n: number) =>
 
 // ── Estilos compartidos ──
 const inputCls =
-  'w-full px-4 py-3 bg-white border border-aesop-rule font-sans text-[15px] text-aesop-soil focus:border-[#A8893A] outline-none transition-colors';
+  'w-full px-4 py-3 bg-white border border-aesop-rule font-sans text-[15px] text-aesop-soil focus:border-[#A8893A] outline-none transition-colors rounded-[12px]';
 const labelCls =
   'block font-sans text-[12px] uppercase tracking-[1.5px] text-aesop-umber mb-2 font-medium';
 const resultCard =
-  'p-5 border border-[#A8893A]/40';
+  'p-5 border border-[#A8893A]/40 rounded-[12px]';
 const ctaBtn =
-  'mt-2 px-10 py-3 font-sans text-[11px] uppercase tracking-[3px] font-semibold text-white transition-all hover:opacity-90';
+  'mt-2 px-10 py-3 font-sans text-[11px] uppercase tracking-[3px] font-semibold text-white transition-all hover:opacity-90 rounded-[9999px]';
 
 // Radio group helper
 function Radio({
@@ -58,7 +58,7 @@ function Radio({
         <label
           key={opt.value}
           className={cn(
-            'flex items-start gap-3 p-3 cursor-pointer border transition-colors',
+            'flex items-start gap-3 p-3 cursor-pointer border transition-colors rounded-[12px]',
             value === opt.value
               ? 'border-[#A8893A] bg-white'
               : 'border-aesop-rule bg-white/50 hover:border-[#A8893A]/50'
@@ -425,7 +425,7 @@ function LiquidacionCalc() {
           <Button
             variant="outline"
             className={cn(
-              'w-full justify-start text-left font-normal bg-white border-aesop-rule h-auto py-3 px-4',
+              'w-full justify-start text-left font-normal bg-white border-aesop-rule h-auto py-3 px-4 rounded-[12px]',
               !value && 'text-aesop-umber'
             )}
           >
@@ -546,7 +546,7 @@ function LiquidacionCalc() {
             <ResultRow label="Vacaciones proporcionales" value={fmtCRC(r.vacaciones)} />
             <ResultRow label="Aguinaldo proporcional" value={fmtCRC(r.aguinaldo)} />
             <div
-              className="p-6 border-2 mt-4"
+              className="p-6 border-2 mt-4 rounded-[12px]"
               style={{ backgroundColor: C.ivory, borderColor: C.gold }}
             >
               <div className="font-sans text-[11px] uppercase tracking-[2px] text-aesop-umber mb-2">
@@ -608,10 +608,10 @@ export default function CalculadoraLaboral() {
           }}
           className="w-full"
         >
-          <TabsList className="grid grid-cols-3 w-full max-w-3xl mx-auto mb-6 bg-white border border-aesop-rule h-auto p-1">
+          <TabsList className="grid grid-cols-3 w-full max-w-3xl mx-auto mb-6 bg-white border border-aesop-rule h-auto p-1 rounded-[12px]">
             <TabsTrigger
               value="salario"
-              className="flex items-center gap-2 py-3 font-sans text-[11px] uppercase tracking-[1.5px] data-[state=active]:bg-[#490B14] data-[state=active]:text-white"
+              className="flex items-center gap-2 py-3 font-sans text-[11px] uppercase tracking-[1.5px] data-[state=active]:bg-[#490B14] data-[state=active]:text-white rounded-[10px]"
             >
               <Briefcase className="w-4 h-4" />
               <span className="hidden sm:inline">Salario Proporcional</span>
@@ -619,7 +619,7 @@ export default function CalculadoraLaboral() {
             </TabsTrigger>
             <TabsTrigger
               value="horas"
-              className="flex items-center gap-2 py-3 font-sans text-[11px] uppercase tracking-[1.5px] data-[state=active]:bg-[#490B14] data-[state=active]:text-white"
+              className="flex items-center gap-2 py-3 font-sans text-[11px] uppercase tracking-[1.5px] data-[state=active]:bg-[#490B14] data-[state=active]:text-white rounded-[10px]"
             >
               <Clock className="w-4 h-4" />
               <span className="hidden sm:inline">Horas Extras</span>
@@ -627,7 +627,7 @@ export default function CalculadoraLaboral() {
             </TabsTrigger>
             <TabsTrigger
               value="liquidacion"
-              className="flex items-center gap-2 py-3 font-sans text-[11px] uppercase tracking-[1.5px] data-[state=active]:bg-[#490B14] data-[state=active]:text-white"
+              className="flex items-center gap-2 py-3 font-sans text-[11px] uppercase tracking-[1.5px] data-[state=active]:bg-[#490B14] data-[state=active]:text-white rounded-[10px]"
             >
               <FileText className="w-4 h-4" />
               <span className="hidden sm:inline">Liquidación Laboral</span>
