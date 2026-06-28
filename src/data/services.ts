@@ -230,11 +230,27 @@ export const digitalProducts = [
   },
   {
     id: 'career-blueprint',
-    name: 'Learn & Save ',
+    name: 'Learn & Save',
     audience: 'Para Profesionales',
     description: 'Curso grabado de estrategia laboral. Avanza a tu ritmo.',
     price: '$65',
     slug: 'career-blueprint',
+  },
+  {
+    id: 'linkedin-mastery',
+    name: 'LinkedIn Mastery',
+    audience: 'Para Profesionales',
+    description: 'Optimiza tu perfil de LinkedIn y aprende a atraer oportunidades laborales reales.',
+    price: '$45',
+    slug: 'linkedin-mastery',
+  },
+  {
+    id: 'leadership-lab',
+    name: 'Leadership Lab',
+    audience: 'Para Líderes y Mandos Medios',
+    description: 'Programa práctico de liderazgo para quienes recién asumen equipos a cargo.',
+    price: '$80',
+    slug: 'leadership-lab',
   },
 ];
 
