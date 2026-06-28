@@ -476,13 +476,15 @@ export default function Header() {
               {lang === 'es' ? 'Agendar cita' : 'Book a meeting'}
             </a>
 
-            <Link
-              to="/contacto"
+            <a
+              href="https://wa.me/50689069915"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-ghost-light block text-center mt-3"
               onClick={() => setMobileOpen(false)}
             >
               {t.nav.contactUs}
-            </Link>
+            </a>
           </div>
         </div>
       )}
