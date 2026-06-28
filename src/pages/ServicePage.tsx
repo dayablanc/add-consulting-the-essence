@@ -1,4 +1,4 @@
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -6,22 +6,11 @@ import FloatingCTA from '@/components/FloatingCTA';
 import BackButton from '@/components/BackButton';
 import { services } from '@/data/services';
 import { ChevronDown, Calendar } from 'lucide-react';
-import { useCart } from '@/cart/CartContext';
-import { useI18n } from '@/i18n/context';
-import { formatPriceCRC } from '@/i18n/constants';
 
 export default function ServicePage() {
   const { slug } = useParams();
   const service = services.find(s => s.slug === slug);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const { addItem, setOpen: setCartOpen } = useCart();
-  const { currency } = useI18n();
-  const navigate = useNavigate();
-
-  const hasVariants = !!service?.priceVariants?.length;
-  const [selectedVariant, setSelectedVariant] = useState<string | undefined>(
-    service?.priceVariants?.[0]?.id
-  );
 
   if (!service) {
     return (
@@ -36,30 +25,16 @@ export default function ServicePage() {
   }
 
   const isB2C = service.category === 'candidato';
-  const hasPrice = isB2C && (service.priceCRC !== undefined || hasVariants);
+  const hasPrice = isB2C && (service.priceCRC !== undefined || !!service.priceVariants?.length);
 
-  const activeVariant = hasVariants
-    ? service.priceVariants!.find(v => v.id === selectedVariant) ?? service.priceVariants![0]
-    : null;
+  const formatCRC = (n?: number) =>
+    n !== undefined ? `₡${n.toLocaleString('es-CR').replace(/,/g, '.')}` : '';
 
-  const currentPriceCRC = activeVariant ? activeVariant.priceCRC : service.priceCRC ?? 0;
-
-  const buildItem = () => ({
-    serviceId: service.id,
-    slug: service.slug,
-    name: service.name,
-    priceCRC: currentPriceCRC,
-    variantLabel: activeVariant?.label,
-    key: activeVariant ? `${service.id}:${activeVariant.id}` : service.id,
-  });
-
-  const handleAddToCart = () => addItem(buildItem());
-
-  const handleBuyNow = () => {
-    addItem(buildItem());
-    setCartOpen(false);
-    navigate('/checkout');
-  };
+  const priceText = hasPrice
+    ? service.priceVariants?.length
+      ? service.priceVariants.map(v => `${v.label}: ${formatCRC(v.priceCRC)}`).join(' / ')
+      : formatCRC(service.priceCRC)
+    : '';
 
   return (
     <>
@@ -77,7 +52,7 @@ export default function ServicePage() {
           </div>
         </section>
 
-        {/* Layout dos columnas: info + tarjeta de compra */}
+        {/* Layout dos columnas: info + tarjeta CTA */}
         <section className="py-12 lg:py-16">
           <div className="max-w-[1180px] mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 lg:gap-14 items-start">
             {/* Columna izquierda: descripción + incluye */}
@@ -99,107 +74,47 @@ export default function ServicePage() {
               </ul>
             </div>
 
-            {/* Columna derecha: tarjeta sticky de compra */}
-            {hasPrice ? (
-              <aside className="lg:sticky lg:top-[88px]">
-                <div
-                  className="p-6 bg-aesop-cream"
-                  style={{ border: '1px solid hsl(var(--aesop-rule))' }}
-                >
-                  <p className="eyebrow-mono mb-4">· Adquirir servicio</p>
-
-                  {hasVariants && (
-                    <div className="mb-5">
-                      <p className="label-mono text-aesop-umber mb-2 text-[10px]">Opción</p>
-                      <div className="flex flex-col gap-2">
-                        {service.priceVariants!.map((v) => {
-                          const active = v.id === selectedVariant;
-                          return (
-                            <button
-                              key={v.id}
-                              onClick={() => setSelectedVariant(v.id)}
-                              className="flex items-center justify-between px-3 py-2.5 text-left transition-all duration-150"
-                              style={{
-                                border: `1px solid ${active ? 'hsl(var(--aesop-clay))' : 'hsl(var(--aesop-rule))'}`,
-                                background: active ? 'hsl(var(--aesop-white))' : 'transparent',
-                              }}
-                            >
-                              <span className="font-sans text-[13px] text-aesop-soil">{v.label}</span>
-                              <span className="font-mono text-[12px] text-aesop-umber">
-                                {formatPriceCRC(v.priceCRC, currency)}
-                              </span>
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Precio destacado */}
-                  <div className="py-5 my-1 text-center" style={{ borderTop: '1px solid hsl(var(--aesop-rule))', borderBottom: '1px solid hsl(var(--aesop-rule))' }}>
-                    <p className="label-mono text-aesop-taupe text-[10px] mb-1">Total</p>
-                    <p className="font-serif text-[36px] text-aesop-soil leading-none" style={{ fontStyle: 'normal', letterSpacing: '-1px' }}>
-                      {formatPriceCRC(currentPriceCRC, currency)}
-                    </p>
+            {/* Columna derecha: tarjeta sticky CTA */}
+            <aside className="lg:sticky lg:top-[88px]">
+              <div className="p-6 bg-aesop-cream" style={{ border: '1px solid hsl(var(--aesop-rule))' }}>
+                {hasPrice && (
+                  <div className="pb-4 mb-4" style={{ borderBottom: '1px solid hsl(var(--aesop-rule))' }}>
+                    <p className="label-mono text-aesop-umber text-[10px] mb-1">Inversión</p>
+                    <p className="font-serif text-[28px] text-aesop-soil leading-none">{priceText}</p>
                   </div>
+                )}
 
-                  <div className="mt-5 flex flex-col gap-2">
-                    <button
-                      onClick={handleBuyNow}
-                      className="w-full bg-aesop-clay hover:bg-aesop-clay-hover text-aesop-parchment font-sans text-[11px] uppercase tracking-[2.5px] py-3 transition-colors duration-200"
-                    >
-                      Comprar ahora →
-                    </button>
-                    <button
-                      onClick={handleAddToCart}
-                      className="w-full bg-transparent text-aesop-soil font-sans text-[11px] uppercase tracking-[2.5px] py-2.5 transition-colors duration-200 hover:text-aesop-clay"
-                      style={{ border: '1px solid hsl(var(--aesop-soil))' }}
-                    >
-                      Agregar al carrito
-                    </button>
-                  </div>
-
-                  <p className="font-sans text-[11px] text-aesop-taupe text-center mt-4 leading-relaxed">
-                    {service.postPurchaseFormUrl
-                      ? 'Tras la compra completarás un breve formulario con tu información.'
-                      : 'Tras la compra agendarás tu cita según disponibilidad.'}
-                  </p>
-                </div>
-              </aside>
-            ) : (
-              <aside className="lg:sticky lg:top-[88px]">
-                <div className="p-6 bg-aesop-cream" style={{ border: '1px solid hsl(var(--aesop-rule))' }}>
-                  <p className="eyebrow-mono mb-3">· Llamada de diagnóstico</p>
-                  <p className="font-serif text-[22px] text-aesop-soil leading-tight mb-3" style={{ letterSpacing: '-0.3px' }}>
-                    Conversemos sobre tu caso
-                  </p>
-                  <p className="font-sans text-[13px] text-aesop-umber font-light leading-relaxed mb-5">
-                    Agenda una llamada gratuita de 30 minutos. Revisamos tus necesidades y definimos el camino a seguir, sin compromiso.
-                  </p>
-                  <div className="flex flex-col gap-2">
+                <p className="eyebrow-mono mb-3">· {hasPrice ? '¿Interesado?' : 'Llamada de diagnóstico'}</p>
+                <p className="font-serif text-[22px] text-aesop-soil leading-tight mb-3" style={{ letterSpacing: '-0.3px' }}>
+                  {hasPrice ? 'Conversemos sobre este servicio' : 'Conversemos sobre tu caso'}
+                </p>
+                <p className="font-sans text-[13px] text-aesop-umber font-light leading-relaxed mb-5">
+                  {hasPrice
+                    ? 'Escríbenos por WhatsApp y te damos más información sobre este servicio, formas de pago y próximos pasos.'
+                    : 'Agenda una llamada gratuita de 30 minutos. Revisamos tus necesidades y definimos el camino a seguir, sin compromiso.'}
+                </p>
+                <div className="flex flex-col gap-2">
+                  <a
+                    href={`https://wa.me/50689069915?text=${encodeURIComponent(`Hola, me interesa el servicio: ${service.name}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-aesop-clay hover:bg-aesop-clay-hover text-aesop-parchment font-sans text-[11px] uppercase tracking-[2.5px] py-3 transition-colors duration-200 inline-flex items-center justify-center gap-2"
+                  >
+                    <Calendar size={13} strokeWidth={1.5} />
+                    {hasPrice ? 'Más información por WhatsApp' : 'Contactar por WhatsApp'}
+                  </a>
+                  {!hasPrice && (
                     <Link
                       to={`/contacto?service=${encodeURIComponent(service.name)}`}
-                      className="w-full bg-aesop-clay hover:bg-aesop-clay-hover text-aesop-parchment font-sans text-[11px] uppercase tracking-[2.5px] py-3 transition-colors duration-200 inline-flex items-center justify-center gap-2"
-                    >
-                      <Calendar size={13} strokeWidth={1.5} />
-                      Agendar llamada gratuita
-                    </Link>
-                    <a
-                      href={`https://wa.me/50685482539?text=${encodeURIComponent(`Hola, me interesa el servicio: ${service.name}`)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full text-center bg-transparent text-aesop-soil font-sans text-[11px] uppercase tracking-[2.5px] py-2.5 transition-colors duration-200 hover:text-aesop-clay"
+                      className="w-full bg-transparent text-aesop-soil font-sans text-[11px] uppercase tracking-[2.5px] py-2.5 transition-colors duration-200 hover:text-aesop-clay text-center"
                       style={{ border: '1px solid hsl(var(--aesop-soil))' }}
                     >
-                      Contactar por WhatsApp
-                    </a>
-                  </div>
-                  <p className="font-sans text-[11px] text-aesop-taupe text-center mt-4 leading-relaxed">
-                    Verás disponibilidad real en mi calendario.
-                  </p>
+                      Agendar llamada gratuita
+                    </Link>
+                  )}
                 </div>
-              </aside>
-            )}
+              </div>
+            </aside>
           </div>
         </section>
 
