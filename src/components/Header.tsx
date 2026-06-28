@@ -199,7 +199,7 @@ export default function Header() {
               href="https://wa.me/50689069915"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-ghost-light !py-1.5 !px-4 !text-[11px]"
+              className="btn-header-cta !py-1.5 !px-4 !text-[11px]"
             >
               {t.nav.contactUs}
             </a>
