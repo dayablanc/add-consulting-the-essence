@@ -546,7 +546,7 @@ function LiquidacionCalc() {
             <ResultRow label="Vacaciones proporcionales" value={fmtCRC(r.vacaciones)} />
             <ResultRow label="Aguinaldo proporcional" value={fmtCRC(r.aguinaldo)} />
             <div
-              className="p-6 border-2 mt-4"
+              className="p-6 border-2 mt-4 rounded-[12px]"
               style={{ backgroundColor: C.ivory, borderColor: C.gold }}
             >
               <div className="font-sans text-[11px] uppercase tracking-[2px] text-aesop-umber mb-2">

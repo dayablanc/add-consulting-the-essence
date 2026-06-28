@@ -18,7 +18,7 @@ export default function CTAFinalSection() {
         </p>
         <Link
           to="/contacto"
-          className="inline-block font-sans text-[12px] font-normal uppercase tracking-[2.5px] px-10 py-4 bg-aesop-clay text-aesop-parchment cursor-pointer transition-all duration-200 hover:bg-aesop-soil"
+          className="inline-block font-sans text-[12px] font-normal uppercase tracking-[2.5px] px-10 py-4 bg-aesop-clay text-aesop-parchment cursor-pointer transition-all duration-200 hover:bg-aesop-soil rounded-[9999px]"
         >
           Agendar llamada gratuita
         </Link>
