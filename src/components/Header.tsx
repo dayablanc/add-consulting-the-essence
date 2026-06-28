@@ -262,40 +262,9 @@ export default function Header() {
               </div>
             </div>
 
-            {/* Cart trigger (desktop) */}
-            <button
-              onClick={() => setCartOpen(true)}
-              className="relative ml-2 text-aesop-parchment/75 hover:text-aesop-parchment transition-colors duration-200"
-              aria-label="Abrir carrito"
-            >
-              <ShoppingBag size={18} strokeWidth={1.25} />
-              {cartCount > 0 && (
-                <span
-                  className="absolute -top-1.5 -right-2 min-w-[16px] h-[16px] px-1 flex items-center justify-center font-mono text-[10px] text-aesop-bark bg-aesop-clay leading-none"
-                  style={{ borderRadius: '999px' }}
-                >
-                  {cartCount}
-                </span>
-              )}
-            </button>
           </nav>
 
           <div className="flex items-center gap-4 lg:hidden">
-            <button
-              onClick={() => setCartOpen(true)}
-              className="relative text-aesop-parchment"
-              aria-label="Abrir carrito"
-            >
-              <ShoppingBag size={20} strokeWidth={1} />
-              {cartCount > 0 && (
-                <span
-                  className="absolute -top-1.5 -right-2 min-w-[16px] h-[16px] px-1 flex items-center justify-center font-mono text-[10px] text-aesop-bark bg-aesop-clay leading-none"
-                  style={{ borderRadius: '999px' }}
-                >
-                  {cartCount}
-                </span>
-              )}
-            </button>
             <button
               className="text-aesop-parchment"
               onClick={() => setMobileOpen(true)}
