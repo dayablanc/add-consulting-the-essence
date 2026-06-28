@@ -650,8 +650,8 @@ const en: Translations = {
   },
 
   kitPyme: {
-    eyebrow: '· Digital Products',
-    heading: 'Tools that work when you can\'t.',
+    eyebrow: '\n',
+    heading: 'Digital Resources',
     obtain: 'Get it →',
   },
 
