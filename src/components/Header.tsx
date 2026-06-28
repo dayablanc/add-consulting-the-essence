@@ -1,13 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ShoppingBag } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useI18n } from '@/i18n/context';
-import { useCart } from '@/cart/CartContext';
 import logoAdd from '@/assets/logo-add.png';
 
 export default function Header() {
   const { lang, setLang, currency, setCurrency, t } = useI18n();
-  const { count: cartCount, setOpen: setCartOpen } = useCart();
+  
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
