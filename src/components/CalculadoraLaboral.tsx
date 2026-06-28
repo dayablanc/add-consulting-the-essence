@@ -58,7 +58,7 @@ function Radio({
         <label
           key={opt.value}
           className={cn(
-            'flex items-start gap-3 p-3 cursor-pointer border transition-colors',
+            'flex items-start gap-3 p-3 cursor-pointer border transition-colors rounded-[12px]',
             value === opt.value
               ? 'border-[#A8893A] bg-white'
               : 'border-aesop-rule bg-white/50 hover:border-[#A8893A]/50'
@@ -425,7 +425,7 @@ function LiquidacionCalc() {
           <Button
             variant="outline"
             className={cn(
-              'w-full justify-start text-left font-normal bg-white border-aesop-rule h-auto py-3 px-4',
+              'w-full justify-start text-left font-normal bg-white border-aesop-rule h-auto py-3 px-4 rounded-[12px]',
               !value && 'text-aesop-umber'
             )}
           >
@@ -608,10 +608,10 @@ export default function CalculadoraLaboral() {
           }}
           className="w-full"
         >
-          <TabsList className="grid grid-cols-3 w-full max-w-3xl mx-auto mb-6 bg-white border border-aesop-rule h-auto p-1">
+          <TabsList className="grid grid-cols-3 w-full max-w-3xl mx-auto mb-6 bg-white border border-aesop-rule h-auto p-1 rounded-[12px]">
             <TabsTrigger
               value="salario"
-              className="flex items-center gap-2 py-3 font-sans text-[11px] uppercase tracking-[1.5px] data-[state=active]:bg-[#490B14] data-[state=active]:text-white"
+              className="flex items-center gap-2 py-3 font-sans text-[11px] uppercase tracking-[1.5px] data-[state=active]:bg-[#490B14] data-[state=active]:text-white rounded-[10px]"
             >
               <Briefcase className="w-4 h-4" />
               <span className="hidden sm:inline">Salario Proporcional</span>
@@ -619,7 +619,7 @@ export default function CalculadoraLaboral() {
             </TabsTrigger>
             <TabsTrigger
               value="horas"
-              className="flex items-center gap-2 py-3 font-sans text-[11px] uppercase tracking-[1.5px] data-[state=active]:bg-[#490B14] data-[state=active]:text-white"
+              className="flex items-center gap-2 py-3 font-sans text-[11px] uppercase tracking-[1.5px] data-[state=active]:bg-[#490B14] data-[state=active]:text-white rounded-[10px]"
             >
               <Clock className="w-4 h-4" />
               <span className="hidden sm:inline">Horas Extras</span>
@@ -627,7 +627,7 @@ export default function CalculadoraLaboral() {
             </TabsTrigger>
             <TabsTrigger
               value="liquidacion"
-              className="flex items-center gap-2 py-3 font-sans text-[11px] uppercase tracking-[1.5px] data-[state=active]:bg-[#490B14] data-[state=active]:text-white"
+              className="flex items-center gap-2 py-3 font-sans text-[11px] uppercase tracking-[1.5px] data-[state=active]:bg-[#490B14] data-[state=active]:text-white rounded-[10px]"
             >
               <FileText className="w-4 h-4" />
               <span className="hidden sm:inline">Liquidación Laboral</span>
