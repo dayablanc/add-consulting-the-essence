@@ -676,6 +676,16 @@ const en: Translations = {
       audience: 'For Professionals',
       description: 'Recorded labor strategy course. Learn at your own pace.',
     },
+    'linkedin-mastery': {
+      name: 'LinkedIn Mastery',
+      audience: 'For Professionals',
+      description: 'Optimize your LinkedIn profile and learn to attract real job opportunities.',
+    },
+    'leadership-lab': {
+      name: 'Leadership Lab',
+      audience: 'For Leaders & Middle Managers',
+      description: 'Practical leadership program for those stepping into team leadership roles.',
+    },
   },
 
   blogPreview: {
