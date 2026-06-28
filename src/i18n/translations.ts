@@ -346,8 +346,8 @@ const es: Translations = {
   },
 
   kitPyme: {
-    eyebrow: '· RECURSOS DIGITALES',
-    heading: 'Todo lo que necesitas, listo para usar.',
+    eyebrow: '\n',
+    heading: 'Recursos Digitales',
     obtain: 'Obtener →',
   },
 
