@@ -80,8 +80,8 @@
 
   body {
     font-family: var(--font-sans);
-    font-weight: 300;
-    font-size: 16px;
+    font-weight: 400;
+    font-size: 17px;
     line-height: 1.65;
     color: hsl(var(--aesop-soil));
     background-color: hsl(var(--aesop-white));
