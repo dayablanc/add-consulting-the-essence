@@ -195,7 +195,7 @@
 .btn-cta {
   font-family: var(--font-sans);
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 3px;
   padding: 14px 36px;
@@ -213,7 +213,7 @@
 .btn-cta-slim {
   font-family: var(--font-sans);
   font-size: 9px;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   padding: 8px 16px;
@@ -232,7 +232,7 @@
 .btn-ghost {
   font-family: var(--font-sans);
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 3px;
   padding: 14px 36px;
@@ -252,7 +252,7 @@
 .btn-ghost-light {
   font-family: var(--font-sans);
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 3px;
   padding: 14px 36px;
@@ -271,7 +271,7 @@
 .btn-header-cta {
   font-family: var(--font-sans);
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 3px;
   padding: 14px 36px;

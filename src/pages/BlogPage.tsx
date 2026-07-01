@@ -28,7 +28,7 @@ export default function BlogPage() {
                   <img src={post.image} alt={post.title} className="w-full h-full object-cover" loading="lazy" width={800} height={544} />
                 </div>
                 <p className="eyebrow-mono text-[10px]">{post.tag}</p>
-                <h3 className="font-serif text-[24px] font-light text-aesop-soil mt-2 leading-snug">{post.title}</h3>
+                <h3 className="font-serif text-[24px] font-normal text-aesop-soil mt-2 leading-snug">{post.title}</h3>
                 <p className="font-mono text-[11px] text-aesop-taupe mt-2">{post.date}</p>
                 <p className="text-body text-[14px] mt-3">{post.excerpt.slice(0, 150)}...</p>
                 {!unlocked ? (

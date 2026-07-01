@@ -33,7 +33,7 @@ export default function EmpresaPage() {
                 style={{ borderBottom: '1px solid hsl(var(--aesop-rule))' }}
               >
                 <p className="eyebrow-mono text-[10px]">Ideal para: {s.idealFor}</p>
-                <h3 className="font-serif text-[28px] font-light text-aesop-soil mt-2 group-hover:text-aesop-clay transition-colors duration-200">{s.name}</h3>
+                <h3 className="font-serif text-[28px] font-normal text-aesop-soil mt-2 group-hover:text-aesop-clay transition-colors duration-200">{s.name}</h3>
                 <p className="text-body mt-2">{s.description.slice(0, 120)}...</p>
               </Link>
             ))}

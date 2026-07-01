@@ -27,7 +27,7 @@ export default function BlogPreviewSection() {
                 />
               </div>
               <p className="eyebrow-mono text-[10px]">{post.tag}</p>
-              <h3 className="font-serif text-[22px] font-light text-aesop-soil mt-2 leading-snug" style={{ fontStyle: 'normal' }}>
+              <h3 className="font-serif text-[22px] font-normal text-aesop-soil mt-2 leading-snug" style={{ fontStyle: 'normal' }}>
                 {post.title}
               </h3>
               <p className="font-mono text-[11px] text-aesop-taupe mt-2">{post.date}</p>
