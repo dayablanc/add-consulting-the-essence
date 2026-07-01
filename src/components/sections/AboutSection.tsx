@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useI18n } from '@/i18n/context';
-import aboutImage from '@/assets/about-image.jpg';
+import aboutImage from '@/assets/about-image.png.asset.json';
 
 export default function AboutSection() {
   const { t } = useI18n();
