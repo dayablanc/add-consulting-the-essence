@@ -62,7 +62,7 @@
     --sidebar-ring: 351 74% 16%;
 
     /* ─── TIPOGRAFÍA ADD HR ─── */
-    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-serif: 'Nunito', sans-serif;
     --font-sans: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
     --font-mono: 'Courier Prime', 'Courier New', monospace;
   }
@@ -91,7 +91,7 @@
 
   h1, h2 {
     font-family: var(--font-serif);
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 0.02em;
   }
 
@@ -108,7 +108,7 @@
 
   h3 {
     font-family: var(--font-serif);
-    font-weight: 400;
+    font-weight: 500;
   }
 
   h2 em, h1 em {

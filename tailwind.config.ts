@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ["Playfair Display", "Georgia", "serif"],
+        serif: ["Nunito", "sans-serif"],
         sans: ["DM Sans", "Helvetica Neue", "Arial", "sans-serif"],
         mono: ["Courier Prime", "Courier New", "monospace"],
       },
