@@ -20,8 +20,6 @@ export default function HeroSection() {
               className="text-aesop-soil mt-4 animate-fade-in-up"
               style={{
                 animationDelay: '120ms',
-                fontFamily: "'Cormorant Garamond', serif",
-                fontWeight: 400,
                 fontSize: 'clamp(32px, 4.5vw, 64px)',
                 lineHeight: 1.05,
                 letterSpacing: '-0.01em',
@@ -34,7 +32,6 @@ export default function HeroSection() {
               className="mt-4 max-w-[420px] animate-fade-in-up"
               style={{
                 animationDelay: '240ms',
-                fontFamily: "'DM Sans', sans-serif",
                 fontSize: '15px',
                 lineHeight: 1.5,
                 color: 'hsl(var(--aesop-bark))',
