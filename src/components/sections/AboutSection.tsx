@@ -12,8 +12,8 @@ export default function AboutSection() {
           {/* Image - left side */}
           <div className="lg:w-[40%] order-1">
             <div className="max-w-[320px] lg:max-w-[360px] mx-auto lg:mx-0 aspect-[16/10] overflow-hidden">
-              <img 
-                src={aboutImage} 
+            <img 
+                src={aboutImage.url} 
                 alt="Profesionales en reunión" 
                 className="w-full h-full object-cover" 
                 loading="lazy" 
