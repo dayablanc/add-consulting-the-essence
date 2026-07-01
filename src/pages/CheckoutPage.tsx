@@ -56,7 +56,7 @@ export default function CheckoutPage() {
           <div className="max-w-[900px] mx-auto px-6 lg:px-12">
             <BackButton />
             <p className="eyebrow-mono text-aesop-parchment mb-4 mt-4">· Checkout</p>
-            <h1 className="text-aesop-parchment text-[40px] lg:text-[56px] font-serif font-light">
+            <h1 className="text-aesop-parchment text-[40px] lg:text-[56px] font-serif font-bold">
               Confirma tu compra
             </h1>
           </div>

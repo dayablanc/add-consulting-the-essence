@@ -62,8 +62,8 @@
     --sidebar-ring: 351 74% 16%;
 
     /* ─── TIPOGRAFÍA ADD HR ─── */
-    --font-serif: 'Libre Baskerville', Georgia, serif;
-    --font-sans: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
     --font-mono: 'Courier Prime', 'Courier New', monospace;
   }
 }
@@ -82,7 +82,7 @@
     font-family: var(--font-sans);
     font-weight: 300;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.65;
     color: hsl(var(--aesop-soil));
     background-color: hsl(var(--aesop-white));
     -webkit-font-smoothing: antialiased;
@@ -91,7 +91,7 @@
 
   h1, h2 {
     font-family: var(--font-serif);
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: 0.02em;
   }
 
@@ -104,6 +104,11 @@
   h2 {
     font-size: 32px;
     line-height: 1.15;
+  }
+
+  h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
   }
 
   h2 em, h1 em {
@@ -136,34 +141,34 @@
 .eyebrow {
   font-family: var(--font-sans);
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 4px;
+  letter-spacing: 0.15em;
   color: hsl(var(--aesop-umber));
 }
 
 .eyebrow-mono {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 0.15em;
   color: hsl(var(--aesop-umber));
 }
 
 .label-mono {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.15em;
 }
 
 .text-body {
   font-family: var(--font-sans);
   font-size: 16px;
   font-weight: 300;
-  line-height: 1.6;
+  line-height: 1.65;
   color: hsl(var(--aesop-umber));
 }
 
@@ -190,7 +195,7 @@
 .btn-cta {
   font-family: var(--font-sans);
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 3px;
   padding: 14px 36px;
@@ -208,7 +213,7 @@
 .btn-cta-slim {
   font-family: var(--font-sans);
   font-size: 9px;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   padding: 8px 16px;
@@ -227,7 +232,7 @@
 .btn-ghost {
   font-family: var(--font-sans);
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 3px;
   padding: 14px 36px;
@@ -247,7 +252,7 @@
 .btn-ghost-light {
   font-family: var(--font-sans);
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 3px;
   padding: 14px 36px;
@@ -266,7 +271,7 @@
 .btn-header-cta {
   font-family: var(--font-sans);
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 3px;
   padding: 14px 36px;

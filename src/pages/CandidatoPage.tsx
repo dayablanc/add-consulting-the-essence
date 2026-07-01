@@ -14,7 +14,7 @@ export default function CandidatoPage() {
         <section className="bg-aesop-bark py-6 lg:py-8">
           <div className="max-w-[900px] mx-auto px-6 lg:px-12">
             <p className="eyebrow-mono text-aesop-parchment mb-4">· Para candidatos</p>
-            <h1 className="text-aesop-parchment text-[40px] lg:text-[56px] font-serif font-light">
+            <h1 className="text-aesop-parchment text-[40px] lg:text-[56px] font-serif font-bold">
               Impulsa tu carrera
             </h1>
             <p className="font-sans text-[15px] font-light mt-6" style={{ color: 'rgba(242,237,228,0.7)', lineHeight: '1.8' }}>
@@ -33,7 +33,7 @@ export default function CandidatoPage() {
                 style={{ borderBottom: '1px solid hsl(var(--aesop-rule))' }}
               >
                 <p className="eyebrow-mono text-[10px]">Ideal para: {s.idealFor}</p>
-                <h3 className="font-serif text-[28px] font-light text-aesop-soil mt-2 group-hover:text-aesop-clay transition-colors duration-200">{s.name}</h3>
+                <h3 className="font-serif text-[28px] font-normal text-aesop-soil mt-2 group-hover:text-aesop-clay transition-colors duration-200">{s.name}</h3>
                 <p className="text-body mt-2">{s.description.slice(0, 120)}...</p>
               </Link>
             ))}

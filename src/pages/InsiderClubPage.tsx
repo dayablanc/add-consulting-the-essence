@@ -12,7 +12,7 @@ export default function InsiderClubPage() {
           <div className="max-w-[700px] mx-auto px-6 lg:px-12">
             <BackButton />
             <p className="eyebrow-mono text-aesop-parchment mb-4 mt-4">· Comunidad</p>
-            <h1 className="text-aesop-parchment text-[40px] lg:text-[56px] font-serif font-light">ADD Insider Club</h1>
+            <h1 className="text-aesop-parchment text-[40px] lg:text-[56px] font-serif font-bold">ADD Insider Club</h1>
           </div>
         </section>
 

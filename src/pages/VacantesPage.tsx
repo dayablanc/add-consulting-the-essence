@@ -66,7 +66,7 @@ export default function VacantesPage() {
                   }}
                 >
                   <p className="eyebrow-mono text-[10px]">{v.area} · {v.zona}</p>
-                  <h3 className="font-serif text-[24px] font-light text-aesop-soil mt-2">{v.titulo}</h3>
+                  <h3 className="font-serif text-[24px] font-normal text-aesop-soil mt-2">{v.titulo}</h3>
                   <p className="font-sans text-[13px] text-aesop-taupe mt-1">{v.empresa} · {v.publicado}</p>
                   <button className="font-sans text-[11px] uppercase tracking-[2px] text-aesop-soil mt-4 hover:underline transition-all duration-200">
                     Ver detalles →

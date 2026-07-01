@@ -297,7 +297,7 @@ export default function Header() {
 
             <div className="px-12 py-20 lg:py-24">
               <p className="eyebrow-mono mb-6">{t.aboutDrawer.eyebrow}</p>
-              <h2 className="font-serif text-[28px] lg:text-[32px] font-light text-aesop-soil leading-[1.1]" style={{ letterSpacing: '-1px' }}>
+              <h2 className="font-serif text-[28px] lg:text-[32px] font-bold text-aesop-soil leading-[1.1]" style={{ letterSpacing: '-1px' }}>
                 {t.aboutDrawer.heading}
               </h2>
               <div style={{ borderBottom: '1px solid hsl(var(--aesop-rule))' }} className="my-8 w-14" />
