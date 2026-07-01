@@ -113,7 +113,7 @@ export default function Header() {
                 {item.to && !item.mega ? (
                   <Link
                     to={item.to}
-                    className="font-sans text-[11px] font-normal uppercase tracking-[2.5px] transition-colors duration-200"
+                    className="font-sans text-[13px] font-bold uppercase tracking-[2px] transition-colors duration-200 whitespace-nowrap text-center"
                     style={{ color: '#F2EDE4' }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = '#F2EDE4')}
                     onMouseLeave={(e) => (e.currentTarget.style.color = '#F2EDE4')}
@@ -122,7 +122,7 @@ export default function Header() {
                   </Link>
                 ) : (
                   <button
-                    className="font-sans text-[11px] font-normal uppercase tracking-[2.5px] transition-colors duration-200 cursor-pointer"
+                    className="font-sans text-[13px] font-bold uppercase tracking-[2px] transition-colors duration-200 cursor-pointer whitespace-nowrap text-center"
                     style={{ color: '#F2EDE4' }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = '#F2EDE4')}
                     onMouseLeave={(e) => (e.currentTarget.style.color = '#F2EDE4')}
@@ -186,7 +186,7 @@ export default function Header() {
             {/* About ADD button */}
             <button
               onClick={() => setAboutOpen(true)}
-              className="font-sans text-[11px] font-normal uppercase tracking-[2.5px] transition-colors duration-200 cursor-pointer"
+              className="font-sans text-[13px] font-bold uppercase tracking-[2px] transition-colors duration-200 cursor-pointer whitespace-nowrap text-center"
               style={{ color: '#F2EDE4' }}
               onMouseEnter={(e) => (e.currentTarget.style.color = '#F2EDE4')}
               onMouseLeave={(e) => (e.currentTarget.style.color = '#F2EDE4')}
@@ -198,7 +198,7 @@ export default function Header() {
               href="https://wa.me/50689069915"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-header-cta !py-1.5 !px-4 !text-[11px]"
+              className="btn-header-cta"
             >
               {t.nav.contactUs}
             </a>
