@@ -80,7 +80,7 @@ export default function KitPymeSection() {
 
         <Link
           to="/recursos-digitales"
-          className="btn-cta inline-flex items-center gap-2"
+          className="btn-cta-light inline-flex items-center gap-2"
         >
           EXPLORAR TODOS LOS RECURSOS DIGITALES
           <ArrowRight size={14} strokeWidth={1.5} />
