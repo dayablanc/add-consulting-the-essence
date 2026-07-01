@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ["Nunito", "sans-serif"],
+        serif: ["EB Garamond", "serif"],
         sans: ["DM Sans", "Helvetica Neue", "Arial", "sans-serif"],
         mono: ["Courier Prime", "Courier New", "monospace"],
       },
