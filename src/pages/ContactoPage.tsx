@@ -19,7 +19,7 @@ export default function ContactoPage() {
           <div className="max-w-[700px] mx-auto px-6 lg:px-12">
             <BackButton />
             <p className="eyebrow-mono text-aesop-parchment mb-4 mt-4">· Agenda una cita</p>
-            <h1 className="text-aesop-parchment text-[40px] lg:text-[56px] font-serif font-light">
+            <h1 className="text-aesop-parchment text-[40px] lg:text-[56px] font-serif font-bold">
               Hablemos
             </h1>
           </div>
