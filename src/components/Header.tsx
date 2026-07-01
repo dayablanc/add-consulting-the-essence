@@ -113,7 +113,7 @@ export default function Header() {
                 {item.to && !item.mega ? (
                   <Link
                     to={item.to}
-                    className="font-sans text-[11px] font-normal uppercase tracking-[2.5px] transition-colors duration-200"
+                    className="font-sans text-[13px] font-bold uppercase tracking-[2px] transition-colors duration-200 whitespace-nowrap text-center"
                     style={{ color: '#F2EDE4' }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = '#F2EDE4')}
                     onMouseLeave={(e) => (e.currentTarget.style.color = '#F2EDE4')}
@@ -122,7 +122,7 @@ export default function Header() {
                   </Link>
                 ) : (
                   <button
-                    className="font-sans text-[11px] font-normal uppercase tracking-[2.5px] transition-colors duration-200 cursor-pointer"
+                    className="font-sans text-[13px] font-bold uppercase tracking-[2px] transition-colors duration-200 cursor-pointer whitespace-nowrap text-center"
                     style={{ color: '#F2EDE4' }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = '#F2EDE4')}
                     onMouseLeave={(e) => (e.currentTarget.style.color = '#F2EDE4')}
